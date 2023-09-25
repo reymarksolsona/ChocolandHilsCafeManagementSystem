@@ -1,0 +1,5 @@
+1. Kilogram -> Gram -> Milligram
+	1gram -> 0.0001kg (1000gr = 1kg)
+2. Litter -> Milliliter(ml)
+	1L = 1000ml
+6. pieces (pc or pcs) -> Quantity

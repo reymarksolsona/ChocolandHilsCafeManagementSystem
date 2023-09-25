@@ -1,0 +1,39 @@
+﻿
+We use Hangfire and Topshelf nuget package to run the payroll generator on the background
+we cannot include this program or process in our main winform application, because we need this process
+to run even if the main application is closed.
+
+We need to separate this program.
+
+to deploy this, you need to copy the net5.0 folder to client computer folder (we just need to copy the program files manually)
+
+Go to ChocolandHilsCafeManagementSystem\PayrollGenerator\bin\Debug
+
+Copy net5.0 to any folder you want
+
+then open cmd.exe and go to the net5.0 folder in client computer (the folder you paste the net5.0)
+ex on cmd.exe:
+	cd D:/ChocolandHilsCafeMS/PayrollGenerator/net5.0
+	then run: 
+		> PayrollGenerator.exe install ---> to install the application as service
+	go to Windows Services to verify the installation, you should see this PayrollGeneratorBackgroundService as service
+	
+	to uninstall the service
+		> PayrollGenerator.exe uninstall
+
+	TopShelf reference: http://docs.topshelf-project.com/en/latest/overview/commandline.html
+
+
+-------------------------------------------------------------------------
+
+Configuration:
+
+in net5.0 directory,
+open the appsettings.json and configure the First and second paydate of the month, based on the ChocolandHils payroll
+
+"PayrollSettings": {
+    "FirstPayDayOfTheMonth": "15", -> ex: March 15, 2021
+    "SecondPayDayOfTheMonth": "28", -> ex. March 28, 2021
+    "GeneratedPDFLoc": "D:\\Documents\\DinkToPDF\\" -> generated pdf location
+  },
+

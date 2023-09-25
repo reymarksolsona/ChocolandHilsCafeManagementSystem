@@ -1,0 +1,11 @@
+﻿First, get the latest SSS contribution table
+
+Use the SSS-Contribution.png format to generate excel based on the latest 
+SSS Contribution table,
+Convert it to excel then, save it as csv file,
+then copy and paste the csv file content on this https://csvjson.com/csv2json tool
+then copy and paste the generated JSON content, then create new .json file on SSSContributionTables (parent directory of this file)
+
+ex: 2022.json
+
+The system will read the file automatically based on the current year

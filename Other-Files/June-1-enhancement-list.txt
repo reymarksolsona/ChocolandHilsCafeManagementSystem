@@ -1,0 +1,69 @@
+UPDATES
+
+
+---------- DONE:
+
+1. Normal user
+
+		- should also have request for Leave (same doon sa cash advance format).
+		- Employees can view their own payslip in their own account user. Can Request for payslip from employees
+		
+	(request to issue a payslip for the period from [Date to Date]) (same parin
+	sa cash advance format.
+
+		- give cashier and manager user access to POS aside sa admin.
+		
+	- normal user attendance, once naka log in na ang normal user
+	sa account nya is diretso na sya makakapag time-in/time-out
+	no need na iinput yung employee number nila because they are
+	already inside their own account. (pwede kasi makapag time in
+	kahit sinong user, ex. 20210001 logged in, pwede nya e time in si
+	employee 20210002,which is not allowed dapat.
+	
+	- remove nalang rin ang testing time na
+	
+	- disabled user can still log in to their account. disabled users
+	should not be able to access their account. (pwede rin, once 'resigned'
+	na ang status ng employee is automatic disbled na user account nila.
+
+
+
+2. POS
+		- take out numbers for take out customers. Different yung number ng dine in
+		and take out. Kasi if mag viview ka ng for take out is same lumalabas sa
+		dine in.
+		- automatic na mag ce-create ng receipt name kapag checkout para diretso
+		save or gawin nalang date ang name ng receipt kung kelan na generate.
+		
+		- Include sa receipt:
+		cashier first name
+		table number/take out number
+
+3. Inventory
+
+		- lagyan rin ng cost total/ingredients total yung sa pag add ng product.
+		Same doon sa pag view ng product list nag nag shshow kung magkano yung
+		ingredient total. (magsesend ako ng photo regarding this)
+		
+4. Payroll
+		[Reminder]: we need to remove Government Agencies table and form, since we use enum list (hardcoded values) since each agency contribution requires different computation
+		- include government ids ng employee sa pag generate ng government contribution for employer.
+
+		Payroll Generator
+
+		- automatic add ng deductions and benefits based doon sa date range ng
+		pag generate. (see item 5)
+		
+		- sabi ng adviser ko nakakalito raw tingnan yung payroll kasi ang daming numbers haha.
+		bale sa deductions or mga less ay lagyan raw ng minus(-) before the para ng amount
+		para madali ma distinguish.
+		May suggestion rin sya sa pagkaka arrange ng mga data and columns.
+		(magsesend ako ng pic for this.
+
+5. Employee Deductions
+
+		- ex. deduction nila for damage, naka damage sila shop. So within that day
+		makakagpag lagay si admin ng deduction of that employee, it will also record
+		the day and amount. Kasi para sa automatic deduction for the payroll generator,
+		ma kukuha nya yung deduction within that range of date. ex. naka damage sya within 1-15 days,
+		then masasali yun sa payroll.

@@ -1,0 +1,12 @@
+https://topshelf.readthedocs.io/en/latest/
+https://github.com/HakanL/WkHtmlToPdf-DotNet
+https://dapper-tutorial.net/
+https://www.nuget.org/packages/DapperGenericDataManager/
+https://www.hangfire.io/
+https://www.nuget.org/packages/Hangfire.MySqlStorage/
+https://www.nuget.org/packages/Serilog/2.10.1-dev-01285
+https://www.nuget.org/packages/Serilog.Sinks.File/5.0.0-dev-00909
+https://www.nuget.org/packages/Serilog.Settings.Configuration/3.2.0-dev-00266
+
+
+https://lvcharts.net/

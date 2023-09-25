@@ -1,0 +1,50 @@
+Product ingredient cost computation process:
+
+On ingredient Inventory, we can add multiple inventory in single ingredient
+for example, the Chocoland hills purchase new stock for certain ingredient on 
+different days with different price and expiration date
+he/she can add 
+
+UOM is Unit Of Measurement example: kg, grams, Liter, ml, pcs
+
+Product name: Bangus:
+	First Purchase 
+		UOM: 5kg
+		Price: 250/kg
+		Expiration Date: (we can say, 4 days only upon purchase) Apr. 2 on purchase date, so we can add expiration date Apr. 6, 2021
+		
+	Second Purchase:
+		Qty: 10kg
+		Price: 260/kg
+		Expiration Date: Apr. 3 on purchase date, so we can add expiration date Apr. 7, 2021
+		
+On Product inventory in computing cost on each ingredient:
+	
+Product: Sinigang na bangus per order
+	Ingredient: Bangus
+	UOM: 500grams
+	
+The system will always deduct from stock based on expiration date,
+based on Bangus stocks inventory record, the system will deduct the 500grams from first purchase.
+
+if for example, on the first purchase transaction, we only have 1kg of bangus and the order needs 2kg
+the system will use the last 1kg from first purchase and the 1kg from second purchase,
+the will automatically use the price from separate purchase.
+
+-------------------------------------------------------------
+
+Computation:
+	1kg is 250, per gram is 250 / 1000 = 0.25
+	
+	500grams on 1 order: 500grams * 0.25 = 125pesos
+	
+	same with liter and ml computation:
+	
+	1L is 300, per ml is 300 / 1000 = 0.3
+	
+	250ml on 1 order: 250ml * 0.3 = 75pesos
+	
+	
+if the selected UOM is per kg:
+	1kg is 250
+	

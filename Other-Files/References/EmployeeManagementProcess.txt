@@ -1,0 +1,160 @@
+99, 99, 138- datagridview
+
+51, 51, 76 - primary
+42, 42, 64 - secondary
+
+
+If employee monthly rate is 25,000, 1/2 Month Rate is 12,500 and daily rate is 1250 pesos
+1250 / 8 hrs is equal to 156.25 pesos per hr
+	1 hr is 60 mins
+	156.25 / 60 is equal 2.6047 per minute
+	
+if employee is 10 mins late, the deduction is pesos: 2.6047 * 10 mins = 26.047 pesos
+if employee has under time of 15 mins, the deduction is 2.6047 * 15 mins = 39.0705
+
+
+-------------------------------------------------------------------------------------
+
+# LeaveTypes:
+	- Add, Update, Delete -> avaibleble methods
+	- getAllActive()
+	
+	Form:
+		Leave type : string
+		Number of days: number
+		
+		buttons:
+			- Save (cover insert and update function)
+			- Delete
+		
+	
+# EmployeeShifts
+	- Add, Update, Delete -> avaibleble methods
+	- getAllActive();
+	
+	Data: 
+		shift: RegularShift
+		startTime: 0830
+		endTime: 1730
+		numberOfHrs: 8
+		breakTime: 12:00NN
+		breakTimeHrs: 1 or 0.5 (for 30 mins)
+		
+# Employees
+	- Add, Update, Delete -> avaibleble methods
+	- getByEmployeeNumber (string employeeNumber);
+	- getAllByDateHire (Datetime dateHire);
+	- getAllByBirthDate (DateTime birthDate);
+	- search (string search);
+		valid columns: firstName, lastName, address, mobileNumber, emailAddress branchAssign, and sssNumber
+	
+
+# GovernmentAgencies
+	- Add, Update, Delete -> avaibleble methods is enough
+	
+# EmployeeGovtIdCards
+	- Add, Update, Delete -> avaibleble methods
+	- getByEmployeeNumber (string employeeNumber)
+	- getByGovtAgency (int govtAgencyId)
+	- getByGovtCardId (string employeeIdNumber)
+	
+# EmployeeSalaryRate
+	- Add, Update, Delete -> avaibleble methods
+	- getByEmployeeNumber(string employeeNumber)
+	- *getBySalaryRateRange (decimal startSalary, decimal endSalary)
+	- *getByMonthlyRateRange (decimal startSalary, decimal endSalary)
+	- *getByDailyRateRange (decimal startSalary, decimal endSalary)
+	- *getEmployeeLatestSalaryRate (string employeeNumber)
+	
+# EmployeeShiftSchedules
+	- Add, Update, Delete -> avaibleble methods
+	- getByShiftAndSchedDateRange (long shiftId, Datetime startDate, Datetime endDate)
+	- getAllByEmployeeNumber (string employeeNumber)
+	- getEmployeeSchedBySchedDate (string employeeNumber, Datetime startDate)
+	- getAllByEmployeeNumberAndSchedDateRange (string employeeNumber, Datetime startDate, Datetime endDate)
+	- getAllBySchedDateRange (Datetime startDate, Datetime endDate)
+	
+	on this table, we will retrieve the EmployeeShifts data where we can get the shift start date
+	where we use to can 
+		- check if the employee is late, 
+		- get the breaktime and breakTimeHrs to use to automatically insert data into TimeOut1 and TimeIn2
+		- compute number of minutes of late
+		- compute the under time minutes
+	
+	
+	after time-in, mark as present (isPresent is true)
+	
+	employer will initialize work schedule for 2 weeks
+		- this will let the employer to plan employee's shift schedules
+	
+# EmployeeLeaves
+	- Add, Update, Delete -> avaibleble methods
+	- getAllByLeaveId(long leaveId)
+	- getAllByEmployeeNumber(string employeeNumber)
+	- getAllByYear (int year);
+
+# EmployeeAttendance
+	- Add, Update, Delete -> avaibleble methods
+	- getAllByEmployeeNumberAndWorkDateRange(string employeeNumber, Datetime startDate, Datetime endDate)
+	- getAllByWorkDateRange (Datetime startDate, Datetime endDate)
+	- getAllByShiftAndWorkDateRange (long shiftId, Datetime startDate, Datetime endDate)
+	
+	- initializeEmployeeAttendance (string employeeNumber, Datetime timeIn1)
+	
+	- addEmployeeTimeOut1 (string employeeNumber, Datetime timeOut1) 
+			- process also initial timein EmployeeShifts: breakTime and breakTimeHrs column
+			- EmployeeShifts from EmployeeShiftSchedules
+			- EmployeeShiftSchedules by schedDate and employeeNumber
+	- addEmployeeTimeIn2 (string employeeNumber, Datetime timeIn2) 
+			- process also initial timein EmployeeShifts: breakTime and breakTimeHrs column
+			- EmployeeShifts from EmployeeShiftSchedules
+			
+	- addEmployeeTimeOut2 (string employeeNumber, Datetime timeOut2)
+	
+	- getAllLateEmployeeByDateRange (Datetime startDate, Datetime endDate)
+	- getAllEmployeeWithUnderTimeByDateRange (Datetime startDate, Datetime endDate)
+	
+	
+# EmployeeGovtContributions
+	- Add, Update, Delete -> avaibleble methods
+	- getAllByEmployeeNumber(string employeeNumber)
+	
+# EmployeeBenefits
+	- Add, Update, Delete -> avaibleble methods
+	- getAllEnabled ()
+	- getByPaySched (Enum.Paysched paysched)
+	- getByPayMonth (int month) --> check if the payday is last payday of the month
+	
+# EmployeeDeductions
+	- Add, Update, Delete -> avaibleble methods
+	- getAllEnabled()
+
+# EmployeePayslips
+	- Add, Update, Delete -> avaibleble methods
+	- getByEmployeeNumberAndShiftDateRange (string employeeNumber, Datetime startShiftDate, Datetime endShiftDate)
+	- getAllByShiftDateRange (Datetime startShiftDate, Datetime endShiftDate)
+	- getByPayday (Datetime payDayDate)
+
+# EmployeePayslipBenefits
+	- Add, Update, Delete -> avaibleble methods
+	- getAllByPayslip (long payslipId)
+	- getAllByPayslipAndEmployeeNumber (long payslipId, string employeeNumber)
+
+# EmployeePayslipDeductions
+	- Add, Update, Delete -> avaibleble methods
+	- getAllByPayslip (long payslipId)
+	- getAllByPayslipAndEmployeeNumber (long payslipId, string employeeNumber)
+	
+
+# Users
+	- Add, Update, Delete -> avaibleble methods
+	- getByEmployeeNumber(string employeeNumber)
+	- getAllActive ()
+	- getRoles (string employeeNumber)
+
+	
+---------------------------------------------------------------------------------
+
+Employee
+	- Add, update, delete, list
+	- 

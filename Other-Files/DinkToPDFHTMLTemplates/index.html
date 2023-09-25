@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+
+        th, td{
+            padding: 5px;
+        }
+
+        table#parent-table thead{
+            text-align: left;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+
+    <hr />
+    <table id="parent-table">
+        <thead>
+            <tr style="border-bottom: 1px solid gray;">
+                <th>Employee: Raniel Garcia</th>
+                <th>ID No: 201900001</th>
+            </tr>
+            <tr style="border-bottom: 1px solid gray; text-align: center;">
+                <th colspan="2">
+                    Shift from 01/03/2021 to 25/03/2021
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <table style='border-right: 1px solid gray;'>
+                        <thead>
+                            <tr>
+                                <th>Earnings</th>
+                                <th>Multipler</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Monthly Rate</td>
+                                <td></td>
+                                <td>6000</td>
+                            </tr>
+                            <tr>
+                                <td>1/2 Month Rate</td>
+                                <td></td>
+                                <td>6000</td>
+                            </tr>
+                            <tr>
+                                <td>Daily Rate</td>
+                                <td></td>
+                                <td>6000</td>
+                            </tr>
+                            <tr>
+                                <td>Less Late</td>
+                                <td></td>
+                                <td>6000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Deductions</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Monthly Rate</td>
+                                <td>6000</td>
+                            </tr>
+                            <tr>
+                                <td>1/2 Month Rate</td>
+                                <td>6000</td>
+                            </tr>
+                            <tr>
+                                <td>Daily Rate</td>
+                                <td>6000</td>
+                            </tr>
+                            <tr>
+                                <td>Less Late</td>
+                                <td>6000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Total income: 50000</th>
+                <th>Total Deductions: 1000</th>
+            </tr>
+            <tr style="text-align: center !important;">
+                <th colspan="2">
+                    Your net take home pay >>> 10000
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+    <hr/>
+
+</body>
+
+</html>

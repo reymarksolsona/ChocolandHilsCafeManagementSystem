@@ -1,0 +1,19 @@
+{
+  "FirstFixedRate": {
+    "EqualAndBelowTo": 1500,
+    "Rate": {
+      "EE": 1,
+      "ER": 1
+    }
+  },
+  "SecondFixedRate": {
+    "BetweenTo": {
+      "Min": 1501,
+      "Max": 5000
+    },
+    "Rate": {
+      "EE": 2,
+      "ER": 2
+    }
+  }
+}
