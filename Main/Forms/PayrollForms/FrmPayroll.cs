@@ -643,18 +643,22 @@ namespace Main.Forms.PayrollForms
 
             var employeeDetails = _employeeData.GetByEmployeeNumber(empNum);
             var payslip = _employeePayslipData.GetEmployeePayslipRecordByPaydate(empNum, generatePayrollControlObj.PayDate);
-            var attendance = _employeeAttendanceData.GetEmployeeAttendanceByPayslipId(empNum, payslip.Id).Select(s => s.ShiftId);
-            List<EmployeePositionShiftData> positionShiftDatas = new List<EmployeePositionShiftData>();
-            var shifts = employeeDetails.PositionShift.Where(x => attendance.Contains(x.ShiftId)).ToList();
-            if (employeeDetails.PositionShift.Count() > 0)
+            var attendance = _employeeAttendanceData.GetEmployeeAttendanceByPayslipId(empNum, payslip.Id);
+            if (attendance.Any())
             {
-                foreach (var item in employeeDetails.PositionShift.ToList())
+                var shiftIds = attendance.Select(s => s.ShiftId);
+                List<EmployeePositionShiftData> positionShiftDatas = new List<EmployeePositionShiftData>();
+                var shifts = employeeDetails.PositionShift.Where(x => shiftIds.Contains(x.ShiftId)).ToList();
+                if (employeeDetails.PositionShift.Count() > 0)
                 {
-                    employeeDetails.PositionShift.Remove(item);
+                    foreach (var item in employeeDetails.PositionShift.ToList())
+                    {
+                        employeeDetails.PositionShift.Remove(item);
+                    }
                 }
-            }
 
-            employeeDetails.PositionShift.AddRange(shifts);
+                employeeDetails.PositionShift.AddRange(shifts);
+            }
 
             generatePayrollControlObj.DisplayEmployeePayslip(employeeDetails, payslip);
         }
