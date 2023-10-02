@@ -41,10 +41,29 @@ namespace Main.Forms.PayrollForms.Controls
                 this.LblShiftStartDate.Text = Payslip.StartShiftDate.ToShortDateString();
                 this.LblShiftEndDate.Text = Payslip.EndShiftDate.ToShortDateString();
 
-                var dailyRate = new ListViewItem(new string[] {
-                    "Daily Rate", "", Payslip.DailyRate.ToString()
-                });
-                this.LVPayslipEarnings.Items.Add(dailyRate);
+                var positionsDistinctList = Employee.PositionShift.Select(s => s.PositionId).Distinct();
+                List<EmployeePositionShiftModel> positionList = new List<EmployeePositionShiftModel>();
+                foreach (var item in positionsDistinctList)
+                {
+                    var position = Employee.PositionShift.Where(x => x.PositionId == item).FirstOrDefault();
+                    positionList.Add(position);
+                }
+
+                if (positionList.Count() > 1)
+                {
+                    foreach (var item in positionList)
+                    {
+                        var dailyRate = new ListViewItem(new string[] {
+                            "Daily Rate " + item.Position, "", item.DailyRate.ToString()
+                        });
+                        this.LVPayslipEarnings.Items.Add(dailyRate);
+                    }
+                } else {
+                    var dailyRate = new ListViewItem(new string[] {
+                            "Daily Rate", "", positionList[0].DailyRate.ToString()
+                        });
+                    this.LVPayslipEarnings.Items.Add(dailyRate);
+                }
 
                 if (Payslip.LateTotalDeduction > 0)
                 {

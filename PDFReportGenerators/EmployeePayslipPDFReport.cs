@@ -18,13 +18,15 @@ namespace PDFReportGenerators
     {
         private readonly IConverter _converter;
         private readonly IEmployeeGovtIdCardData _employeeGovtIdCardData;
+        private readonly IEmployeePositionData _employeePositionData;
         private readonly PayrollSettings _payrollSettings;
 
-        public EmployeePayslipPDFReport(IConverter converter, IOptions<PayrollSettings> payrollSettings, IEmployeeGovtIdCardData employeeGovtIdCardData)
+        public EmployeePayslipPDFReport(IConverter converter, IOptions<PayrollSettings> payrollSettings, IEmployeeGovtIdCardData employeeGovtIdCardData, IEmployeePositionData employeePositionData)
         {
             _converter = converter;
             _employeeGovtIdCardData = employeeGovtIdCardData;
             _payrollSettings = payrollSettings.Value;
+            _employeePositionData = employeePositionData;
         }
 
         public void GenerateEmployeePayslips(List<EmployeePayslipModel> payslips)
@@ -114,6 +116,17 @@ namespace PDFReportGenerators
             var PhilHealthId = employeeGovtIds.Where(x => x.GovtAgencyEnumVal == GovContributions.PhilHealth).FirstOrDefault();
             var PagIbigId = employeeGovtIds.Where(x => x.GovtAgencyEnumVal == GovContributions.PagIbig).FirstOrDefault();
 
+            var positionShifts = payslip.Employee.PositionShift.Select(s => s.PositionId).Distinct();
+
+            List<string> positions = new List<string>();
+            foreach (var item in positionShifts)
+            {
+                var position = _employeePositionData.Get(item);
+                positions.Add(position.Title);
+            }
+
+            string positionTitles = string.Join(", ", positions.Select(x => x).ToList().ToArray());
+
             StringBuilder header = new StringBuilder();
             header.Append($@"<hr/>
                             <table id='parent-table'>
@@ -127,7 +140,7 @@ namespace PDFReportGenerators
                                     <th> PhilHealth no: {(PhilHealthId != null ? PhilHealthId.EmployeeIdNumber : "")}</th>
                                 </tr>
                                 <tr>
-                                    <th> Position {payslip.Employee.Position.Title} </th>
+                                    <th> Position: {positionTitles} </th>
                                     <th> PagIbig no: {(PagIbigId != null ? PagIbigId.EmployeeIdNumber : "")}</th>
                                 </tr>
                                 <tr style='border-bottom: 1px solid gray;'>

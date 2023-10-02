@@ -764,7 +764,7 @@ namespace Main.Forms.PayrollForms.Controls
                 }
                 totalDays += totalLeaveDays;
 
-                if (employee.Position == null)
+                if (employee.PositionShift == null)
                     throw new Exception($"{employee.FullName} don't have position and salary rate. Kindly update employee details");
 
 
@@ -799,8 +799,12 @@ namespace Main.Forms.PayrollForms.Controls
                                                                             x.OverTimeType == StaticData.OverTimeTypes.OrdinaryDayOvertime)
                                                                 .Sum(x => x.TotalDailySalary);
 
-                netBasicSalary += employee.Position.DailyRate * totalLeaveDays;
-
+                List<long> shiftIds = currentEmpAttendanceRec.Select(s => s.ShiftId).ToList();
+                var positionShift = employee.PositionShift.Where(x => shiftIds.Contains(x.ShiftId));
+                foreach (var item in positionShift.ToList())
+                {
+                    netBasicSalary += item.DailyRate * totalLeaveDays;
+                }
 
                 string lateMins = currentEmpAttendanceRec.Where(x => x.OverTimeType == StaticData.OverTimeTypes.NA ||
                                                                 x.OverTimeType == StaticData.OverTimeTypes.OrdinaryDayOvertime)

@@ -32,20 +32,13 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             this.EmployeeBasicInfo = new System.Windows.Forms.TabPage();
             this.LblEmployeeNumber = new System.Windows.Forms.Label();
             this.TbxEmployeeNumberDisplayOnly = new System.Windows.Forms.TextBox();
-            this.CBoxPositions = new System.Windows.Forms.ComboBox();
             this.CBoxBranches = new System.Windows.Forms.ComboBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.TbxDailySalaryRate = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.PicBoxEmpImage = new System.Windows.Forms.PictureBox();
             this.BtnBrowseEmployeeImage = new System.Windows.Forms.Button();
             this.LblShiftWorkingDays = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.CBoxShiftList = new System.Windows.Forms.ComboBox();
             this.TbxMiddleInitial = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.TbxEmail = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -84,6 +77,17 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             this.BtnActionAddNewEmployee = new System.Windows.Forms.Button();
             this.GBoxSearchEmployee = new System.Windows.Forms.GroupBox();
             this.BtnActionSearchEmployeeByEmployeeNumber = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.CBoxShiftList = new System.Windows.Forms.ComboBox();
+            this.CBoxPositions = new System.Windows.Forms.ComboBox();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.PositionShiftList = new System.Windows.Forms.ListView();
+            this.Position = new System.Windows.Forms.ColumnHeader();
+            this.Shift = new System.Windows.Forms.ColumnHeader();
+            this.DailyRate = new System.Windows.Forms.ColumnHeader();
             this.EmployeeAttendance = new System.Windows.Forms.TabPage();
             this.BtnGenerateAttendanceReportPDF = new System.Windows.Forms.Button();
             this.LViewAttendanceHistory = new System.Windows.Forms.ListView();
@@ -161,13 +165,13 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             this.LblResignedDate = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.EmployeeBasicInfo.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxEmpImage)).BeginInit();
             this.EmployeeGovtIds.SuspendLayout();
             this.TabControlSaveEmployeeDetails.SuspendLayout();
             this.SaveEmployeeAction.SuspendLayout();
             this.GBoxSearchEmployee.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.EmployeeAttendance.SuspendLayout();
             this.EmployeePayslip.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -189,16 +193,11 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             // 
             this.EmployeeBasicInfo.Controls.Add(this.LblEmployeeNumber);
             this.EmployeeBasicInfo.Controls.Add(this.TbxEmployeeNumberDisplayOnly);
-            this.EmployeeBasicInfo.Controls.Add(this.CBoxPositions);
             this.EmployeeBasicInfo.Controls.Add(this.CBoxBranches);
-            this.EmployeeBasicInfo.Controls.Add(this.groupBox1);
             this.EmployeeBasicInfo.Controls.Add(this.groupBox2);
             this.EmployeeBasicInfo.Controls.Add(this.LblShiftWorkingDays);
-            this.EmployeeBasicInfo.Controls.Add(this.label17);
-            this.EmployeeBasicInfo.Controls.Add(this.CBoxShiftList);
             this.EmployeeBasicInfo.Controls.Add(this.TbxMiddleInitial);
             this.EmployeeBasicInfo.Controls.Add(this.label16);
-            this.EmployeeBasicInfo.Controls.Add(this.label15);
             this.EmployeeBasicInfo.Controls.Add(this.label8);
             this.EmployeeBasicInfo.Controls.Add(this.TbxEmail);
             this.EmployeeBasicInfo.Controls.Add(this.label6);
@@ -246,15 +245,6 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             this.TbxEmployeeNumberDisplayOnly.Size = new System.Drawing.Size(378, 39);
             this.TbxEmployeeNumberDisplayOnly.TabIndex = 60;
             // 
-            // CBoxPositions
-            // 
-            this.CBoxPositions.FormattingEnabled = true;
-            this.CBoxPositions.Location = new System.Drawing.Point(550, 607);
-            this.CBoxPositions.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.CBoxPositions.Name = "CBoxPositions";
-            this.CBoxPositions.Size = new System.Drawing.Size(380, 40);
-            this.CBoxPositions.TabIndex = 58;
-            // 
             // CBoxBranches
             // 
             this.CBoxBranches.FormattingEnabled = true;
@@ -263,43 +253,6 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             this.CBoxBranches.Name = "CBoxBranches";
             this.CBoxBranches.Size = new System.Drawing.Size(380, 40);
             this.CBoxBranches.TabIndex = 57;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.TbxDailySalaryRate);
-            this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(989, 568);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox1.Size = new System.Drawing.Size(449, 110);
-            this.groupBox1.TabIndex = 56;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Position Salary Rate";
-            // 
-            // TbxDailySalaryRate
-            // 
-            this.TbxDailySalaryRate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TbxDailySalaryRate.Enabled = false;
-            this.TbxDailySalaryRate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TbxDailySalaryRate.Location = new System.Drawing.Point(230, 45);
-            this.TbxDailySalaryRate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.TbxDailySalaryRate.Name = "TbxDailySalaryRate";
-            this.TbxDailySalaryRate.Size = new System.Drawing.Size(153, 33);
-            this.TbxDailySalaryRate.TabIndex = 29;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(46, 48);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(100, 28);
-            this.label14.TabIndex = 28;
-            this.label14.Text = "Daily Rate";
             // 
             // groupBox2
             // 
@@ -344,28 +297,6 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             this.LblShiftWorkingDays.TabIndex = 54;
             this.LblShiftWorkingDays.Text = "-";
             // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label17.ForeColor = System.Drawing.Color.Black;
-            this.label17.Location = new System.Drawing.Point(123, 678);
-            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(60, 31);
-            this.label17.TabIndex = 49;
-            this.label17.Text = "Shift";
-            // 
-            // CBoxShiftList
-            // 
-            this.CBoxShiftList.FormattingEnabled = true;
-            this.CBoxShiftList.Location = new System.Drawing.Point(123, 717);
-            this.CBoxShiftList.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.CBoxShiftList.Name = "CBoxShiftList";
-            this.CBoxShiftList.Size = new System.Drawing.Size(821, 40);
-            this.CBoxShiftList.TabIndex = 48;
-            this.CBoxShiftList.SelectedIndexChanged += new System.EventHandler(this.CBoxShiftList_SelectedIndexChanged);
-            // 
             // TbxMiddleInitial
             // 
             this.TbxMiddleInitial.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -387,18 +318,6 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             this.label16.Size = new System.Drawing.Size(150, 31);
             this.label16.TabIndex = 46;
             this.label16.Text = "Middle name";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(550, 568);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(95, 31);
-            this.label15.TabIndex = 45;
-            this.label15.Text = "Position";
             // 
             // label8
             // 
@@ -784,6 +703,7 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             // 
             this.TabControlSaveEmployeeDetails.Controls.Add(this.SaveEmployeeAction);
             this.TabControlSaveEmployeeDetails.Controls.Add(this.EmployeeBasicInfo);
+            this.TabControlSaveEmployeeDetails.Controls.Add(this.tabPage2);
             this.TabControlSaveEmployeeDetails.Controls.Add(this.EmployeeGovtIds);
             this.TabControlSaveEmployeeDetails.Controls.Add(this.EmployeeAttendance);
             this.TabControlSaveEmployeeDetails.Controls.Add(this.EmployeePayslip);
@@ -874,6 +794,133 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             this.BtnActionSearchEmployeeByEmployeeNumber.Text = "Search";
             this.BtnActionSearchEmployeeByEmployeeNumber.UseVisualStyleBackColor = false;
             this.BtnActionSearchEmployeeByEmployeeNumber.Click += new System.EventHandler(this.BtnActionSearchEmployeeByEmployeeNumber_Click);
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.button2);
+            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.CBoxShiftList);
+            this.tabPage2.Controls.Add(this.CBoxPositions);
+            this.tabPage2.Controls.Add(this.label39);
+            this.tabPage2.Controls.Add(this.label37);
+            this.tabPage2.Controls.Add(this.PositionShiftList);
+            this.tabPage2.Location = new System.Drawing.Point(4, 41);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1565, 877);
+            this.tabPage2.TabIndex = 8;
+            this.tabPage2.Text = "Employee Position and Shift";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(1116, 225);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(143, 49);
+            this.button2.TabIndex = 72;
+            this.button2.Text = "Delete";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(956, 225);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(143, 49);
+            this.button1.TabIndex = 71;
+            this.button1.Text = "Add";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // CBoxShiftList
+            // 
+            this.CBoxShiftList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBoxShiftList.FormattingEnabled = true;
+            this.CBoxShiftList.Location = new System.Drawing.Point(107, 225);
+            this.CBoxShiftList.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.CBoxShiftList.Name = "CBoxShiftList";
+            this.CBoxShiftList.Size = new System.Drawing.Size(821, 40);
+            this.CBoxShiftList.TabIndex = 70;
+            // 
+            // CBoxPositions
+            // 
+            this.CBoxPositions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBoxPositions.FormattingEnabled = true;
+            this.CBoxPositions.Location = new System.Drawing.Point(108, 104);
+            this.CBoxPositions.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.CBoxPositions.Name = "CBoxPositions";
+            this.CBoxPositions.Size = new System.Drawing.Size(380, 40);
+            this.CBoxPositions.TabIndex = 69;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label39.ForeColor = System.Drawing.Color.Black;
+            this.label39.Location = new System.Drawing.Point(108, 165);
+            this.label39.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(60, 31);
+            this.label39.TabIndex = 68;
+            this.label39.Text = "Shift";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label37.ForeColor = System.Drawing.Color.Black;
+            this.label37.Location = new System.Drawing.Point(108, 58);
+            this.label37.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(95, 31);
+            this.label37.TabIndex = 63;
+            this.label37.Text = "Position";
+            // 
+            // PositionShiftList
+            // 
+            this.PositionShiftList.AllowColumnReorder = true;
+            this.PositionShiftList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Position,
+            this.Shift,
+            this.DailyRate});
+            this.PositionShiftList.FullRowSelect = true;
+            this.PositionShiftList.GridLines = true;
+            this.PositionShiftList.HideSelection = false;
+            this.PositionShiftList.Location = new System.Drawing.Point(107, 302);
+            this.PositionShiftList.MultiSelect = false;
+            this.PositionShiftList.Name = "PositionShiftList";
+            this.PositionShiftList.Size = new System.Drawing.Size(1368, 285);
+            this.PositionShiftList.TabIndex = 62;
+            this.PositionShiftList.UseCompatibleStateImageBehavior = false;
+            this.PositionShiftList.View = System.Windows.Forms.View.Details;
+            this.PositionShiftList.Click += new System.EventHandler(this.PositionShiftList_Click);
+            // 
+            // Position
+            // 
+            this.Position.Text = "Position";
+            this.Position.Width = 400;
+            // 
+            // Shift
+            // 
+            this.Shift.Text = "Shift";
+            this.Shift.Width = 800;
+            // 
+            // DailyRate
+            // 
+            this.DailyRate.Text = "DailyRate";
+            this.DailyRate.Width = 200;
             // 
             // EmployeeAttendance
             // 
@@ -1785,8 +1832,6 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             this.Load += new System.EventHandler(this.EmployeeDetailsCRUDControl_Load);
             this.EmployeeBasicInfo.ResumeLayout(false);
             this.EmployeeBasicInfo.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxEmpImage)).EndInit();
             this.EmployeeGovtIds.ResumeLayout(false);
@@ -1795,6 +1840,8 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             this.SaveEmployeeAction.ResumeLayout(false);
             this.GBoxSearchEmployee.ResumeLayout(false);
             this.GBoxSearchEmployee.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.EmployeeAttendance.ResumeLayout(false);
             this.EmployeeAttendance.PerformLayout();
             this.EmployeePayslip.ResumeLayout(false);
@@ -1827,7 +1874,6 @@ namespace Main.Forms.EmployeeManagementForms.Controls
         private System.Windows.Forms.TabPage EmployeeBasicInfo;
         private System.Windows.Forms.TextBox TbxMiddleInitial;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox TbxEmail;
         private System.Windows.Forms.Label label6;
@@ -1867,14 +1913,9 @@ namespace Main.Forms.EmployeeManagementForms.Controls
         private System.Windows.Forms.Button BtnSaveEmployee;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label LblActionForEmployeeDetails;
-        private System.Windows.Forms.ComboBox CBoxShiftList;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label LblShiftWorkingDays;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button BtnBrowseEmployeeImage;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox TbxDailySalaryRate;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.OpenFileDialog openFileDialogBrowseEmpImg;
         private System.Windows.Forms.PictureBox PicBoxEmpImage;
         private System.Windows.Forms.TabPage EmployeeAttendance;
@@ -1917,7 +1958,6 @@ namespace Main.Forms.EmployeeManagementForms.Controls
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.ColumnHeader LVColumnIsPaid;
         private System.Windows.Forms.ComboBox CBoxBranches;
-        private System.Windows.Forms.ComboBox CBoxPositions;
         private System.Windows.Forms.Label LblEmployeeNumber;
         private System.Windows.Forms.TextBox TbxEmployeeNumberDisplayOnly;
         private System.Windows.Forms.Button BtnGenerateAttendanceReportPDF;
@@ -1955,5 +1995,16 @@ namespace Main.Forms.EmployeeManagementForms.Controls
         private System.Windows.Forms.TextBox TBoxEmployeeLeaveReason;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button BtnGeneratePDF;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.ListView PositionShiftList;
+        private System.Windows.Forms.ColumnHeader Position;
+        private System.Windows.Forms.ColumnHeader Shift;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.ComboBox CBoxPositions;
+        private System.Windows.Forms.ComboBox CBoxShiftList;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ColumnHeader DailyRate;
+        private System.Windows.Forms.Button button2;
     }
 }

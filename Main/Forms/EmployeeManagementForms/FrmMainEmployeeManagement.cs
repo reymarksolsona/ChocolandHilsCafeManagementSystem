@@ -170,7 +170,7 @@ namespace Main.Forms.EmployeeManagementForms
         {
             this.panelContainer.Controls.Clear();
 
-            var controlToDisplay = new EmployeeDetailsCRUDControl(_sessions, _decimalMinutesToHrsConverter, _otherSettings, _payrollSettings, _attendancePDFReport);
+            var controlToDisplay = new EmployeeDetailsCRUDControl(_sessions, _decimalMinutesToHrsConverter, _otherSettings, _payrollSettings, _attendancePDFReport, _employeeShiftDayData, _employeePositionData);
             //controlToDisplay.Dock = DockStyle.Fill;
             controlToDisplay.Location = new Point(this.ClientSize.Width / 2 - controlToDisplay.Size.Width / 2, this.ClientSize.Height / 2 - controlToDisplay.Size.Height / 2);
             //controlToDisplay.Anchor = (AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom | AnchorStyles.Left);
@@ -333,7 +333,11 @@ namespace Main.Forms.EmployeeManagementForms
                 {
                     resultMessages += msg + "\n";
                 }
-                MessageBox.Show(resultMessages, "Search employee details", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                bool isNumeric = int.TryParse(employeeCRUDControlObj.EmployeeNumber, out int n);
+                if (isNumeric)
+                {
+                    MessageBox.Show(resultMessages, "Search employee details", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             
         }

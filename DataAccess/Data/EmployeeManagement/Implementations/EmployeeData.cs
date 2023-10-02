@@ -17,17 +17,21 @@ namespace DataAccess.Data.EmployeeManagement.Implementations
         private readonly IEmployeeShiftData _employeeShiftData;
         private readonly IEmployeePositionData _employeePositionData;
         private readonly IBranchData _branchData;
+        private readonly IEmployeePositionShiftData _employeePositionShiftData;
 
         public EmployeeData(IDbConnectionFactory dbConnFactory, 
                             IEmployeeShiftData employeeShiftData,
                             IEmployeePositionData employeePositionData,
-                            IBranchData branchData) :
+                            IBranchData branchData,
+                            IEmployeePositionShiftData employeePositionShiftData) :
             base(DataManagerCRUDEnums.DatabaseAdapter.mysqlconnection, dbConnFactory)
         {
             _dbConnFactory = dbConnFactory;
             _employeeShiftData = employeeShiftData;
             _employeePositionData = employeePositionData;
             _branchData = branchData;
+            _employeePositionShiftData = employeePositionShiftData;
+            _employeePositionShiftData = employeePositionShiftData;
         }
 
         public List<EmployeeModel> GetAllNotDeleted()
@@ -40,8 +44,9 @@ namespace DataAccess.Data.EmployeeManagement.Implementations
             {
                 foreach (var emp in employees)
                 {
-                    emp.Shift = _employeeShiftData.GetById(emp.ShiftId);
-                    emp.Position = _employeePositionData.Get(emp.PositionId);
+                    //emp.Shift = _employeeShiftData.GetById((long)emp.ShiftId);
+                    //emp.Position = _employeePositionData.Get((long)emp.PositionId);
+                    emp.PositionShift = _employeePositionShiftData.GetById(emp.Id);
                     emp.Branch = _branchData.Get(emp.BranchId);
                 }
             }
@@ -68,8 +73,9 @@ namespace DataAccess.Data.EmployeeManagement.Implementations
             {
                 foreach (var emp in employees)
                 {
-                    emp.Shift = _employeeShiftData.GetById(emp.ShiftId);
-                    emp.Position = _employeePositionData.Get(emp.PositionId);
+                    //emp.Shift = _employeeShiftData.GetById((long)emp.ShiftId);
+                    //emp.Position = _employeePositionData.Get((long)emp.PositionId);
+                    emp.PositionShift = _employeePositionShiftData.GetById(emp.Id);
                     emp.Branch = _branchData.Get(emp.BranchId);
                 }
             }
@@ -79,16 +85,17 @@ namespace DataAccess.Data.EmployeeManagement.Implementations
 
         public List<EmployeeModel> GetByPosition(long positionId)
         {
-            string query = @"SELECT * FROM Employees 
-                            WHERE isDeleted=false AND positionId=@PositionId";
+            string query = @"SELECT * FROM employeepositionshift 
+                            WHERE positionId=@PositionId";
 
             var employees = this.GetAll(query, new { PositionId = positionId });
             if (employees != null)
             {
                 foreach (var emp in employees)
                 {
-                    emp.Shift = _employeeShiftData.GetById(emp.ShiftId);
-                    emp.Position = _employeePositionData.Get(emp.PositionId);
+                    //emp.Shift = _employeeShiftData.GetById((long)emp.ShiftId);
+                    //emp.Position = _employeePositionData.Get((long)emp.PositionId);
+                    emp.PositionShift = _employeePositionShiftData.GetById(emp.Id);
                     emp.Branch = _branchData.Get(emp.BranchId);
                 }
             }
@@ -99,13 +106,16 @@ namespace DataAccess.Data.EmployeeManagement.Implementations
         {
             string query = @"SELECT * FROM Employees 
                             WHERE isDeleted=false AND employeeNumber=@EmployeeNumber";
-            
+
             var emp = this.GetFirstOrDefault(query, new { EmployeeNumber = employeeNumber });
 
             if (emp != null)
             {
-                emp.Shift = _employeeShiftData.GetById(emp.ShiftId);
-                emp.Position = _employeePositionData.Get(emp.PositionId);
+                var shifts = _employeePositionShiftData.GetById(emp.Id);
+                emp.PositionShift = shifts;
+                //emp.Shift = _employeeShiftData.GetById((long)emp.ShiftId);
+                //emp.Position = _employeePositionData.Get((long)emp.PositionId);
+                emp.PositionShift = _employeePositionShiftData.GetById(emp.Id);
                 emp.Branch = _branchData.Get(emp.BranchId);
             }
 
@@ -121,8 +131,9 @@ namespace DataAccess.Data.EmployeeManagement.Implementations
 
             if (emp != null)
             {
-                emp.Shift = _employeeShiftData.GetById(emp.ShiftId);
-                emp.Position = _employeePositionData.Get(emp.PositionId);
+                //emp.Shift = _employeeShiftData.GetById((long)emp.ShiftId);
+                //emp.Position = _employeePositionData.Get((long)emp.PositionId);
+                emp.PositionShift = _employeePositionShiftData.GetById(emp.Id);
                 emp.Branch = _branchData.Get(emp.BranchId);
             }
 
@@ -138,8 +149,9 @@ namespace DataAccess.Data.EmployeeManagement.Implementations
 
             if (emp != null)
             {
-                emp.Shift = _employeeShiftData.GetById(emp.ShiftId);
-                emp.Position = _employeePositionData.Get(emp.PositionId);
+                //emp.Shift = _employeeShiftData.GetById((long)emp.ShiftId);
+                //emp.Position = _employeePositionData.Get((long)emp.PositionId);
+                emp.PositionShift = _employeePositionShiftData.GetById(emp.Id);
                 emp.Branch = _branchData.Get(emp.BranchId);
             }
 
@@ -165,8 +177,9 @@ namespace DataAccess.Data.EmployeeManagement.Implementations
             {
                 foreach (var emp in employees)
                 {
-                    emp.Shift = _employeeShiftData.GetById(emp.ShiftId);
-                    emp.Position = _employeePositionData.Get(emp.PositionId);
+                    //emp.Shift = _employeeShiftData.GetById((long)emp.ShiftId);
+                    //emp.Position = _employeePositionData.Get((long)(long)emp.PositionId);
+                    emp.PositionShift = _employeePositionShiftData.GetById(emp.Id);
                     emp.Branch = _branchData.Get(emp.BranchId);
                 }
             }

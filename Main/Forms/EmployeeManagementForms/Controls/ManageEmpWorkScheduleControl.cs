@@ -166,7 +166,7 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             if (employees != null)
             {
                 // ----------------------------- 1st tab datagridview
-                this.DGVEmployeeList.ColumnCount = 4;
+                this.DGVEmployeeList.ColumnCount = 3;
 
                 this.DGVEmployeeList.Columns[0].Name = "EmployeeNumber";
                 this.DGVEmployeeList.Columns[0].Visible = true;
@@ -177,8 +177,8 @@ namespace Main.Forms.EmployeeManagementForms.Controls
                 this.DGVEmployeeList.Columns[2].Name = "Position";
                 this.DGVEmployeeList.Columns[2].Visible = true;
 
-                this.DGVEmployeeList.Columns[3].Name = "Shift";
-                this.DGVEmployeeList.Columns[3].Visible = true;
+                //this.DGVEmployeeList.Columns[3].Name = "Shift";
+                //this.DGVEmployeeList.Columns[3].Visible = true;
 
                 DataGridViewCheckBoxColumn selectChbx = new DataGridViewCheckBoxColumn();
                 selectChbx.HeaderText = "Select";
@@ -195,12 +195,23 @@ namespace Main.Forms.EmployeeManagementForms.Controls
 
                     row.Cells[0].Value = employee.EmployeeNumber;
                     row.Cells[1].Value = fullName;
-                    row.Cells[2].Value = employee.Position;
 
-                    if (employee.Shift != null)
+                    if (employee.PositionShift.Count() > 0)
                     {
-                        row.Cells[3].Value = employee.Shift.Shift;
+                        List<string> position = new List<string>();
+                        foreach (var item in employee.PositionShift.ToList())
+                        {
+                            position.Add($"{item.Position} - ({item.Shift})");
+                        }
+                        string positions = string.Join(", ", position.Select(x => x).ToList().ToArray());
+                        row.Cells[2].Value = positions;
                     }
+                    //row.Cells[2].Value = employee.Position;
+
+                    //if (employee.Shift != null)
+                    //{
+                    //    row.Cells[3].Value = employee.Shift.Shift;
+                    //}
 
                     this.DGVEmployeeList.Rows.Add(row);
                 }
@@ -212,7 +223,7 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             this.DGVEmployeeListToSchedule.Rows.Clear();
             if (employees != null)
             {
-                this.DGVEmployeeListToSchedule.ColumnCount = 4;
+                this.DGVEmployeeListToSchedule.ColumnCount = 3;
 
                 this.DGVEmployeeListToSchedule.Columns[0].Name = "EmployeeNumber2";
                 this.DGVEmployeeListToSchedule.Columns[0].HeaderText = "Employee Number";
@@ -223,12 +234,12 @@ namespace Main.Forms.EmployeeManagementForms.Controls
                 this.DGVEmployeeListToSchedule.Columns[1].Visible = true;
 
                 this.DGVEmployeeListToSchedule.Columns[2].Name = "Position2";
-                this.DGVEmployeeListToSchedule.Columns[2].HeaderText = "Position";
+                this.DGVEmployeeListToSchedule.Columns[2].HeaderText = "Position and Shift";
                 this.DGVEmployeeListToSchedule.Columns[2].Visible = true;
 
-                this.DGVEmployeeListToSchedule.Columns[3].Name = "Shift2";
-                this.DGVEmployeeListToSchedule.Columns[3].HeaderText = "Shift";
-                this.DGVEmployeeListToSchedule.Columns[3].Visible = true;
+                //this.DGVEmployeeListToSchedule.Columns[3].Name = "Shift2";
+                //this.DGVEmployeeListToSchedule.Columns[3].HeaderText = "Shift";
+                //this.DGVEmployeeListToSchedule.Columns[3].Visible = true;
 
                 DataGridViewCheckBoxColumn selectChbxToSchedule = new DataGridViewCheckBoxColumn();
                 selectChbxToSchedule.HeaderText = "Select";
@@ -245,12 +256,23 @@ namespace Main.Forms.EmployeeManagementForms.Controls
 
                     row.Cells[0].Value = employee.EmployeeNumber;
                     row.Cells[1].Value = fullName;
-                    row.Cells[2].Value = employee.Position.Title;
 
-                    if (employee.Shift != null)
+                    if (employee.PositionShift.Count() > 0)
                     {
-                        row.Cells[3].Value = employee.Shift.Shift;
+                        List<string> position = new List<string>();
+                        foreach (var item in employee.PositionShift.ToList())
+                        {
+                            position.Add($"{item.Position} - ({item.Shift})");
+                        }
+                        string positions = string.Join(", ", position.Select(x => x).ToList().ToArray());
+                        row.Cells[2].Value = positions;
                     }
+                    //row.Cells[2].Value = employee.Position.Title;
+
+                    //if (employee.Shift != null)
+                    //{
+                    //    row.Cells[3].Value = employee.Shift.Shift;
+                    //}
 
                     this.DGVEmployeeListToSchedule.Rows.Add(row);
                 }
@@ -511,7 +533,7 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             this.DGVScheduledWorkforceByDate.Rows.Clear();
             if (workforce != null)
             {
-                this.DGVScheduledWorkforceByDate.ColumnCount = 4;
+                this.DGVScheduledWorkforceByDate.ColumnCount = 3;
 
                 this.DGVScheduledWorkforceByDate.Columns[0].Name = "EmployeeNumber2";
                 this.DGVScheduledWorkforceByDate.Columns[0].HeaderText = "Employee Number";
@@ -522,12 +544,12 @@ namespace Main.Forms.EmployeeManagementForms.Controls
                 this.DGVScheduledWorkforceByDate.Columns[1].Visible = true;
 
                 this.DGVScheduledWorkforceByDate.Columns[2].Name = "Position2";
-                this.DGVScheduledWorkforceByDate.Columns[2].HeaderText = "Position";
+                this.DGVScheduledWorkforceByDate.Columns[2].HeaderText = "Position and Shift";
                 this.DGVScheduledWorkforceByDate.Columns[2].Visible = true;
 
-                this.DGVScheduledWorkforceByDate.Columns[3].Name = "Shift2";
-                this.DGVScheduledWorkforceByDate.Columns[3].HeaderText = "Shift";
-                this.DGVScheduledWorkforceByDate.Columns[3].Visible = true;
+                //this.DGVScheduledWorkforceByDate.Columns[3].Name = "Shift2";
+                //this.DGVScheduledWorkforceByDate.Columns[3].HeaderText = "Shift";
+                //this.DGVScheduledWorkforceByDate.Columns[3].Visible = true;
 
 
                 // Delete button
@@ -550,12 +572,22 @@ namespace Main.Forms.EmployeeManagementForms.Controls
 
                             row.Cells[0].Value = employee.EmployeeNumber;
                             row.Cells[1].Value = fullName;
-                            row.Cells[2].Value = employee.Position;
-
-                            if (employee.Shift != null)
+                            if (employee.PositionShift.Count() > 0)
                             {
-                                row.Cells[3].Value = employee.Shift.Shift;
+                                List<string> position = new List<string>();
+                                foreach (var item in employee.PositionShift.ToList())
+                                {
+                                    position.Add($"{item.Position} - ({item.Shift})");
+                                }
+                                string positions = string.Join(", ", position.Select(x => x).ToList().ToArray());
+                                row.Cells[2].Value = positions;
                             }
+                            //row.Cells[2].Value = employee.Position.Title;
+
+                            //if (employee.Shift != null)
+                            //{
+                            //    row.Cells[3].Value = employee.Shift.Shift;
+                            //}
 
                             row.Tag = dateKey;
 

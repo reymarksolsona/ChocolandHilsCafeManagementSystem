@@ -161,6 +161,7 @@ namespace Main
             services.AddTransient<IEmployeePayslipDeductionData, EmployeePayslipDeductionData>();
             services.AddTransient<IEmployeeGovernmentContributionData, EmployeeGovernmentContributionData>();
             services.AddTransient<IEmployeeShiftData, EmployeeShiftData>();
+            services.AddTransient<IEmployeePositionShiftData, EmployeePositionShiftData>();
             services.AddTransient<IEmployeeShiftDayData, EmployeeShiftDayData>();
             services.AddTransient<IEmployeeGovtIdCardData, EmployeeGovtIdCardData>();
             services.AddTransient<IWorkforceScheduleData, WorkforceScheduleData>();

@@ -103,7 +103,7 @@ namespace DataAccess.Data.EmployeeManagement.Implementations
         }
 
 
-        public WorkforceScheduleModel GetScheduleByEmpAndDate(string employeeNumber, DateTime workDate)
+        public WorkforceScheduleModel GetScheduleByEmpAndDate(string employeeNumber, DateTime workDate, long id)
         {
             string query = @"SELECT *
                             FROM WorkforceSchedules 
@@ -112,7 +112,8 @@ namespace DataAccess.Data.EmployeeManagement.Implementations
             return this.GetFirstOrDefault(query, new
             {
                 EmployeeNumber = employeeNumber,
-                WorkDate = workDate.ToString("yyyy-MM-dd")
+                WorkDate = workDate.ToString("yyyy-MM-dd"),
+                Id = id
             });
         }
 

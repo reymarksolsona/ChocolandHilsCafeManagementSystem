@@ -32,7 +32,7 @@ namespace Main.Controllers.EmployeeManagementControllers.Validator
             //RuleFor(e => e.BranchAssign).NotEmpty();
             RuleFor(e => e.DateHire).NotEmpty();
             RuleFor(e => e.BranchId).NotEmpty();
-            RuleFor(e => e.PositionId).NotEmpty();
+            //RuleFor(e => e.PositionId).NotEmpty();
         }
     }
 }

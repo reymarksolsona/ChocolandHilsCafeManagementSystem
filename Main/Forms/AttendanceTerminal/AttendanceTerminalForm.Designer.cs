@@ -74,6 +74,8 @@ namespace Main.Forms.AttendanceTerminal
             this.label6 = new System.Windows.Forms.Label();
             this.TboxEditAttendanceEmployeeNumber = new System.Windows.Forms.TextBox();
             this.RBtnTimeINEditAttendance = new System.Windows.Forms.RadioButton();
+            this.CBoxPositions = new System.Windows.Forms.ComboBox();
+            this.label37 = new System.Windows.Forms.Label();
             this.panelSecondaryBanner.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -90,18 +92,20 @@ namespace Main.Forms.AttendanceTerminal
             this.panelSecondaryBanner.Controls.Add(this.LblRenderedFormTitle);
             this.panelSecondaryBanner.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSecondaryBanner.Location = new System.Drawing.Point(0, 0);
+            this.panelSecondaryBanner.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelSecondaryBanner.Name = "panelSecondaryBanner";
-            this.panelSecondaryBanner.Size = new System.Drawing.Size(1185, 95);
+            this.panelSecondaryBanner.Size = new System.Drawing.Size(1693, 158);
             this.panelSecondaryBanner.TabIndex = 2;
             // 
             // LblCurrentTime
             // 
             this.LblCurrentTime.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.LblCurrentTime.ForeColor = System.Drawing.Color.White;
-            this.LblCurrentTime.Location = new System.Drawing.Point(771, 19);
+            this.LblCurrentTime.Location = new System.Drawing.Point(1101, 32);
+            this.LblCurrentTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblCurrentTime.Name = "LblCurrentTime";
             this.LblCurrentTime.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.LblCurrentTime.Size = new System.Drawing.Size(290, 62);
+            this.LblCurrentTime.Size = new System.Drawing.Size(414, 103);
             this.LblCurrentTime.TabIndex = 2;
             this.LblCurrentTime.Text = "-";
             this.LblCurrentTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -110,10 +114,11 @@ namespace Main.Forms.AttendanceTerminal
             // 
             this.LblCurrentDate.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.LblCurrentDate.ForeColor = System.Drawing.Color.White;
-            this.LblCurrentDate.Location = new System.Drawing.Point(12, 51);
+            this.LblCurrentDate.Location = new System.Drawing.Point(17, 85);
+            this.LblCurrentDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblCurrentDate.Name = "LblCurrentDate";
             this.LblCurrentDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.LblCurrentDate.Size = new System.Drawing.Size(331, 30);
+            this.LblCurrentDate.Size = new System.Drawing.Size(473, 50);
             this.LblCurrentDate.TabIndex = 1;
             this.LblCurrentDate.Text = "-";
             this.LblCurrentDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -123,10 +128,11 @@ namespace Main.Forms.AttendanceTerminal
             this.LblRenderedFormTitle.AutoSize = true;
             this.LblRenderedFormTitle.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.LblRenderedFormTitle.ForeColor = System.Drawing.Color.White;
-            this.LblRenderedFormTitle.Location = new System.Drawing.Point(12, 9);
+            this.LblRenderedFormTitle.Location = new System.Drawing.Point(17, 15);
+            this.LblRenderedFormTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblRenderedFormTitle.Name = "LblRenderedFormTitle";
             this.LblRenderedFormTitle.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.LblRenderedFormTitle.Size = new System.Drawing.Size(216, 30);
+            this.LblRenderedFormTitle.Size = new System.Drawing.Size(328, 45);
             this.LblRenderedFormTitle.TabIndex = 0;
             this.LblRenderedFormTitle.Text = "Attendance Terminal";
             // 
@@ -149,9 +155,10 @@ namespace Main.Forms.AttendanceTerminal
             this.LViewAttendanceHistory.FullRowSelect = true;
             this.LViewAttendanceHistory.GridLines = true;
             this.LViewAttendanceHistory.HideSelection = false;
-            this.LViewAttendanceHistory.Location = new System.Drawing.Point(0, 286);
+            this.LViewAttendanceHistory.Location = new System.Drawing.Point(0, 474);
+            this.LViewAttendanceHistory.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.LViewAttendanceHistory.Name = "LViewAttendanceHistory";
-            this.LViewAttendanceHistory.Size = new System.Drawing.Size(1185, 347);
+            this.LViewAttendanceHistory.Size = new System.Drawing.Size(1693, 576);
             this.LViewAttendanceHistory.TabIndex = 4;
             this.LViewAttendanceHistory.UseCompatibleStateImageBehavior = false;
             this.LViewAttendanceHistory.View = System.Windows.Forms.View.Details;
@@ -216,19 +223,21 @@ namespace Main.Forms.AttendanceTerminal
             // TBoxCurrentEmployeeNumber
             // 
             this.TBoxCurrentEmployeeNumber.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TBoxCurrentEmployeeNumber.Location = new System.Drawing.Point(222, 55);
+            this.TBoxCurrentEmployeeNumber.Location = new System.Drawing.Point(317, 119);
+            this.TBoxCurrentEmployeeNumber.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TBoxCurrentEmployeeNumber.Name = "TBoxCurrentEmployeeNumber";
-            this.TBoxCurrentEmployeeNumber.Size = new System.Drawing.Size(448, 35);
+            this.TBoxCurrentEmployeeNumber.Size = new System.Drawing.Size(638, 49);
             this.TBoxCurrentEmployeeNumber.TabIndex = 5;
             this.TBoxCurrentEmployeeNumber.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBoxCurrentEmployeeNumber_KeyUp);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(31, 55);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(64, 122);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(185, 30);
+            this.label1.Size = new System.Drawing.Size(228, 36);
             this.label1.TabIndex = 6;
             this.label1.Text = "Employee Number";
             // 
@@ -236,10 +245,11 @@ namespace Main.Forms.AttendanceTerminal
             // 
             this.RBtnTimeIN.AutoSize = true;
             this.RBtnTimeIN.Checked = true;
-            this.RBtnTimeIN.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.RBtnTimeIN.Location = new System.Drawing.Point(222, 15);
+            this.RBtnTimeIN.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RBtnTimeIN.Location = new System.Drawing.Point(317, 9);
+            this.RBtnTimeIN.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RBtnTimeIN.Name = "RBtnTimeIN";
-            this.RBtnTimeIN.Size = new System.Drawing.Size(106, 34);
+            this.RBtnTimeIN.Size = new System.Drawing.Size(132, 40);
             this.RBtnTimeIN.TabIndex = 7;
             this.RBtnTimeIN.TabStop = true;
             this.RBtnTimeIN.Text = "Time-IN";
@@ -248,10 +258,11 @@ namespace Main.Forms.AttendanceTerminal
             // RBtnTimeOUT
             // 
             this.RBtnTimeOUT.AutoSize = true;
-            this.RBtnTimeOUT.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.RBtnTimeOUT.Location = new System.Drawing.Point(347, 15);
+            this.RBtnTimeOUT.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RBtnTimeOUT.Location = new System.Drawing.Point(496, 9);
+            this.RBtnTimeOUT.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RBtnTimeOUT.Name = "RBtnTimeOUT";
-            this.RBtnTimeOUT.Size = new System.Drawing.Size(125, 34);
+            this.RBtnTimeOUT.Size = new System.Drawing.Size(158, 40);
             this.RBtnTimeOUT.TabIndex = 8;
             this.RBtnTimeOUT.TabStop = true;
             this.RBtnTimeOUT.Text = "Time-OUT";
@@ -260,35 +271,39 @@ namespace Main.Forms.AttendanceTerminal
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(96, 103);
+            this.label2.Location = new System.Drawing.Point(137, 192);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 21);
+            this.label2.Size = new System.Drawing.Size(168, 32);
             this.label2.TabIndex = 9;
             this.label2.Text = "Shift Schedule";
             // 
             // LblCurrentEmployeeSchedule
             // 
             this.LblCurrentEmployeeSchedule.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblCurrentEmployeeSchedule.Location = new System.Drawing.Point(222, 93);
+            this.LblCurrentEmployeeSchedule.Location = new System.Drawing.Point(317, 192);
+            this.LblCurrentEmployeeSchedule.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblCurrentEmployeeSchedule.Name = "LblCurrentEmployeeSchedule";
-            this.LblCurrentEmployeeSchedule.Size = new System.Drawing.Size(448, 45);
+            this.LblCurrentEmployeeSchedule.Size = new System.Drawing.Size(640, 58);
             this.LblCurrentEmployeeSchedule.TabIndex = 10;
             this.LblCurrentEmployeeSchedule.Text = "-";
             // 
             // DPickerTesting
             // 
             this.DPickerTesting.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.DPickerTesting.Location = new System.Drawing.Point(1006, 65);
+            this.DPickerTesting.Location = new System.Drawing.Point(1437, 108);
+            this.DPickerTesting.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DPickerTesting.Name = "DPickerTesting";
-            this.DPickerTesting.Size = new System.Drawing.Size(112, 29);
+            this.DPickerTesting.Size = new System.Drawing.Size(158, 39);
             this.DPickerTesting.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1006, 41);
+            this.label3.Location = new System.Drawing.Point(1437, 68);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 21);
+            this.label3.Size = new System.Drawing.Size(150, 32);
             this.label3.TabIndex = 11;
             this.label3.Text = "Testing Time";
             // 
@@ -298,14 +313,17 @@ namespace Main.Forms.AttendanceTerminal
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tabControl1.Location = new System.Drawing.Point(0, 95);
+            this.tabControl1.Location = new System.Drawing.Point(0, 158);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1173, 185);
+            this.tabControl1.Size = new System.Drawing.Size(1676, 308);
             this.tabControl1.TabIndex = 12;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.CBoxPositions);
+            this.tabPage1.Controls.Add(this.label37);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.DPickerTesting);
             this.tabPage1.Controls.Add(this.RBtnTimeOUT);
@@ -314,10 +332,11 @@ namespace Main.Forms.AttendanceTerminal
             this.tabPage1.Controls.Add(this.TBoxCurrentEmployeeNumber);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.RBtnTimeIN);
-            this.tabPage1.Location = new System.Drawing.Point(4, 30);
+            this.tabPage1.Location = new System.Drawing.Point(4, 41);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1165, 151);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPage1.Size = new System.Drawing.Size(1668, 263);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "IN/OUT";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -329,10 +348,11 @@ namespace Main.Forms.AttendanceTerminal
             this.tabPage2.Controls.Add(this.DPickerFilterAttendanceEnd);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.DPickerFilterAttendanceStart);
-            this.tabPage2.Location = new System.Drawing.Point(4, 30);
+            this.tabPage2.Location = new System.Drawing.Point(4, 41);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1165, 151);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPage2.Size = new System.Drawing.Size(1668, 263);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Search";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -344,9 +364,10 @@ namespace Main.Forms.AttendanceTerminal
             this.BtnFilterAttendance.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BtnFilterAttendance.ForeColor = System.Drawing.Color.White;
             this.BtnFilterAttendance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnFilterAttendance.Location = new System.Drawing.Point(380, 19);
+            this.BtnFilterAttendance.Location = new System.Drawing.Point(543, 32);
+            this.BtnFilterAttendance.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnFilterAttendance.Name = "BtnFilterAttendance";
-            this.BtnFilterAttendance.Size = new System.Drawing.Size(115, 31);
+            this.BtnFilterAttendance.Size = new System.Drawing.Size(164, 52);
             this.BtnFilterAttendance.TabIndex = 40;
             this.BtnFilterAttendance.Text = "Search";
             this.BtnFilterAttendance.UseVisualStyleBackColor = false;
@@ -355,44 +376,49 @@ namespace Main.Forms.AttendanceTerminal
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(215, 27);
+            this.label5.Location = new System.Drawing.Point(307, 45);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(25, 21);
+            this.label5.Size = new System.Drawing.Size(39, 32);
             this.label5.TabIndex = 15;
             this.label5.Text = "To";
             // 
             // DPickerFilterAttendanceEnd
             // 
             this.DPickerFilterAttendanceEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DPickerFilterAttendanceEnd.Location = new System.Drawing.Point(246, 21);
+            this.DPickerFilterAttendanceEnd.Location = new System.Drawing.Point(351, 35);
+            this.DPickerFilterAttendanceEnd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DPickerFilterAttendanceEnd.Name = "DPickerFilterAttendanceEnd";
-            this.DPickerFilterAttendanceEnd.Size = new System.Drawing.Size(112, 29);
+            this.DPickerFilterAttendanceEnd.Size = new System.Drawing.Size(158, 39);
             this.DPickerFilterAttendanceEnd.TabIndex = 14;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(35, 27);
+            this.label4.Location = new System.Drawing.Point(50, 45);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 21);
+            this.label4.Size = new System.Drawing.Size(69, 32);
             this.label4.TabIndex = 13;
             this.label4.Text = "From";
             // 
             // DPickerFilterAttendanceStart
             // 
             this.DPickerFilterAttendanceStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DPickerFilterAttendanceStart.Location = new System.Drawing.Point(83, 21);
+            this.DPickerFilterAttendanceStart.Location = new System.Drawing.Point(119, 35);
+            this.DPickerFilterAttendanceStart.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DPickerFilterAttendanceStart.Name = "DPickerFilterAttendanceStart";
-            this.DPickerFilterAttendanceStart.Size = new System.Drawing.Size(112, 29);
+            this.DPickerFilterAttendanceStart.Size = new System.Drawing.Size(158, 39);
             this.DPickerFilterAttendanceStart.TabIndex = 12;
             // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.GBoxEditEmployeeAttendanceControls);
-            this.tabPage3.Location = new System.Drawing.Point(4, 30);
+            this.tabPage3.Location = new System.Drawing.Point(4, 41);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1165, 151);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPage3.Size = new System.Drawing.Size(1668, 263);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Edit Employee Attendance";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -408,9 +434,11 @@ namespace Main.Forms.AttendanceTerminal
             this.GBoxEditEmployeeAttendanceControls.Controls.Add(this.label6);
             this.GBoxEditEmployeeAttendanceControls.Controls.Add(this.TboxEditAttendanceEmployeeNumber);
             this.GBoxEditEmployeeAttendanceControls.Controls.Add(this.RBtnTimeINEditAttendance);
-            this.GBoxEditEmployeeAttendanceControls.Location = new System.Drawing.Point(18, 17);
+            this.GBoxEditEmployeeAttendanceControls.Location = new System.Drawing.Point(26, 28);
+            this.GBoxEditEmployeeAttendanceControls.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.GBoxEditEmployeeAttendanceControls.Name = "GBoxEditEmployeeAttendanceControls";
-            this.GBoxEditEmployeeAttendanceControls.Size = new System.Drawing.Size(1007, 117);
+            this.GBoxEditEmployeeAttendanceControls.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.GBoxEditEmployeeAttendanceControls.Size = new System.Drawing.Size(1439, 195);
             this.GBoxEditEmployeeAttendanceControls.TabIndex = 0;
             this.GBoxEditEmployeeAttendanceControls.TabStop = false;
             this.GBoxEditEmployeeAttendanceControls.Text = "Edit controls";
@@ -423,9 +451,10 @@ namespace Main.Forms.AttendanceTerminal
             this.BtnUpdateEmployeeAttendance.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BtnUpdateEmployeeAttendance.ForeColor = System.Drawing.Color.White;
             this.BtnUpdateEmployeeAttendance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnUpdateEmployeeAttendance.Location = new System.Drawing.Point(749, 55);
+            this.BtnUpdateEmployeeAttendance.Location = new System.Drawing.Point(1070, 92);
+            this.BtnUpdateEmployeeAttendance.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnUpdateEmployeeAttendance.Name = "BtnUpdateEmployeeAttendance";
-            this.BtnUpdateEmployeeAttendance.Size = new System.Drawing.Size(115, 31);
+            this.BtnUpdateEmployeeAttendance.Size = new System.Drawing.Size(164, 52);
             this.BtnUpdateEmployeeAttendance.TabIndex = 41;
             this.BtnUpdateEmployeeAttendance.Text = "Submit";
             this.BtnUpdateEmployeeAttendance.UseVisualStyleBackColor = false;
@@ -435,9 +464,10 @@ namespace Main.Forms.AttendanceTerminal
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(564, 61);
+            this.label8.Location = new System.Drawing.Point(806, 102);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(44, 21);
+            this.label8.Size = new System.Drawing.Size(67, 32);
             this.label8.TabIndex = 16;
             this.label8.Text = "Time";
             // 
@@ -445,35 +475,39 @@ namespace Main.Forms.AttendanceTerminal
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(393, 63);
+            this.label7.Location = new System.Drawing.Point(561, 105);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(42, 21);
+            this.label7.Size = new System.Drawing.Size(64, 32);
             this.label7.TabIndex = 15;
             this.label7.Text = "Date";
             // 
             // DPicTimeEditAttendance
             // 
             this.DPicTimeEditAttendance.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.DPicTimeEditAttendance.Location = new System.Drawing.Point(614, 57);
+            this.DPicTimeEditAttendance.Location = new System.Drawing.Point(877, 95);
+            this.DPicTimeEditAttendance.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DPicTimeEditAttendance.Name = "DPicTimeEditAttendance";
-            this.DPicTimeEditAttendance.Size = new System.Drawing.Size(112, 29);
+            this.DPicTimeEditAttendance.Size = new System.Drawing.Size(158, 39);
             this.DPicTimeEditAttendance.TabIndex = 14;
             // 
             // DPickerAttendanceDateEditAttendance
             // 
             this.DPickerAttendanceDateEditAttendance.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DPickerAttendanceDateEditAttendance.Location = new System.Drawing.Point(441, 57);
+            this.DPickerAttendanceDateEditAttendance.Location = new System.Drawing.Point(630, 95);
+            this.DPickerAttendanceDateEditAttendance.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DPickerAttendanceDateEditAttendance.Name = "DPickerAttendanceDateEditAttendance";
-            this.DPickerAttendanceDateEditAttendance.Size = new System.Drawing.Size(112, 29);
+            this.DPickerAttendanceDateEditAttendance.Size = new System.Drawing.Size(158, 39);
             this.DPickerAttendanceDateEditAttendance.TabIndex = 13;
             // 
             // RBtnTimeOutEditAttendance
             // 
             this.RBtnTimeOutEditAttendance.AutoSize = true;
             this.RBtnTimeOutEditAttendance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.RBtnTimeOutEditAttendance.Location = new System.Drawing.Point(264, 27);
+            this.RBtnTimeOutEditAttendance.Location = new System.Drawing.Point(377, 45);
+            this.RBtnTimeOutEditAttendance.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RBtnTimeOutEditAttendance.Name = "RBtnTimeOutEditAttendance";
-            this.RBtnTimeOutEditAttendance.Size = new System.Drawing.Size(99, 25);
+            this.RBtnTimeOutEditAttendance.Size = new System.Drawing.Size(149, 36);
             this.RBtnTimeOutEditAttendance.TabIndex = 12;
             this.RBtnTimeOutEditAttendance.TabStop = true;
             this.RBtnTimeOutEditAttendance.Text = "Time-OUT";
@@ -483,18 +517,20 @@ namespace Main.Forms.AttendanceTerminal
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(19, 61);
+            this.label6.Location = new System.Drawing.Point(27, 102);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(140, 21);
+            this.label6.Size = new System.Drawing.Size(214, 32);
             this.label6.TabIndex = 10;
             this.label6.Text = "Employee Number";
             // 
             // TboxEditAttendanceEmployeeNumber
             // 
             this.TboxEditAttendanceEmployeeNumber.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TboxEditAttendanceEmployeeNumber.Location = new System.Drawing.Point(165, 58);
+            this.TboxEditAttendanceEmployeeNumber.Location = new System.Drawing.Point(236, 97);
+            this.TboxEditAttendanceEmployeeNumber.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TboxEditAttendanceEmployeeNumber.Name = "TboxEditAttendanceEmployeeNumber";
-            this.TboxEditAttendanceEmployeeNumber.Size = new System.Drawing.Size(208, 29);
+            this.TboxEditAttendanceEmployeeNumber.Size = new System.Drawing.Size(295, 39);
             this.TboxEditAttendanceEmployeeNumber.TabIndex = 9;
             // 
             // RBtnTimeINEditAttendance
@@ -502,24 +538,48 @@ namespace Main.Forms.AttendanceTerminal
             this.RBtnTimeINEditAttendance.AutoSize = true;
             this.RBtnTimeINEditAttendance.Checked = true;
             this.RBtnTimeINEditAttendance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.RBtnTimeINEditAttendance.Location = new System.Drawing.Point(165, 27);
+            this.RBtnTimeINEditAttendance.Location = new System.Drawing.Point(236, 45);
+            this.RBtnTimeINEditAttendance.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RBtnTimeINEditAttendance.Name = "RBtnTimeINEditAttendance";
-            this.RBtnTimeINEditAttendance.Size = new System.Drawing.Size(84, 25);
+            this.RBtnTimeINEditAttendance.Size = new System.Drawing.Size(126, 36);
             this.RBtnTimeINEditAttendance.TabIndex = 11;
             this.RBtnTimeINEditAttendance.TabStop = true;
             this.RBtnTimeINEditAttendance.Text = "Time-IN";
             this.RBtnTimeINEditAttendance.UseVisualStyleBackColor = true;
             // 
+            // CBoxPositions
+            // 
+            this.CBoxPositions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBoxPositions.FormattingEnabled = true;
+            this.CBoxPositions.Location = new System.Drawing.Point(317, 59);
+            this.CBoxPositions.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.CBoxPositions.Name = "CBoxPositions";
+            this.CBoxPositions.Size = new System.Drawing.Size(638, 40);
+            this.CBoxPositions.TabIndex = 71;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label37.ForeColor = System.Drawing.Color.Black;
+            this.label37.Location = new System.Drawing.Point(137, 59);
+            this.label37.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(106, 36);
+            this.label37.TabIndex = 70;
+            this.label37.Text = "Position";
+            // 
             // AttendanceTerminalForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1185, 633);
+            this.ClientSize = new System.Drawing.Size(1693, 1050);
             this.Controls.Add(this.LViewAttendanceHistory);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panelSecondaryBanner);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "AttendanceTerminalForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AttendanceTerminalForm";
@@ -584,5 +644,7 @@ namespace Main.Forms.AttendanceTerminal
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button BtnUpdateEmployeeAttendance;
+        private System.Windows.Forms.ComboBox CBoxPositions;
+        private System.Windows.Forms.Label label37;
     }
 }

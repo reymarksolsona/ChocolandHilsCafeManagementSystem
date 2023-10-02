@@ -14,7 +14,7 @@ namespace DataAccess.Data.EmployeeManagement.Contracts
         List<WorkforceScheduleModel> GetAllNotYetDone();
         List<WorkforceScheduleModel> GetAllNotYetDone(DateTime dateNow);
         List<WorkforceScheduleModel> GetAllForEmpAttendance(DateTime startDate, DateTime endDate, string employeeNumber);
-        WorkforceScheduleModel GetScheduleByEmpAndDate(string employeeNumber, DateTime workDate);
+        WorkforceScheduleModel GetScheduleByEmpAndDate(string employeeNumber, DateTime workDate, long id);
 
         bool MarkAsDeletedByEmployee(string employeeNumber);
         bool UndoMarkAsDeletedByEmployee(string employeeNumber);

@@ -1,4 +1,5 @@
 ﻿using DataAccess.Data.EmployeeManagement.Contracts;
+using DataAccess.Data.EmployeeManagement.Implementations;
 using DataAccess.Data.OtherDataManagement.Contracts;
 using DataAccess.Data.PayrollManagement.Contracts;
 using DataAccess.Data.POSManagement.Contracts;
@@ -232,7 +233,7 @@ namespace Main.Forms.PayrollForms
                                 StartShiftDate = empPayslipGen.ShiftStartDate,
                                 EndShiftDate = empPayslipGen.ShiftEndDate,
                                 PayDate = empPayslipGen.PayDate,
-                                DailyRate = empPayslipGen.Employee.Position.DailyRate,
+                                //DailyRate = 12,
                                 NumOfDays = empPayslipGen.PaydaySalaryComputation.NumberOfDays,
                                 Late = empPayslipGen.PaydaySalaryComputation.Late,
                                 LateTotalDeduction = empPayslipGen.PaydaySalaryComputation.LateTotalDeduction,
@@ -257,7 +258,7 @@ namespace Main.Forms.PayrollForms
                                 decimal employeeGovtContributionTotal = 0;
 
                                 // loop thru govt. agencies and retrieve employee and employer govt. id contribution
-                                decimal empMonthSalary = empPayslipGen.Employee.Position.MonthlyRate;
+                                decimal empMonthSalary = 10000;
                                 if (empPayslipGen.SelectedGovContributions != null && empPayslipGen.SelectedGovContributions.Count > 0)
                                 {
                                     if (empPayslipGen.SelectedGovContributions.Contains(StaticData.GovContributions.SSS))
@@ -642,6 +643,18 @@ namespace Main.Forms.PayrollForms
 
             var employeeDetails = _employeeData.GetByEmployeeNumber(empNum);
             var payslip = _employeePayslipData.GetEmployeePayslipRecordByPaydate(empNum, generatePayrollControlObj.PayDate);
+            var attendance = _employeeAttendanceData.GetEmployeeAttendanceByPayslipId(empNum, payslip.Id).Select(s => s.ShiftId);
+            List<EmployeePositionShiftData> positionShiftDatas = new List<EmployeePositionShiftData>();
+            var shifts = employeeDetails.PositionShift.Where(x => attendance.Contains(x.ShiftId)).ToList();
+            if (employeeDetails.PositionShift.Count() > 0)
+            {
+                foreach (var item in employeeDetails.PositionShift.ToList())
+                {
+                    employeeDetails.PositionShift.Remove(item);
+                }
+            }
+
+            employeeDetails.PositionShift.AddRange(shifts);
 
             generatePayrollControlObj.DisplayEmployeePayslip(employeeDetails, payslip);
         }

@@ -28,6 +28,7 @@ namespace Main.Controllers.EmployeeManagementControllers
         private readonly IEmployeeGovtIdCardData _employeeGovtIdCardData;
         private readonly IWorkforceScheduleData _workforceScheduleData;
         private readonly IEmployeePositionData _employeePositionData;
+        private readonly IEmployeePositionShiftData _employeePositionShiftData;
         private readonly IUserData _userData;
 
         public EmployeeController(ILogger<LoginFrm> logger,
@@ -37,7 +38,8 @@ namespace Main.Controllers.EmployeeManagementControllers
                                 IEmployeeGovtIdCardData employeeGovtIdCardData,
                                 IWorkforceScheduleData workforceScheduleData,
                                 IEmployeePositionData employeePositionData,
-                                IUserData userData)
+                                IUserData userData,
+                                IEmployeePositionShiftData employeePositionShiftData)
         {
             _logger = logger;
             _mapper = mapper;
@@ -47,6 +49,7 @@ namespace Main.Controllers.EmployeeManagementControllers
             _workforceScheduleData = workforceScheduleData;
             _employeePositionData = employeePositionData;
             _userData = userData;
+            _employeePositionShiftData = employeePositionShiftData;
         }
 
 
@@ -196,20 +199,29 @@ namespace Main.Controllers.EmployeeManagementControllers
                 return results;
             }
 
-            var selectedPositionDetails = _employeePositionData.Get(input.PositionId);
+            if (!input.PositionShift.Any())
+            {
+                results.Messages.Add("Employee should have a position.");
+                results.IsSuccess = false;
+                return results;
+            }
 
             if (isNewEmployee)
             {
-                if (selectedPositionDetails.IsSingleEmployee)
+                foreach (var item in input.PositionShift.ToList())
                 {
-                    // Check if there is existing employee with the same position
-                    var employeeWithTheSamePosition = _employeeData.GetByPosition(selectedPositionDetails.Id);
-
-                    if (employeeWithTheSamePosition != null && employeeWithTheSamePosition.Count > 0)
+                    var selectedPositionDetails = _employeePositionData.Get((long)item.PositionId);
+                    if (selectedPositionDetails.IsSingleEmployee)
                     {
-                        results.IsSuccess = false;
-                        results.Messages.Add($"Existing user with the same position. Only single employee can have {selectedPositionDetails.Title} position.");
-                        return results;
+                        // Check if there is existing employee with the same position
+                        var employeeWithTheSamePosition = _employeeData.GetByPosition(selectedPositionDetails.Id);
+
+                        if (employeeWithTheSamePosition != null && employeeWithTheSamePosition.Count > 0)
+                        {
+                            results.IsSuccess = false;
+                            results.Messages.Add($"Existing user with the same position. Only single employee can have {selectedPositionDetails.Title} position.");
+                            return results;
+                        }
                     }
                 }
 
@@ -234,6 +246,13 @@ namespace Main.Controllers.EmployeeManagementControllers
                 // Save new employee
                 if (_employeeData.Add(input) > 0)
                 {
+                    if (input.PositionShift.Count() > 0)
+                    {
+                        foreach (var item in input.PositionShift.ToList())
+                        {
+                            _employeePositionShiftData.Add(new EmployeePositionShiftModel() {EmployeeId = input.Id, PositionId = item.PositionId, ShiftId = item.ShiftId });
+                        }
+                    }
                     var employeeDetails = _employeeData.GetByEmployeeNumber(input.EmployeeNumber);
                     results.IsSuccess = true;
                     results.Messages.Add("Successfully add new employee");
@@ -253,25 +272,29 @@ namespace Main.Controllers.EmployeeManagementControllers
                     throw new Exception($"Employee with the employee number of { input.EmployeeNumber } not found!");
                 }
 
-                if (selectedPositionDetails.IsSingleEmployee)
+                foreach (var item in input.PositionShift.ToList())
                 {
-                    // Check if there is existing employee with the same position
-                    var employeeWithTheSamePosition = _employeeData.GetByPosition(selectedPositionDetails.Id);
-
-                    if (employeeWithTheSamePosition != null)
+                    var selectedPositionDetails = _employeePositionData.Get((long)item.PositionId);
+                    if (selectedPositionDetails.IsSingleEmployee)
                     {
-                        var employeeWithTheSamePosition2 = employeeWithTheSamePosition != null ?
-                                        employeeWithTheSamePosition.Where(x => x.EmployeeNumber != employeeDetails.EmployeeNumber).ToList()
-                                        : null;
+                        // Check if there is existing employee with the same position
+                        var employeeWithTheSamePosition = _employeeData.GetByPosition(selectedPositionDetails.Id);
 
-                        if (employeeWithTheSamePosition2.Count > 0)
+                        if (employeeWithTheSamePosition != null)
                         {
-                            results.IsSuccess = false;
-                            results.Messages.Add($"Existing user with the same position. Only single employee can have {selectedPositionDetails.Title} position.");
-                            return results;
+                            var employeeWithTheSamePosition2 = employeeWithTheSamePosition != null ?
+                                            employeeWithTheSamePosition.Where(x => x.EmployeeNumber != employeeDetails.EmployeeNumber).ToList()
+                                            : null;
+
+                            if (employeeWithTheSamePosition2.Count > 0)
+                            {
+                                results.IsSuccess = false;
+                                results.Messages.Add($"Existing user with the same position. Only single employee can have {selectedPositionDetails.Title} position.");
+                                return results;
+                            }
                         }
                     }
-                }
+                } 
 
                 var existingEmpWithTheSameMobileNum = _employeeData.GetByEmployeeMobileNumber(input.MobileNumber);
 
@@ -299,6 +322,16 @@ namespace Main.Controllers.EmployeeManagementControllers
                 // Update employee details
                 if (this._employeeData.Update(employeeDetails))
                 {
+                    _employeePositionShiftData.DeleteById(employeeDetails.Id);
+
+                    if (input.PositionShift.Count() > 0) 
+                    {
+                        foreach (var positionShift in input.PositionShift.ToList())
+                        {
+                            _employeePositionShiftData.Add(new EmployeePositionShiftModel() { EmployeeId = employeeDetails.Id, PositionId = positionShift.PositionId, ShiftId = positionShift.ShiftId });
+                        }
+                    }
+
                     results.IsSuccess = true;
                     results.Messages.Add("Successfully update employee");
                     results.Data = employeeDetails;
@@ -344,7 +377,7 @@ namespace Main.Controllers.EmployeeManagementControllers
                     }
                     else
                     {
-                        employeeDetails.ShiftId = newEmpShift.ShiftId;
+                        //employeeDetails.ShiftId = newEmpShift.ShiftId;
 
                         if (this._employeeData.Update(employeeDetails))
                         {

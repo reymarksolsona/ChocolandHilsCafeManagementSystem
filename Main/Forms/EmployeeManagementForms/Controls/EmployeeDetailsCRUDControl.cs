@@ -20,16 +20,19 @@ using Shared;
 using static EntitiesShared.StaticData;
 using PDFReportGenerators;
 using EntitiesShared;
+using DataAccess.Data.EmployeeManagement.Contracts;
 
 namespace Main.Forms.EmployeeManagementForms.Controls
 {
     public partial class EmployeeDetailsCRUDControl : UserControl
     {
+        private readonly IEmployeeShiftDayData _employeeShiftDayData;
+        private readonly IEmployeePositionData _employeePositionData;
         public EmployeeDetailsCRUDControl(Sessions sessions,
                                         DecimalMinutesToHrsConverter decimalMinutesToHrsConverter, 
                                         OtherSettings otherSettings,
                                         PayrollSettings payrollSettings,
-                                        IAttendancePDFReport attendancePDFReport)
+                                        IAttendancePDFReport attendancePDFReport, IEmployeeShiftDayData employeeShiftDayData, IEmployeePositionData employeePositionData)
         {
             InitializeComponent();
             _sessions = sessions;
@@ -37,6 +40,8 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             _otherSettings = otherSettings;
             _payrollSettings = payrollSettings;
             _attendancePDFReport = attendancePDFReport;
+            _employeeShiftDayData = employeeShiftDayData;
+            _employeePositionData = employeePositionData;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -231,6 +236,21 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             set { workforceSchedules = value; }
         }
 
+        private List<EmployeePositionShiftModel> positionShift;
+
+        public List<EmployeePositionShiftModel> PositionShift
+        {
+            get { return positionShift; }
+            set { positionShift = value; }
+        }
+
+        private int selectedPositionShiftIndex;
+
+        public int SelectedPositionShiftIndex
+        {
+            get { return selectedPositionShiftIndex; }
+            set { selectedPositionShiftIndex = value; }
+        }
 
         private void EmployeeDetailsCRUDControl_Load(object sender, EventArgs e)
         {
@@ -337,6 +357,8 @@ namespace Main.Forms.EmployeeManagementForms.Controls
                     this.CBoxPositions.Items.Add(item);
                 }
             }
+
+            this.button2.Enabled = false;
         }
 
 
@@ -374,8 +396,6 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             this.LblShiftWorkingDays.Text = "";
 
             this.TboxEmpIdNumber.Text = "";
-
-            this.TbxDailySalaryRate.Text = "";
 
             this.GBoxSearchEmployee.Visible = false;
             this.BtnCancelUpdateEmployee.Visible = false;
@@ -444,15 +464,15 @@ namespace Main.Forms.EmployeeManagementForms.Controls
                 }
 
 
-                for(int i=0; i < this.CBoxShiftList.Items.Count; i++)
-                {
-                    var item = this.CBoxShiftList.Items[i] as ComboboxItem;
-                    if (long.Parse(item.Value.ToString()) == employeeDetails.ShiftId)
-                    {
-                        this.CBoxShiftList.SelectedIndex = i;
-                        break;
-                    }
-                }
+                //for(int i=0; i < this.CBoxShiftList.Items.Count; i++)
+                //{
+                //    var item = this.CBoxShiftList.Items[i] as ComboboxItem;
+                //    if (long.Parse(item.Value.ToString()) == employeeDetails.ShiftId)
+                //    {
+                //        this.CBoxShiftList.SelectedIndex = i;
+                //        break;
+                //    }
+                //}
 
                 for(int i=0; i<this.CBoxBranches.Items.Count; i++)
                 {
@@ -465,26 +485,41 @@ namespace Main.Forms.EmployeeManagementForms.Controls
                 }
 
                 // Select position
-                for (int i = 0; i < this.CBoxPositions.Items.Count; i++)
-                {
-                    var item = this.CBoxPositions.Items[i] as ComboboxItem;
-                    if (long.Parse(item.Value.ToString()) == employeeDetails.PositionId)
-                    {
-                        this.CBoxPositions.SelectedIndex = i;
-                        break;
-                    }
-                }
-                // Display salary rate based on position selected
-                if (employeeDetails.Position != null)
-                {
-                    this.TbxDailySalaryRate.Text = employeeDetails.Position.DailyRate.ToString();
-                }
-                
+                //for (int i = 0; i < this.CBoxPositions.Items.Count; i++)
+                //{
+                //    var item = this.CBoxPositions.Items[i] as ComboboxItem;
+                //    if (long.Parse(item.Value.ToString()) == employeeDetails.PositionId)
+                //    {
+                //        this.CBoxPositions.SelectedIndex = i;
+                //        break;
+                //    }
+                //}
 
+                // Display salary rate based on position selected
+                //if (employeeDetails.Position != null)
+                //{
+                //    this.TbxDailySalaryRate.Text = employeeDetails.Position.DailyRate.ToString();
+                //}
+                
+                if (employeeDetails.PositionShift != null)
+                {
+                    ListViewItem item;
+
+                    this.PositionShiftList.Items.Clear();
+
+                    foreach (var positionShift in employeeDetails.PositionShift.ToList())
+                    {
+                        string[] row = { positionShift.Position, positionShift.Shift,  positionShift.DailyRate.ToString()};
+                        item = new ListViewItem(row);
+                        this.PositionShiftList.Items.Add(item);
+                    }
+
+                    this.PositionShift = employeeDetails.PositionShift;
+                }
 
                 var shift = employeeDetails.Shift;
-                this.WorkShiftDays = shift.ShiftDays;
-                DisplayWorkShiftDays();
+                //this.WorkShiftDays = shift.ShiftDays;
+//                DisplayWorkShiftDays();
 
                 DisplayEmployeeGovtIds();
                 //DisplayEmployeeSalaryRate();
@@ -584,13 +619,13 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             //}
 
             // Workshift
-            var selectedWorkShift = this.CBoxShiftList.SelectedItem as ComboboxItem;
-            if (selectedWorkShift == null)
-            {
-                MessageBox.Show("Kindly choose emplooyee shift.", "Save employee", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-            long selectedWorkShiftId = long.Parse(selectedWorkShift.Value.ToString());
+            //var selectedWorkShift = this.CBoxShiftList.SelectedItem as ComboboxItem;
+            //if (selectedWorkShift == null)
+            //{
+            //    MessageBox.Show("Kindly choose emplooyee shift.", "Save employee", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //    return;
+            //}
+            //long selectedWorkShiftId = long.Parse(selectedWorkShift.Value.ToString());
 
             // Branch
             var selectedBranch = this.CBoxBranches.SelectedItem as ComboboxItem;
@@ -602,13 +637,13 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             long selectedBranchId = long.Parse(selectedBranch.Value.ToString());
 
             // Position
-            var selectedPosition = this.CBoxPositions.SelectedItem as ComboboxItem;
-            if (selectedPosition == null)
-            {
-                MessageBox.Show("Kindly choose employee position.", "Save employee", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-            long selectedPositionId = long.Parse(selectedPosition.Value.ToString());
+            //var selectedPosition = this.CBoxPositions.SelectedItem as ComboboxItem;
+            //if (selectedPosition == null)
+            //{
+            //    MessageBox.Show("Kindly choose employee position.", "Save employee", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //    return;
+            //}
+            //long selectedPositionId = long.Parse(selectedPosition.Value.ToString());
 
 
             DateTime minDateForEmpBirthDate = DateTime.Now.AddYears(-(_otherSettings.MinAgeForEmployee));
@@ -630,9 +665,10 @@ namespace Main.Forms.EmployeeManagementForms.Controls
                 DateHire = this.DTPicHireDate.Value,
                 Address = this.TbxAddress.Text,
                 EmailAddress = this.TbxEmail.Text,
-                ShiftId = selectedWorkShiftId,
+                //ShiftId = null,
                 BranchId = selectedBranchId,
-                PositionId = selectedPositionId
+                //PositionId = null,
+                PositionShift = this.PositionShift
             };
 
             if (this.IsNew == false)
@@ -1770,6 +1806,119 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             {
                 SelectedDateForPayslipToGeneratePDF = DateTime.Parse(selectedPaydate.Value.ToString());
                 OnGeneratePayslipPDFForSelectedEmployee(EventArgs.Empty);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ListViewItem item;
+
+            var selectedPosition = this.CBoxPositions.SelectedItem as ComboboxItem;
+            var selectedShift = this.CBoxShiftList.SelectedItem as ComboboxItem;
+            if (selectedPosition == null || selectedShift == null)
+            {
+                MessageBox.Show("Please select position and shift.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var selectedWorkingDays = _employeeShiftDayData.GetByShiftId((long)selectedShift.Value);
+            var dailyRate = _employeePositionData.GetAll().Where(x => x.Id == (long)selectedPosition.Value).Select(s => s.DailyRate).FirstOrDefault();
+
+            EmployeePositionShiftModel positionShift = new EmployeePositionShiftModel()
+            {
+                PositionId = (long)selectedPosition.Value,
+                Position = selectedPosition.Text,
+                ShiftId = (long)selectedShift.Value,
+                Shift = selectedShift.Text,
+                WorkingDays = selectedWorkingDays,
+                DailyRate = dailyRate
+            };
+
+            if (PositionShift == null)
+            {
+                PositionShift = new List<EmployeePositionShiftModel>();
+            }
+
+            bool isConflict = false;
+            List<EmployeePositionShiftModel> conflictSchedList = new List<EmployeePositionShiftModel>();
+            
+            if (PositionShift.Any())
+            {
+                foreach (var days in positionShift.WorkingDays.ToList())
+                {
+                    foreach (var shift in PositionShift.ToList())
+                    {
+                        foreach (var selectedDays in shift.WorkingDays.ToList())
+                        {
+                            if (selectedDays.DayName.Contains(days.DayName))
+                            {
+                                conflictSchedList.Add(shift);
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                if (conflictSchedList.Any())
+                {
+                    conflictSchedList = conflictSchedList.Distinct().ToList();
+                }
+
+                foreach (var sched in conflictSchedList.ToList())
+                {
+                    var conflictSched = this.WorkShifts.Where(x => x.Id == sched.ShiftId).FirstOrDefault();
+                    var selectedPositionShift = this.WorkShifts.Where(x => x.Id == positionShift.ShiftId).FirstOrDefault();
+                    isConflict = conflictSched.StartTime < selectedPositionShift.EndTime && selectedPositionShift.StartTime < conflictSched.EndTime;
+                    if (isConflict)
+                    {
+                        break;
+                    }
+                }
+            }
+
+            var isPositionExist = PositionShift.Where(x => x.PositionId == positionShift.PositionId && x.ShiftId == positionShift.ShiftId).Any();
+            var isShiftConflicts = PositionShift.Where(x => x.ShiftId == positionShift.ShiftId).Any();
+
+            if (isPositionExist && isShiftConflicts)
+            {
+                MessageBox.Show("Position and shift schedule already added. Please select different position or shift schedule.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (isShiftConflicts && !isPositionExist || isConflict)
+            {
+                MessageBox.Show("Shift schedule conflict. Please select different shift schedule.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            PositionShift.Add(positionShift);
+
+            string[] row = { positionShift.Position, positionShift.Shift, positionShift.DailyRate.ToString() };
+            item = new ListViewItem(row);
+            this.PositionShiftList.Items.Add(item);
+            this.CBoxShiftList.SelectedIndex = -1;
+            this.CBoxPositions.SelectedIndex = -1;
+
+        }
+
+        private void PositionShiftList_Click(object sender, EventArgs e)
+        {
+            if (this.PositionShiftList.SelectedIndices.Count > 0)
+            {
+                int index = this.PositionShiftList.SelectedIndices[0];
+                this.selectedPositionShiftIndex = index;
+                this.button2.Enabled = true;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (this.selectedPositionShiftIndex > -1)
+            {
+                this.PositionShiftList.Items.RemoveAt(this.selectedPositionShiftIndex);
+                this.PositionShift.RemoveAt(this.selectedPositionShiftIndex);
+                this.selectedPositionShiftIndex = -1;
+                this.button2.Enabled = false;
             }
         }
     }

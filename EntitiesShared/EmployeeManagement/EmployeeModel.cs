@@ -124,7 +124,7 @@ namespace EntitiesShared.EmployeeManagement
         }
 
 
-        public long PositionId { get; set; }
+        //public long? PositionId { get; set; }
 
         private EmployeePositionModel position;
         [Write(false)]
@@ -144,13 +144,13 @@ namespace EntitiesShared.EmployeeManagement
             set { dateHire = value; }
         }
 
-        private long shiftId;
+        //private long? shiftId;
 
-        public long ShiftId
-        {
-            get { return shiftId; }
-            set { shiftId = value; }
-        }
+        //public long? ShiftId
+        //{
+        //    get { return shiftId; }
+        //    set { shiftId = (long)value; }
+        //}
 
         public bool IsQuit { get; set; }
 
@@ -173,7 +173,14 @@ namespace EntitiesShared.EmployeeManagement
             set { imageFileName = value; }
         }
 
-
+        private List<EmployeePositionShiftModel> positionShift;
+        [Write(false)]
+        [Computed]
+        public List<EmployeePositionShiftModel> PositionShift
+        {
+            get { return positionShift; }
+            set { positionShift = value; }
+        }
         //private EmployeeSalaryRateModel salaryRates;
         //[Write(false)]
         //[Computed]
