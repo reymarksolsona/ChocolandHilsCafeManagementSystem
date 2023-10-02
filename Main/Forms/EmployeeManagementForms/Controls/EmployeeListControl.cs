@@ -106,14 +106,14 @@ namespace Main.Forms.EmployeeManagementForms.Controls
                 this.DGVEmployeeList.Columns[7].Name = "DateHire";
                 this.DGVEmployeeList.Columns[7].HeaderText = "Date hire";
 
-                this.DGVEmployeeList.Columns[8].Name = "Shift";
-                this.DGVEmployeeList.Columns[8].HeaderText = "Shift";
+                this.DGVEmployeeList.Columns[8].Name = "PositionAndShift";
+                this.DGVEmployeeList.Columns[8].HeaderText = "Position and Shift";
 
-                this.DGVEmployeeList.Columns[9].Name = "PositionName";
-                this.DGVEmployeeList.Columns[9].HeaderText = "Position";
+                //this.DGVEmployeeList.Columns[9].Name = "PositionName";
+                //this.DGVEmployeeList.Columns[9].HeaderText = "Position";
 
-                this.DGVEmployeeList.Columns[10].Name = "Status";
-                this.DGVEmployeeList.Columns[10].HeaderText = "Status";
+                this.DGVEmployeeList.Columns[9].Name = "Status";
+                this.DGVEmployeeList.Columns[9].HeaderText = "Status";
 
 
                 DataGridViewImageColumn btnViewDetailsImg = new DataGridViewImageColumn();
@@ -135,9 +135,19 @@ namespace Main.Forms.EmployeeManagementForms.Controls
                     row.Cells[5].Value = employee.EmailAddress;
                     row.Cells[6].Value = (employee.Branch != null) ? employee.Branch.BranchName : "";
                     row.Cells[7].Value = employee.DateHire.ToShortDateString();
-                    row.Cells[8].Value = employee.Shift.Shift;
-                    row.Cells[9].Value = (employee.Position != null) ? employee.Position.Title : "";
-                    row.Cells[10].Value = employee.IsQuit ? "RESIGNED" : "";
+                    if (employee.PositionShift.Count() > 0)
+                    {
+                        List<string> position = new List<string>();
+                        foreach (var item in employee.PositionShift.ToList())
+                        {
+                            position.Add($"{item.Position} - ({item.Shift})");
+                        }
+                        string positions = string.Join(", ", position.Select(x => x).ToList().ToArray());
+                        row.Cells[8].Value = positions;
+                    }
+                    //row.Cells[8].Value = employee.Shift.Shift;
+                    //row.Cells[9].Value = (employee.Position != null) ? employee.Position.Title : "";
+                    row.Cells[9].Value = employee.IsQuit ? "RESIGNED" : "";
                     //row.Cells[10].Value = employee.CreatedAt.ToShortDateString();
                     DGVEmployeeList.Rows.Add(row);
                 }
