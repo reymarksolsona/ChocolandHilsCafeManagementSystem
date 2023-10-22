@@ -16,8 +16,8 @@ namespace Main.Controllers.EmployeeManagementControllers.Validator
             RuleFor(x => x.Shift).NotEmpty();
             RuleFor(x => x.StartTime).NotEmpty();
             RuleFor(x => x.NumberOfHrs).NotEmpty().NotEqual(0);
-            RuleFor(x => x.BreakTime).NotEmpty();
-            RuleFor(x => x.BreakTimeHrs).NotEmpty().NotEqual(0);
+            //RuleFor(x => x.BreakTime).NotEmpty();
+            //RuleFor(x => x.BreakTimeHrs).NotEmpty().NotEqual(0);
 
             When(x => x.NumberOfHrs != 0 && x.StartTime != DateTime.MinValue, () => {
                 RuleFor(x => x.EndTime).NotEmpty();

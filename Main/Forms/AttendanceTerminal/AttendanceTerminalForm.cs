@@ -396,13 +396,13 @@ namespace Main.Forms.AttendanceTerminal
                                                                     //var culture = CultureInfo.CurrentCulture;
                                                                     //var workDateDayAbbr = culture.DateTimeFormat.GetAbbreviatedDayName(workDate.DayOfWeek);
 
-            var workforceSchedule = _workforceScheduleData.GetScheduleByEmpAndDate(empDetails.EmployeeNumber, todaysDateAndTime, positionShift.PositionId);
+            //var workforceSchedule = _workforceScheduleData.GetScheduleByEmpAndDate(empDetails.EmployeeNumber, todaysDateAndTime, positionShift.PositionId);
 
-            if (workforceSchedule == null)
-            {
-                MessageBox.Show("No workforce schedule specify in your account.", "Attendance", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            //if (workforceSchedule == null)
+            //{
+            //    MessageBox.Show("No workforce schedule specify in your account.", "Attendance", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}
 
             var todayAttendance = _employeeAttendanceData.GetEmployeeAttendanceByWorkDate(empDetails.EmployeeNumber, todaysDateAndTime);
             if (todayAttendance != null && this.RBtnTimeIN.Checked)
@@ -633,9 +633,9 @@ namespace Main.Forms.AttendanceTerminal
                             if (_employeeAttendanceData.Update(todayAttendance))
                             {
                                 DisplayConfirmationForm(true);
-                                workforceSchedule.isDone = true;
+                                //workforceSchedule.isDone = true;
 
-                                _workforceScheduleData.Update(workforceSchedule);
+                                //_workforceScheduleData.Update(workforceSchedule);
                             }
                             else
                             {
@@ -678,9 +678,9 @@ namespace Main.Forms.AttendanceTerminal
                             if (_employeeAttendanceData.Update(todayAttendance))
                             {
                                 DisplayConfirmationForm(true);
-                                workforceSchedule.isDone = true;
+                                //workforceSchedule.isDone = true;
 
-                                _workforceScheduleData.Update(workforceSchedule);
+                                //_workforceScheduleData.Update(workforceSchedule);
                             }
                             else
                             {
@@ -737,9 +737,9 @@ namespace Main.Forms.AttendanceTerminal
                                 if (_employeeAttendanceData.Update(todayAttendance))
                                 {
                                     DisplayConfirmationForm(true);
-                                    workforceSchedule.isDone = true;
+                                    //workforceSchedule.isDone = true;
 
-                                    _workforceScheduleData.Update(workforceSchedule);
+                                    //_workforceScheduleData.Update(workforceSchedule);
                                 }
                                 else
                                 {
@@ -783,9 +783,9 @@ namespace Main.Forms.AttendanceTerminal
                                 if (_employeeAttendanceData.Update(todayAttendance))
                                 {
                                     DisplayConfirmationForm(true);
-                                    workforceSchedule.isDone = true;
+                                    //workforceSchedule.isDone = true;
 
-                                    _workforceScheduleData.Update(workforceSchedule);
+                                    //_workforceScheduleData.Update(workforceSchedule);
                                 }
                                 else
                                 {
@@ -864,13 +864,13 @@ namespace Main.Forms.AttendanceTerminal
                 // use the specified time as time in/out time
                 DateTime todaysDateAndTime = attendanceTime;
 
-                var workforceSchedule = _workforceScheduleData.GetScheduleByEmpAndDate(empDetails.EmployeeNumber, todaysDateAndTime, positionShift.PositionId);
+                //var workforceSchedule = _workforceScheduleData.GetScheduleByEmpAndDate(empDetails.EmployeeNumber, todaysDateAndTime, positionShift.PositionId);
 
-                if (workforceSchedule == null)
-                {
-                    MessageBox.Show("No workforce schedule specify in your account.", "Attendance", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                //if (workforceSchedule == null)
+                //{
+                //    MessageBox.Show("No workforce schedule specify in your account.", "Attendance", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //    return;
+                //}
 
                 // retrieve the attendance record by the specified date
                 var todayAttendance = _employeeAttendanceData.GetEmployeeAttendanceByWorkDate(empDetails.EmployeeNumber, attendanceDate);
@@ -1202,9 +1202,9 @@ namespace Main.Forms.AttendanceTerminal
                             if (_employeeAttendanceData.Update(todayAttendance))
                             {
                                 DisplayConfirmationForm(true);
-                                workforceSchedule.isDone = true;
+                                //workforceSchedule.isDone = true;
 
-                                _workforceScheduleData.Update(workforceSchedule);
+                                //_workforceScheduleData.Update(workforceSchedule);
                             }
                             else
                             {
@@ -1248,9 +1248,9 @@ namespace Main.Forms.AttendanceTerminal
                             if (_employeeAttendanceData.Update(todayAttendance))
                             {
                                 DisplayConfirmationForm(true);
-                                workforceSchedule.isDone = true;
+                                //workforceSchedule.isDone = true;
 
-                                _workforceScheduleData.Update(workforceSchedule);
+                                //_workforceScheduleData.Update(workforceSchedule);
                             }
                             else
                             {
@@ -1310,9 +1310,9 @@ namespace Main.Forms.AttendanceTerminal
                                 if (_employeeAttendanceData.Update(todayAttendance))
                                 {
                                     DisplayConfirmationForm(true);
-                                    workforceSchedule.isDone = true;
+                                    //workforceSchedule.isDone = true;
 
-                                    _workforceScheduleData.Update(workforceSchedule);
+                                    //_workforceScheduleData.Update(workforceSchedule);
                                 }
                                 else
                                 {
@@ -1359,9 +1359,9 @@ namespace Main.Forms.AttendanceTerminal
                                 if (_employeeAttendanceData.Update(todayAttendance))
                                 {
                                     DisplayConfirmationForm(true);
-                                    workforceSchedule.isDone = true;
+                                    //workforceSchedule.isDone = true;
 
-                                    _workforceScheduleData.Update(workforceSchedule);
+                                    //_workforceScheduleData.Update(workforceSchedule);
                                 }
                                 else
                                 {

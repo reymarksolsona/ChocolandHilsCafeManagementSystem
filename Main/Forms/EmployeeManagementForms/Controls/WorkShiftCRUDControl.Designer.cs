@@ -58,6 +58,8 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             this.label9 = new System.Windows.Forms.Label();
             this.TboxShiftTitle = new System.Windows.Forms.TextBox();
             this.DGVWorkShifts = new System.Windows.Forms.DataGridView();
+            this.label8 = new System.Windows.Forms.Label();
+            this.endTime = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.GroupPanelShiftDays.SuspendLayout();
@@ -71,9 +73,10 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             this.panel1.Controls.Add(this.label2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
             this.panel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.panel1.Size = new System.Drawing.Size(1067, 94);
+            this.panel1.Size = new System.Drawing.Size(1524, 157);
             this.panel1.TabIndex = 4;
             // 
             // label2
@@ -81,9 +84,10 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(11, 36);
+            this.label2.Location = new System.Drawing.Point(16, 60);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 25);
+            this.label2.Size = new System.Drawing.Size(167, 40);
             this.label2.TabIndex = 43;
             this.label2.Text = "Work shifts";
             // 
@@ -91,14 +95,17 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             // 
             this.DTPickerShiftStartTime.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DTPickerShiftStartTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.DTPickerShiftStartTime.Location = new System.Drawing.Point(124, 58);
+            this.DTPickerShiftStartTime.Location = new System.Drawing.Point(177, 97);
+            this.DTPickerShiftStartTime.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DTPickerShiftStartTime.Name = "DTPickerShiftStartTime";
             this.DTPickerShiftStartTime.ShowUpDown = true;
-            this.DTPickerShiftStartTime.Size = new System.Drawing.Size(162, 29);
+            this.DTPickerShiftStartTime.Size = new System.Drawing.Size(230, 39);
             this.DTPickerShiftStartTime.TabIndex = 5;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.endTime);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.DTPickerLateTimeIn);
@@ -117,9 +124,11 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.TboxShiftTitle);
             this.groupBox1.Controls.Add(this.DTPickerShiftStartTime);
-            this.groupBox1.Location = new System.Drawing.Point(11, 117);
+            this.groupBox1.Location = new System.Drawing.Point(16, 195);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1037, 180);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox1.Size = new System.Drawing.Size(1481, 300);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add new";
@@ -129,9 +138,10 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(704, 62);
+            this.label6.Location = new System.Drawing.Point(1006, 103);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(97, 21);
+            this.label6.Size = new System.Drawing.Size(149, 32);
             this.label6.TabIndex = 56;
             this.label6.Text = "Late Time IN";
             this.label6.Visible = false;
@@ -141,9 +151,10 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(704, 26);
+            this.label3.Location = new System.Drawing.Point(1006, 43);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(117, 21);
+            this.label3.Size = new System.Drawing.Size(178, 32);
             this.label3.TabIndex = 54;
             this.label3.Text = "Early Time OUT";
             this.label3.Visible = false;
@@ -152,10 +163,11 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             // 
             this.DTPickerLateTimeIn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DTPickerLateTimeIn.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.DTPickerLateTimeIn.Location = new System.Drawing.Point(841, 59);
+            this.DTPickerLateTimeIn.Location = new System.Drawing.Point(1201, 98);
+            this.DTPickerLateTimeIn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DTPickerLateTimeIn.Name = "DTPickerLateTimeIn";
             this.DTPickerLateTimeIn.ShowUpDown = true;
-            this.DTPickerLateTimeIn.Size = new System.Drawing.Size(162, 29);
+            this.DTPickerLateTimeIn.Size = new System.Drawing.Size(230, 39);
             this.DTPickerLateTimeIn.TabIndex = 55;
             this.DTPickerLateTimeIn.Visible = false;
             // 
@@ -163,10 +175,11 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             // 
             this.DTPickerEarlyTimeOut.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DTPickerEarlyTimeOut.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.DTPickerEarlyTimeOut.Location = new System.Drawing.Point(841, 21);
+            this.DTPickerEarlyTimeOut.Location = new System.Drawing.Point(1201, 35);
+            this.DTPickerEarlyTimeOut.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DTPickerEarlyTimeOut.Name = "DTPickerEarlyTimeOut";
             this.DTPickerEarlyTimeOut.ShowUpDown = true;
-            this.DTPickerEarlyTimeOut.Size = new System.Drawing.Size(162, 29);
+            this.DTPickerEarlyTimeOut.Size = new System.Drawing.Size(230, 39);
             this.DTPickerEarlyTimeOut.TabIndex = 53;
             this.DTPickerEarlyTimeOut.Visible = false;
             // 
@@ -179,9 +192,11 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             this.GroupPanelShiftDays.Controls.Add(this.CBoxWednesday);
             this.GroupPanelShiftDays.Controls.Add(this.CBoxMonday);
             this.GroupPanelShiftDays.Controls.Add(this.CBoxTuesday);
-            this.GroupPanelShiftDays.Location = new System.Drawing.Point(361, 103);
+            this.GroupPanelShiftDays.Location = new System.Drawing.Point(516, 172);
+            this.GroupPanelShiftDays.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.GroupPanelShiftDays.Name = "GroupPanelShiftDays";
-            this.GroupPanelShiftDays.Size = new System.Drawing.Size(380, 61);
+            this.GroupPanelShiftDays.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.GroupPanelShiftDays.Size = new System.Drawing.Size(543, 102);
             this.GroupPanelShiftDays.TabIndex = 52;
             this.GroupPanelShiftDays.TabStop = false;
             this.GroupPanelShiftDays.Text = "Choose days";
@@ -189,9 +204,10 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             // CBoxSunday
             // 
             this.CBoxSunday.AutoSize = true;
-            this.CBoxSunday.Location = new System.Drawing.Point(318, 32);
+            this.CBoxSunday.Location = new System.Drawing.Point(454, 53);
+            this.CBoxSunday.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CBoxSunday.Name = "CBoxSunday";
-            this.CBoxSunday.Size = new System.Drawing.Size(46, 19);
+            this.CBoxSunday.Size = new System.Drawing.Size(68, 29);
             this.CBoxSunday.TabIndex = 56;
             this.CBoxSunday.Tag = "Sun-7";
             this.CBoxSunday.Text = "Sun";
@@ -200,9 +216,10 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             // CBoxSaturday
             // 
             this.CBoxSaturday.AutoSize = true;
-            this.CBoxSaturday.Location = new System.Drawing.Point(270, 32);
+            this.CBoxSaturday.Location = new System.Drawing.Point(386, 53);
+            this.CBoxSaturday.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CBoxSaturday.Name = "CBoxSaturday";
-            this.CBoxSaturday.Size = new System.Drawing.Size(42, 19);
+            this.CBoxSaturday.Size = new System.Drawing.Size(63, 29);
             this.CBoxSaturday.TabIndex = 55;
             this.CBoxSaturday.Tag = "Sat-6";
             this.CBoxSaturday.Text = "Sat";
@@ -211,9 +228,10 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             // CBoxFriday
             // 
             this.CBoxFriday.AutoSize = true;
-            this.CBoxFriday.Location = new System.Drawing.Point(225, 32);
+            this.CBoxFriday.Location = new System.Drawing.Point(321, 53);
+            this.CBoxFriday.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CBoxFriday.Name = "CBoxFriday";
-            this.CBoxFriday.Size = new System.Drawing.Size(39, 19);
+            this.CBoxFriday.Size = new System.Drawing.Size(57, 29);
             this.CBoxFriday.TabIndex = 54;
             this.CBoxFriday.Tag = "Fri-5";
             this.CBoxFriday.Text = "Fri";
@@ -222,9 +240,10 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             // CBoxThursday
             // 
             this.CBoxThursday.AutoSize = true;
-            this.CBoxThursday.Location = new System.Drawing.Point(173, 32);
+            this.CBoxThursday.Location = new System.Drawing.Point(247, 53);
+            this.CBoxThursday.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CBoxThursday.Name = "CBoxThursday";
-            this.CBoxThursday.Size = new System.Drawing.Size(46, 19);
+            this.CBoxThursday.Size = new System.Drawing.Size(67, 29);
             this.CBoxThursday.TabIndex = 53;
             this.CBoxThursday.Tag = "Thu-4";
             this.CBoxThursday.Text = "Thu";
@@ -233,9 +252,10 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             // CBoxWednesday
             // 
             this.CBoxWednesday.AutoSize = true;
-            this.CBoxWednesday.Location = new System.Drawing.Point(117, 32);
+            this.CBoxWednesday.Location = new System.Drawing.Point(167, 53);
+            this.CBoxWednesday.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CBoxWednesday.Name = "CBoxWednesday";
-            this.CBoxWednesday.Size = new System.Drawing.Size(50, 19);
+            this.CBoxWednesday.Size = new System.Drawing.Size(74, 29);
             this.CBoxWednesday.TabIndex = 52;
             this.CBoxWednesday.Tag = "Wed-3";
             this.CBoxWednesday.Text = "Wed";
@@ -244,9 +264,10 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             // CBoxMonday
             // 
             this.CBoxMonday.AutoSize = true;
-            this.CBoxMonday.Location = new System.Drawing.Point(9, 32);
+            this.CBoxMonday.Location = new System.Drawing.Point(13, 53);
+            this.CBoxMonday.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CBoxMonday.Name = "CBoxMonday";
-            this.CBoxMonday.Size = new System.Drawing.Size(51, 19);
+            this.CBoxMonday.Size = new System.Drawing.Size(75, 29);
             this.CBoxMonday.TabIndex = 50;
             this.CBoxMonday.Tag = "Mon-1";
             this.CBoxMonday.Text = "Mon";
@@ -255,9 +276,10 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             // CBoxTuesday
             // 
             this.CBoxTuesday.AutoSize = true;
-            this.CBoxTuesday.Location = new System.Drawing.Point(66, 32);
+            this.CBoxTuesday.Location = new System.Drawing.Point(94, 53);
+            this.CBoxTuesday.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CBoxTuesday.Name = "CBoxTuesday";
-            this.CBoxTuesday.Size = new System.Drawing.Size(45, 19);
+            this.CBoxTuesday.Size = new System.Drawing.Size(66, 29);
             this.CBoxTuesday.TabIndex = 51;
             this.CBoxTuesday.Tag = "Tue-2";
             this.CBoxTuesday.Text = "Tue";
@@ -267,26 +289,31 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             // 
             this.TboxShiftNumberOfHrs.DecimalPlaces = 2;
             this.TboxShiftNumberOfHrs.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TboxShiftNumberOfHrs.Location = new System.Drawing.Point(124, 97);
+            this.TboxShiftNumberOfHrs.Location = new System.Drawing.Point(177, 261);
+            this.TboxShiftNumberOfHrs.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TboxShiftNumberOfHrs.Name = "TboxShiftNumberOfHrs";
-            this.TboxShiftNumberOfHrs.Size = new System.Drawing.Size(162, 29);
+            this.TboxShiftNumberOfHrs.Size = new System.Drawing.Size(231, 39);
             this.TboxShiftNumberOfHrs.TabIndex = 8;
+            this.TboxShiftNumberOfHrs.Visible = false;
             // 
             // CBoxBreakTimes
             // 
             this.CBoxBreakTimes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CBoxBreakTimes.Location = new System.Drawing.Point(502, 59);
+            this.CBoxBreakTimes.Location = new System.Drawing.Point(717, 98);
+            this.CBoxBreakTimes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CBoxBreakTimes.Name = "CBoxBreakTimes";
-            this.CBoxBreakTimes.Size = new System.Drawing.Size(162, 29);
+            this.CBoxBreakTimes.Size = new System.Drawing.Size(230, 40);
             this.CBoxBreakTimes.TabIndex = 8;
+            this.CBoxBreakTimes.Visible = false;
             // 
             // CboxDisable
             // 
             this.CboxDisable.AutoSize = true;
             this.CboxDisable.ForeColor = System.Drawing.Color.Black;
-            this.CboxDisable.Location = new System.Drawing.Point(763, 97);
+            this.CboxDisable.Location = new System.Drawing.Point(1090, 162);
+            this.CboxDisable.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CboxDisable.Name = "CboxDisable";
-            this.CboxDisable.Size = new System.Drawing.Size(64, 19);
+            this.CboxDisable.Size = new System.Drawing.Size(96, 29);
             this.CboxDisable.TabIndex = 49;
             this.CboxDisable.Text = "Disable";
             this.CboxDisable.UseVisualStyleBackColor = true;
@@ -299,9 +326,10 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             this.BtnCancelUpdate.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BtnCancelUpdate.ForeColor = System.Drawing.Color.White;
             this.BtnCancelUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCancelUpdate.Location = new System.Drawing.Point(763, 116);
+            this.BtnCancelUpdate.Location = new System.Drawing.Point(1090, 193);
+            this.BtnCancelUpdate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnCancelUpdate.Name = "BtnCancelUpdate";
-            this.BtnCancelUpdate.Size = new System.Drawing.Size(115, 47);
+            this.BtnCancelUpdate.Size = new System.Drawing.Size(164, 78);
             this.BtnCancelUpdate.TabIndex = 48;
             this.BtnCancelUpdate.Text = "Cancel";
             this.BtnCancelUpdate.UseVisualStyleBackColor = false;
@@ -313,11 +341,13 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(20, 103);
+            this.label4.Location = new System.Drawing.Point(29, 271);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(70, 21);
+            this.label4.Size = new System.Drawing.Size(105, 32);
             this.label4.TabIndex = 31;
             this.label4.Text = "Shift Hrs";
+            this.label4.Visible = false;
             // 
             // BtnSaveWorkShift
             // 
@@ -326,9 +356,10 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             this.BtnSaveWorkShift.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BtnSaveWorkShift.ForeColor = System.Drawing.Color.White;
             this.BtnSaveWorkShift.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnSaveWorkShift.Location = new System.Drawing.Point(888, 116);
+            this.BtnSaveWorkShift.Location = new System.Drawing.Point(1269, 193);
+            this.BtnSaveWorkShift.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnSaveWorkShift.Name = "BtnSaveWorkShift";
-            this.BtnSaveWorkShift.Size = new System.Drawing.Size(115, 47);
+            this.BtnSaveWorkShift.Size = new System.Drawing.Size(164, 78);
             this.BtnSaveWorkShift.TabIndex = 47;
             this.BtnSaveWorkShift.Text = "Save";
             this.BtnSaveWorkShift.UseVisualStyleBackColor = false;
@@ -339,41 +370,48 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(361, 67);
+            this.label7.Location = new System.Drawing.Point(516, 112);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(126, 21);
+            this.label7.Size = new System.Drawing.Size(191, 32);
             this.label7.TabIndex = 35;
             this.label7.Text = "Breaktime Hours";
+            this.label7.Visible = false;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(361, 29);
+            this.label5.Location = new System.Drawing.Point(516, 48);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 21);
+            this.label5.Size = new System.Drawing.Size(121, 32);
             this.label5.TabIndex = 33;
             this.label5.Text = "Breaktime";
+            this.label5.Visible = false;
             // 
             // DTPickerShiftBreaktime
             // 
             this.DTPickerShiftBreaktime.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DTPickerShiftBreaktime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.DTPickerShiftBreaktime.Location = new System.Drawing.Point(502, 23);
+            this.DTPickerShiftBreaktime.Location = new System.Drawing.Point(717, 38);
+            this.DTPickerShiftBreaktime.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DTPickerShiftBreaktime.Name = "DTPickerShiftBreaktime";
             this.DTPickerShiftBreaktime.ShowUpDown = true;
-            this.DTPickerShiftBreaktime.Size = new System.Drawing.Size(162, 29);
+            this.DTPickerShiftBreaktime.Size = new System.Drawing.Size(230, 39);
             this.DTPickerShiftBreaktime.TabIndex = 32;
+            this.DTPickerShiftBreaktime.Visible = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(20, 67);
+            this.label1.Location = new System.Drawing.Point(29, 112);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 21);
+            this.label1.Size = new System.Drawing.Size(117, 32);
             this.label1.TabIndex = 27;
             this.label1.Text = "Start time";
             // 
@@ -382,18 +420,20 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(20, 33);
+            this.label9.Location = new System.Drawing.Point(29, 55);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(42, 21);
+            this.label9.Size = new System.Drawing.Size(63, 32);
             this.label9.TabIndex = 26;
             this.label9.Text = "Shift";
             // 
             // TboxShiftTitle
             // 
             this.TboxShiftTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TboxShiftTitle.Location = new System.Drawing.Point(124, 23);
+            this.TboxShiftTitle.Location = new System.Drawing.Point(177, 38);
+            this.TboxShiftTitle.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TboxShiftTitle.Name = "TboxShiftTitle";
-            this.TboxShiftTitle.Size = new System.Drawing.Size(217, 29);
+            this.TboxShiftTitle.Size = new System.Drawing.Size(308, 39);
             this.TboxShiftTitle.TabIndex = 6;
             // 
             // DGVWorkShifts
@@ -401,24 +441,50 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             this.DGVWorkShifts.AllowUserToAddRows = false;
             this.DGVWorkShifts.AllowUserToDeleteRows = false;
             this.DGVWorkShifts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGVWorkShifts.Location = new System.Drawing.Point(11, 303);
+            this.DGVWorkShifts.Location = new System.Drawing.Point(16, 505);
+            this.DGVWorkShifts.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DGVWorkShifts.Name = "DGVWorkShifts";
             this.DGVWorkShifts.ReadOnly = true;
+            this.DGVWorkShifts.RowHeadersWidth = 62;
             this.DGVWorkShifts.RowTemplate.Height = 25;
-            this.DGVWorkShifts.Size = new System.Drawing.Size(1037, 201);
+            this.DGVWorkShifts.Size = new System.Drawing.Size(1481, 335);
             this.DGVWorkShifts.TabIndex = 7;
             this.DGVWorkShifts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVWorkShifts_CellClick);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(29, 167);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(109, 32);
+            this.label8.TabIndex = 58;
+            this.label8.Text = "End time";
+            // 
+            // endTime
+            // 
+            this.endTime.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.endTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.endTime.Location = new System.Drawing.Point(178, 162);
+            this.endTime.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.endTime.Name = "endTime";
+            this.endTime.ShowUpDown = true;
+            this.endTime.Size = new System.Drawing.Size(230, 39);
+            this.endTime.TabIndex = 57;
+            // 
             // WorkShiftCRUDControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.DGVWorkShifts);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "WorkShiftCRUDControl";
-            this.Size = new System.Drawing.Size(1067, 524);
+            this.Size = new System.Drawing.Size(1524, 873);
             this.Load += new System.EventHandler(this.WorkShiftCRUDControl_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -463,5 +529,7 @@ namespace Main.Forms.EmployeeManagementForms.Controls
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker DTPickerEarlyTimeOut;
         private System.Windows.Forms.DateTimePicker DTPickerLateTimeIn;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DateTimePicker endTime;
     }
 }

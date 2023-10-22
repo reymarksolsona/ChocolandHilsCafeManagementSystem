@@ -182,9 +182,10 @@ namespace Main.Forms.EmployeeManagementForms.Controls
                 this.DTPickerShiftStartTime.Value = this.EmployeeShiftToAddUpdate.StartTime; //this.ConvertStringTimeToDateTimeVal(this.EmployeeShiftToAddUpdate.StartTime);
                 //this.DTPickerShiftEndTime.Value = this.EmployeeShiftToAddUpdate.EndTime;//this.ConvertStringTimeToDateTimeVal(this.EmployeeShiftToAddUpdate.EndTime);
                 this.TboxShiftNumberOfHrs.Text = this.EmployeeShiftToAddUpdate.NumberOfHrs.ToString();
-                this.DTPickerShiftBreaktime.Value = this.EmployeeShiftToAddUpdate.BreakTime;//this.ConvertStringTimeToDateTimeVal(this.EmployeeShiftToAddUpdate.BreakTime);
+                //this.DTPickerShiftBreaktime.Value = this.EmployeeShiftToAddUpdate.BreakTime;//this.ConvertStringTimeToDateTimeVal(this.EmployeeShiftToAddUpdate.BreakTime);
                 this.DTPickerEarlyTimeOut.Value = this.EmployeeShiftToAddUpdate.EarlyTimeOut;
                 this.DTPickerLateTimeIn.Value = this.EmployeeShiftToAddUpdate.LateTimeIn;
+                this.endTime.Value = this.EmployeeShiftToAddUpdate.EndTime;
 
                 int index = BreakTimeHrsItems.FindIndex(a => (decimal)a.Value == this.EmployeeShiftToAddUpdate.BreakTimeHrs);
                 this.CBoxBreakTimes.SelectedIndex = index;
@@ -324,8 +325,12 @@ namespace Main.Forms.EmployeeManagementForms.Controls
         {
             var shiftStartTime = this.DTPickerShiftStartTime.Value;
             decimal breakTimeHrs = GetHrInSelectedBreakTimeHrs();
-            decimal numberOfHrs = this.TboxShiftNumberOfHrs.Value;
-
+            var timeDiff = TimeSpan.Parse(this.endTime.Value.Subtract(shiftStartTime).ToString());
+            decimal numberOfHrs = (decimal)Math.Abs(timeDiff.TotalHours);
+            var diff = (this.endTime.Value - shiftStartTime).TotalHours;
+            var additionalHrs = (12 - (diff * -1));
+            var totalNumberOfHrs = diff > 0 ? diff : 12 + additionalHrs;
+            numberOfHrs = (decimal)totalNumberOfHrs;
             decimal wholeWorkingHrs = numberOfHrs + breakTimeHrs;
 
             decimal wholePartFrmHr = decimal.Truncate(wholeWorkingHrs); // include hrs from breaktime
@@ -343,10 +348,10 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             {
                 Shift = this.TboxShiftTitle.Text,
                 StartTime = DateTime.Parse(this.DTPickerShiftStartTime.Value.ToString("HH:mm:ss", CultureInfo.CurrentCulture)),
-                EndTime = DateTime.Parse(shiftEndTime.ToString("HH:mm:ss", CultureInfo.CurrentCulture)),
+                EndTime = DateTime.Parse(this.endTime.Value.ToString("HH:mm:ss", CultureInfo.CurrentCulture)),
                 NumberOfHrs = numberOfHrs,
-                BreakTime = breaktime,
-                BreakTimeHrs = breakTimeHrs,
+                //BreakTime = breaktime,
+                //BreakTimeHrs = breakTimeHrs,
                 //EarlyTimeOut = DateTime.Parse(this.DTPickerEarlyTimeOut.Value.ToString("HH:mm:ss", CultureInfo.CurrentCulture)),
                 //LateTimeIn = DateTime.Parse(this.DTPickerLateTimeIn.Value.ToString("HH:mm:ss", CultureInfo.CurrentCulture)),
                 EarlyTimeOut = breaktime,
@@ -407,7 +412,7 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             this.DGVWorkShifts.Rows.Clear();
             if (this.EmployeeShifts != null)
             {
-                this.DGVWorkShifts.ColumnCount = 9;
+                this.DGVWorkShifts.ColumnCount = 7;
 
                 this.DGVWorkShifts.Columns[0].Name = "ShiftId";
                 this.DGVWorkShifts.Columns[0].Visible = false;
@@ -421,20 +426,20 @@ namespace Main.Forms.EmployeeManagementForms.Controls
                 this.DGVWorkShifts.Columns[3].Name = "End";
                 this.DGVWorkShifts.Columns[3].Visible = true;
 
-                this.DGVWorkShifts.Columns[4].Name = "Breaktime";
+                //this.DGVWorkShifts.Columns[4].Name = "Breaktime";
+                //this.DGVWorkShifts.Columns[4].Visible = true;
+
+                //this.DGVWorkShifts.Columns[5].Name = "Breaktime Hrs";
+                //this.DGVWorkShifts.Columns[5].Visible = true;
+
+                this.DGVWorkShifts.Columns[4].Name = "Shift Hrs";
                 this.DGVWorkShifts.Columns[4].Visible = true;
 
-                this.DGVWorkShifts.Columns[5].Name = "Breaktime Hrs";
+                this.DGVWorkShifts.Columns[5].Name = "Early Time-OUT";
                 this.DGVWorkShifts.Columns[5].Visible = true;
 
-                this.DGVWorkShifts.Columns[6].Name = "Shift Hrs";
+                this.DGVWorkShifts.Columns[6].Name = "Late Time-IN";
                 this.DGVWorkShifts.Columns[6].Visible = true;
-
-                this.DGVWorkShifts.Columns[7].Name = "Early Time-OUT";
-                this.DGVWorkShifts.Columns[7].Visible = true;
-
-                this.DGVWorkShifts.Columns[8].Name = "Late Time-IN";
-                this.DGVWorkShifts.Columns[8].Visible = true;
 
                 // Update button
                 DataGridViewImageColumn btnUpdateImg = new DataGridViewImageColumn();
@@ -464,11 +469,11 @@ namespace Main.Forms.EmployeeManagementForms.Controls
                     row.Cells[1].Value = shift.Shift;
                     row.Cells[2].Value = shift.StartTime.ToString("hh:mm:ss tt", CultureInfo.CurrentCulture);
                     row.Cells[3].Value = shift.EndTime.ToString("hh:mm:ss tt", CultureInfo.CurrentCulture);
-                    row.Cells[4].Value = shift.BreakTime.ToString("hh:mm:ss tt", CultureInfo.CurrentCulture);
-                    row.Cells[5].Value = shift.BreakTimeHrs.ToString();
-                    row.Cells[6].Value = shift.NumberOfHrs.ToString();
-                    row.Cells[7].Value = shift.EarlyTimeOut.ToString("hh:mm:ss tt", CultureInfo.CurrentCulture);
-                    row.Cells[8].Value = shift.LateTimeIn.ToString("hh:mm:ss tt", CultureInfo.CurrentCulture);
+                    //row.Cells[4].Value = shift.BreakTime.ToString("hh:mm:ss tt", CultureInfo.CurrentCulture);
+                    //row.Cells[5].Value = shift.BreakTimeHrs.ToString();
+                    row.Cells[4].Value = shift.NumberOfHrs.ToString();
+                    row.Cells[5].Value = shift.LateTimeIn.ToString("hh:mm:ss tt", CultureInfo.CurrentCulture);
+                    row.Cells[6].Value = shift.EarlyTimeOut.ToString("hh:mm:ss tt", CultureInfo.CurrentCulture);
                     this.DGVWorkShifts.Rows.Add(row);
                 }
             }
@@ -477,7 +482,7 @@ namespace Main.Forms.EmployeeManagementForms.Controls
         private void DGVWorkShifts_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Update button
-            if (e.RowIndex > -1 && (e.ColumnIndex == 9))
+            if (e.RowIndex > -1 && (e.ColumnIndex == 7))
             {
                 if (DGVWorkShifts.CurrentRow != null)
                 {
@@ -492,7 +497,7 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             }
 
             // Delete button
-            if (e.RowIndex > -1 && (e.ColumnIndex == 10))
+            if (e.RowIndex > -1 && (e.ColumnIndex == 8))
             {
                 if (DGVWorkShifts.CurrentRow != null)
                 {
