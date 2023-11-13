@@ -377,8 +377,14 @@ namespace Main.Forms.AttendanceTerminal
 
             var shiftDetails = _employeeShiftData.GetById(positionShift.ShiftId);
             var shiftDays = shiftDetails.ShiftDays;
-
+            string dayToday = DateTime.Now.DayOfWeek.ToString().Substring(0, 3);
             string workingDays = string.Join(", ", shiftDays.Select(x => x.DayName).ToList().ToArray());
+            bool isValidDate = shiftDays.Where(x => dayToday.Contains(x.DayName)).Any();
+            if (!isValidDate)
+            {
+                MessageBox.Show("Shift is invalid. Please check your working days.", "Attendance", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             this.LblCurrentEmployeeSchedule.Text = $"{shiftDetails.Shift} (from {shiftDetails.StartTime.ToShortTimeString()} to {shiftDetails.EndTime.ToShortTimeString()}) \nDays: {workingDays}";
 
             // we need to get the schedule time and align them on today's date and time
