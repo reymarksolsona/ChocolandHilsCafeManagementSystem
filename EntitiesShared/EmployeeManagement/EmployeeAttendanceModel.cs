@@ -145,13 +145,13 @@ namespace EntitiesShared.EmployeeManagement
             set { overTimeMins = value; }
         }
 
+        private decimal totalHrs;
+
         [Write(false)]
-        [Computed]
         public decimal TotalHrs { // in minutes
-            get
-            {
-                return this.FirstHalfHrs + this.SecondHalfHrs;
-            }
+
+            get { return totalHrs; }
+            set { totalHrs = value; }
         }
 
         [Write(false)]
