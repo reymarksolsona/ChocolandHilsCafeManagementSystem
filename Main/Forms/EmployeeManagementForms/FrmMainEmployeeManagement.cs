@@ -11,8 +11,10 @@ using DataAccess.Data.EmployeeManagement.Contracts;
 using DataAccess.Data.OtherDataManagement.Contracts;
 using DataAccess.Data.PayrollManagement.Contracts;
 using EntitiesShared.EmployeeManagement;
+using EntitiesShared.UserManagement.Model;
 using Main.Controllers.EmployeeManagementControllers.ControllerInterface;
 using Main.Controllers.OtherDataController.ControllerInterface;
+using Main.Controllers.UserManagementControllers;
 using Main.Forms.EmployeeManagementForms.Controls;
 using Main.Forms.EmployeeManagementForms.OtherForms;
 using Microsoft.Extensions.Logging;
@@ -56,6 +58,7 @@ namespace Main.Forms.EmployeeManagementForms
         private readonly IAttendancePDFReport _attendancePDFReport;
         private readonly INumberOfWorkingDaysInAMonthData _numberOfWorkingDaysInAMonthData;
         private readonly IEmployeePayslipPDFReport _employeePayslipPDFReport;
+        private readonly IUserController _userController;
 
         public FrmMainEmployeeManagement(ILogger<FrmMainEmployeeManagement> logger,
                                     Sessions sessions,
@@ -86,7 +89,8 @@ namespace Main.Forms.EmployeeManagementForms
                                 IEmployeePositionData employeePositionData,
                                  IAttendancePDFReport attendancePDFReport,
                                  INumberOfWorkingDaysInAMonthData numberOfWorkingDaysInAMonthData,
-                                 IEmployeePayslipPDFReport employeePayslipPDFReport)
+                                 IEmployeePayslipPDFReport employeePayslipPDFReport,
+                                 IUserController userController)
         {
             InitializeComponent();
             _logger = logger;
@@ -119,6 +123,7 @@ namespace Main.Forms.EmployeeManagementForms
             _attendancePDFReport = attendancePDFReport;
             _numberOfWorkingDaysInAMonthData = numberOfWorkingDaysInAMonthData;
             _employeePayslipPDFReport = employeePayslipPDFReport;
+            _userController = userController;
         }
 
         private void EmployeeMenuItemsMenuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -252,6 +257,29 @@ namespace Main.Forms.EmployeeManagementForms
                 string imageFileName = employeeCRUDControlObj.UploadEmployeeImage(saveResults.Data.Employee.EmployeeNumber);
 
                 _employeeController.SaveEmployeeImageFileName(saveResults.Data.Employee.EmployeeNumber, imageFileName);
+
+                UserRole role = UserRole.normal;
+
+                var userToAdd = new UserAddUpdateModel
+                {
+                    UserName = employeeCRUDControlObj.Employee.EmployeeNumber,
+                    FullName = employeeCRUDControlObj.Employee.FullName,
+                    Password = employeeCRUDControlObj.Employee.FirstName,
+                    IsActive = false,
+                    Role = role
+                };
+
+                var user = _userController.Save(userToAdd, true);
+                if (user.IsSuccess)
+                {
+                    string userResultMessages = "";
+                    foreach (var msg in user.Messages)
+                    {
+                        userResultMessages += msg + "\n";
+                    }
+
+                    MessageBox.Show($"{userResultMessages}", "Saved user details", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
 
                 employeeCRUDControlObj.ClearForm();
 
