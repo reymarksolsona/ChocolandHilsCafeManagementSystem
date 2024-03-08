@@ -105,7 +105,7 @@ namespace Main.Forms.InventoryManagementForms
             }
         }
 
-        public void DisplayIgredientInventoryControl()
+        public void DisplayIgredientInventoryControl(bool moveToExpireTab = false)
         {
             this.PanelMainContainer.Controls.Clear();
             var inventoryControlObj = new IngredientInventoryControl(_uOMConverter, _otherSettings);
@@ -140,10 +140,18 @@ namespace Main.Forms.InventoryManagementForms
             DateTime startDate = DateTime.Now;
             DateTime endDate = startDate.AddDays(_otherSettings.NumDaysNotifyUserForInventoryExpDate);
             inventoryControlObj.InventoriesNearOnExpirationDate = _ingredientInventoryData.GetAllByExpirationDateRange(startDate, endDate);
-
             inventoryControlObj.FilterInventoryByExpirationDate += HandleFilterInventoryByExpirationDate;
 
             this.PanelMainContainer.Controls.Add(inventoryControlObj);
+            if (moveToExpireTab)
+            {
+                inventoryControlObj.MoveToExpiredListTab();
+            }
+        }
+
+        public void DisplayIgredientInventoryControlAndMoveToExpireTab()
+        {
+            DisplayIgredientInventoryControl(true);
         }
 
         private void HandleIngredientCalculateProductsCanMake(object sender, EventArgs e)

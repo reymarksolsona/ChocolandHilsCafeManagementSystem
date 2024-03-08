@@ -149,6 +149,11 @@ namespace Main.Forms.EmployeeManagementForms
             }
         }
 
+        public void showEmpList(string empNumber)
+        {
+            DisplayAddUpdateEmployeeUserControl(empNumber);
+        }
+
         private void PayrollMenuItems_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             ToolStripItem clickedItem = e.ClickedItem;
@@ -211,6 +216,7 @@ namespace Main.Forms.EmployeeManagementForms
                 controlToDisplay.UpdateEmployeeDetails();
                 controlToDisplay.TbxEmployeeNumber.Text = defaultEmployeeNum;
                 controlToDisplay.EmployeeNumber = defaultEmployeeNum;
+                controlToDisplay.MoveToLeaveRequestTab();
                 //controlToDisplay.EmployeeNumber = defaultEmployeeNum;
             }
 
@@ -498,7 +504,6 @@ namespace Main.Forms.EmployeeManagementForms
             employeeListControlObj.Dock = DockStyle.Fill;
             //userControlToDisplay.Location = new Point(this.ClientSize.Width / 2 - userControlToDisplay.Size.Width / 2, this.ClientSize.Height / 2 - userControlToDisplay.Size.Height / 2);
             //userControlToDisplay.Anchor = AnchorStyles.None;
-
             employeeListControlObj.Employees = this._employeeController.GetAll().Data;
             employeeListControlObj.DisplayEmployeeList();
 

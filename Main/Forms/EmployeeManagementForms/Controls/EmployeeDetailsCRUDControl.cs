@@ -685,6 +685,12 @@ namespace Main.Forms.EmployeeManagementForms.Controls
                              TabControlSaveEmployeeDetails.SelectedIndex + 1 : TabControlSaveEmployeeDetails.SelectedIndex;
         }
 
+        public void MoveToLeaveRequestTab()
+        {
+            TabControlSaveEmployeeDetails.SelectedIndex = 6;
+            tabControl1.SelectedIndex = 2;
+        }
+
         private void BtnActionAddNewEmployee_Click(object sender, EventArgs e)
         {
             this.ClearForm();
@@ -779,6 +785,8 @@ namespace Main.Forms.EmployeeManagementForms.Controls
                             EmployeeGovtIdCards.Add(tmpEmployeeGovtIdCard);
                         }
                     }
+                    this.TboxEmpIdNumber.Text = "";
+                    this.CboxGovtAgencies.SelectedIndex = -1;
 
                     DisplayEmployeeGovtIds();
                 }
@@ -807,6 +815,9 @@ namespace Main.Forms.EmployeeManagementForms.Controls
                             addedNewGovtId.EmployeeGovtIdCard.DeletedAt = DateTime.Now;
                         }
                     }
+
+                    this.TboxEmpIdNumber.Text = "";
+                    this.CboxGovtAgencies.SelectedIndex = -1;
 
                     this.DisplayEmployeeGovtIds();
                 }

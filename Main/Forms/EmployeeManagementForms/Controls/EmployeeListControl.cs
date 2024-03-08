@@ -167,6 +167,17 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             }
         }
 
+        public void SimulateCellClick(int rowIndex, int columnIndex)
+        {
+            // Make sure the given row index is within the valid range
+            if (columnIndex == 11)
+            {
+                // Raise the CellClick event programmatically
+                DataGridViewCellEventArgs args = new DataGridViewCellEventArgs(columnIndex, rowIndex);
+                DGVEmployees_CellClick(DGVEmployeeList, args);
+            }
+        }
+
         private void DGVEmployees_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 11 && e.RowIndex > -1)

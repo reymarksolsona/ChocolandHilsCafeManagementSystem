@@ -141,12 +141,6 @@ namespace Main.Forms.RequestsForm.Controls
 
         private void Approval(StaticData.EmployeeRequestApprovalStatus status)
         {
-            if (string.IsNullOrEmpty(this.TboxAdminRemarks.Text))
-            {
-                MessageBox.Show("Please input remarks", "Approval", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
             this.ApprovalStatus = status;
             this.AdminRemarks = this.TboxAdminRemarks.Text;
             this.CashReleaseDate = this.DPicCashReleaseDate.Value;

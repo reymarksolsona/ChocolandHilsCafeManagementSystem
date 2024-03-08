@@ -75,13 +75,23 @@ namespace Main.Forms.AttendanceTerminal
             {
                 ComboboxItem positionShift;
                 this.CBoxPositions.Items.Clear();
+                string currentDayName = DateTime.Now.DayOfWeek.ToString().Substring(0, 3);
+                string currentRole = "";
                 foreach (var position in empDetails.PositionShift)
                 {
                     positionShift = new ComboboxItem();
                     positionShift.Text = $"{position.Position} - {position.Shift}";
                     positionShift.Value = (int)position.Id;
                     this.CBoxPositions.Items.Add(positionShift);
+                    var workingDays = position.WorkingDays.ToList();
+                    bool isCurrentRole = workingDays.Any(x => x.DayName.Equals(currentDayName));
+                    if (isCurrentRole)
+                    {
+                        currentRole = position.Position;
+                    }
                 }
+
+                this.LblCurrentRole.Text = $"Role: {currentRole}";
             }
         }
 
@@ -843,7 +853,7 @@ namespace Main.Forms.AttendanceTerminal
             {
                 e.Handled = true;
 
-                TimeInAndOutTransaction(TBoxCurrentEmployeeNumber.Text);
+                //TimeInAndOutTransaction(TBoxCurrentEmployeeNumber.Text);
             }
         }
 
@@ -1417,6 +1427,27 @@ namespace Main.Forms.AttendanceTerminal
             else
             {
                 MessageBox.Show("Employee details not found!", "Searching employee details", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void BtnTimeIn_Click(object sender, EventArgs e)
+        {
+            TimeInAndOutTransaction(TBoxCurrentEmployeeNumber.Text);
+        }
+
+        private void RBtnTimeIN_CheckedChanged(object sender, EventArgs e)
+        {
+            if (RBtnTimeIN.Checked)
+            {
+                BtnTimeIn.Text = "Time-In";
+            }
+        }
+
+        private void RBtnTimeOUT_CheckedChanged(object sender, EventArgs e)
+        {
+            if (RBtnTimeOUT.Checked)
+            {
+                BtnTimeIn.Text = "Time-Out";
             }
         }
     }

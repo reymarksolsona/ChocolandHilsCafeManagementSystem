@@ -31,6 +31,7 @@ namespace Main.Forms.AttendanceTerminal
         {
             this.components = new System.ComponentModel.Container();
             this.panelSecondaryBanner = new System.Windows.Forms.Panel();
+            this.LblCurrentRole = new System.Windows.Forms.Label();
             this.LblCurrentTime = new System.Windows.Forms.Label();
             this.LblCurrentDate = new System.Windows.Forms.Label();
             this.LblRenderedFormTitle = new System.Windows.Forms.Label();
@@ -56,6 +57,7 @@ namespace Main.Forms.AttendanceTerminal
             this.label3 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.BtnTimeIn = new System.Windows.Forms.Button();
             this.CBoxPositions = new System.Windows.Forms.ComboBox();
             this.label37 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -86,6 +88,7 @@ namespace Main.Forms.AttendanceTerminal
             // panelSecondaryBanner
             // 
             this.panelSecondaryBanner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.panelSecondaryBanner.Controls.Add(this.LblCurrentRole);
             this.panelSecondaryBanner.Controls.Add(this.LblCurrentTime);
             this.panelSecondaryBanner.Controls.Add(this.LblCurrentDate);
             this.panelSecondaryBanner.Controls.Add(this.LblRenderedFormTitle);
@@ -94,6 +97,18 @@ namespace Main.Forms.AttendanceTerminal
             this.panelSecondaryBanner.Name = "panelSecondaryBanner";
             this.panelSecondaryBanner.Size = new System.Drawing.Size(1185, 95);
             this.panelSecondaryBanner.TabIndex = 2;
+            // 
+            // LblCurrentRole
+            // 
+            this.LblCurrentRole.AutoSize = true;
+            this.LblCurrentRole.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LblCurrentRole.ForeColor = System.Drawing.Color.White;
+            this.LblCurrentRole.Location = new System.Drawing.Point(321, 51);
+            this.LblCurrentRole.Name = "LblCurrentRole";
+            this.LblCurrentRole.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.LblCurrentRole.Size = new System.Drawing.Size(136, 30);
+            this.LblCurrentRole.TabIndex = 3;
+            this.LblCurrentRole.Text = "Current Role";
             // 
             // LblCurrentTime
             // 
@@ -240,6 +255,7 @@ namespace Main.Forms.AttendanceTerminal
             this.RBtnTimeIN.TabStop = true;
             this.RBtnTimeIN.Text = "Time-IN";
             this.RBtnTimeIN.UseVisualStyleBackColor = true;
+            this.RBtnTimeIN.CheckedChanged += new System.EventHandler(this.RBtnTimeIN_CheckedChanged);
             // 
             // RBtnTimeOUT
             // 
@@ -252,6 +268,7 @@ namespace Main.Forms.AttendanceTerminal
             this.RBtnTimeOUT.TabStop = true;
             this.RBtnTimeOUT.Text = "Time-OUT";
             this.RBtnTimeOUT.UseVisualStyleBackColor = true;
+            this.RBtnTimeOUT.CheckedChanged += new System.EventHandler(this.RBtnTimeOUT_CheckedChanged);
             // 
             // label2
             // 
@@ -302,6 +319,7 @@ namespace Main.Forms.AttendanceTerminal
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.BtnTimeIn);
             this.tabPage1.Controls.Add(this.CBoxPositions);
             this.tabPage1.Controls.Add(this.label37);
             this.tabPage1.Controls.Add(this.label3);
@@ -319,6 +337,21 @@ namespace Main.Forms.AttendanceTerminal
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "IN/OUT";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // BtnTimeIn
+            // 
+            this.BtnTimeIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.BtnTimeIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnTimeIn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BtnTimeIn.ForeColor = System.Drawing.Color.White;
+            this.BtnTimeIn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnTimeIn.Location = new System.Drawing.Point(676, 71);
+            this.BtnTimeIn.Name = "BtnTimeIn";
+            this.BtnTimeIn.Size = new System.Drawing.Size(113, 35);
+            this.BtnTimeIn.TabIndex = 72;
+            this.BtnTimeIn.Text = "Time-In";
+            this.BtnTimeIn.UseVisualStyleBackColor = false;
+            this.BtnTimeIn.Click += new System.EventHandler(this.BtnTimeIn_Click);
             // 
             // CBoxPositions
             // 
@@ -603,5 +636,7 @@ namespace Main.Forms.AttendanceTerminal
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.ColumnHeader LVColumnTimeIn;
         private System.Windows.Forms.ColumnHeader LVColumnTimeOut;
+        private System.Windows.Forms.Button BtnTimeIn;
+        private System.Windows.Forms.Label LblCurrentRole;
     }
 }

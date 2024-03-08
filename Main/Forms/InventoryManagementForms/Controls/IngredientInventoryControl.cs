@@ -731,6 +731,11 @@ namespace Main.Forms.InventoryManagementForms.Controls
             this.MainTabControl.SelectedIndex = this.MainTabControl.TabPages.IndexOf(MainTabIngredientList);
         }
 
+        public void MoveToExpiredListTab()
+        {
+            this.MainTabControl.SelectedIndex = this.MainTabControl.TabPages.IndexOf(MainTabExpirationAlert);
+        }
+
         public void MoveToInventoryTabAndDisplayIngredientInventories()
         {
             if (this.SelectedIngredient == null)

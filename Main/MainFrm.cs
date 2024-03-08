@@ -1,9 +1,11 @@
 ﻿using DataAccess.Data.EmployeeManagement.Contracts;
 using DataAccess.Data.InventoryManagement.Contracts;
 using DataAccess.Data.PayrollManagement.Contracts;
+using Main.Controllers.UserManagementControllers;
 using Main.Forms.AttendanceTerminal;
 using Main.Forms.EmployeeManagementForms;
 using Main.Forms.InventoryManagementForms;
+using Main.Forms.InventoryManagementForms.Controls;
 using Main.Forms.OtherDataForms;
 using Main.Forms.PayrollForms;
 using Main.Forms.POSManagementForms;
@@ -29,19 +31,20 @@ namespace Main
     {
         private readonly Sessions _sessions;
         private readonly OtherSettings _otherSettings;
-        private readonly FrmMainEmployeeManagement _frmMainEmployeeManagement;
+        internal FrmMainEmployeeManagement _frmMainEmployeeManagement;
         private readonly FrmOtherData _frmOtherData;
         private readonly FrmPayroll _payrollForm;
         private readonly FrmUserManagement _frmUserManagement;
         private readonly AttendanceTerminalForm _attendanceTerminalForm;
-        private readonly FrmInventory _frmInventory;
+        internal FrmInventory _frmInventory;
         private readonly FrmMainPOSTerminal _frmMainPOSTerminal;
         private readonly FrmSalesReport _frmSalesReport;
-        private readonly FrmEmployeeRequests _frmEmployeeRequests;
+        internal FrmEmployeeRequests _frmEmployeeRequests;
         private readonly HomeFrm _frmHome;
         private readonly IIngredientInventoryData _ingredientInventoryData;
         private readonly IEmployeeCashAdvanceRequestData _employeeCashAdvanceRequestData;
         private readonly IEmployeeLeaveData _employeeLeaveData;
+        private readonly IUserController _userController;
         private Button currentButton;
         private Form activeForm;
 
@@ -59,7 +62,8 @@ namespace Main
                         HomeFrm frmHome,
                         IIngredientInventoryData ingredientInventoryData,
                         IEmployeeCashAdvanceRequestData employeeCashAdvanceRequestData,
-                        IEmployeeLeaveData employeeLeaveData)
+                        IEmployeeLeaveData employeeLeaveData,
+                        IUserController userController)
         {
             InitializeComponent();
             _sessions = sessions;
@@ -77,6 +81,7 @@ namespace Main
             _ingredientInventoryData = ingredientInventoryData;
             _employeeCashAdvanceRequestData = employeeCashAdvanceRequestData;
             _employeeLeaveData = employeeLeaveData;
+            _userController = userController;
         }
 
         private void MainFrm_FormClosed(object sender, FormClosedEventArgs e)
@@ -172,7 +177,8 @@ namespace Main
                         alertMessages.Add(new AlertMessage
                         {
                             Title = "Leave request",
-                            Message = $"{request.EmployeeNumber} - {request.DurationType}({request.Duration})"
+                            Message = $"{request.EmployeeNumber} - {request.DurationType}({request.Duration})",
+                            EmpNum = request.EmployeeNumber
                         });
                     }
                 }
@@ -181,7 +187,7 @@ namespace Main
                 {
                     FrmAlertMessage frmAlertMessage = new();
                     frmAlertMessage.AlertMessages = alertMessages;
-
+                    frmAlertMessage.Owner = this;
                     frmAlertMessage.ShowDialog();
                 }
             }
@@ -256,6 +262,8 @@ namespace Main
         private void BtnUserMgnment_Click(object sender, EventArgs e)
         {
             OpenChildForm(_frmUserManagement, sender);
+
+            _userController.GetAll();
         }
 
         private void BtnAttendanceTerminal_Click(object sender, EventArgs e)
@@ -316,6 +324,30 @@ namespace Main
         private void BtnRequests_Click(object sender, EventArgs e)
         {
             OpenChildForm(_frmEmployeeRequests, sender);
+        }
+
+        public void HandleRequestsButtonClick()
+        {
+            // Actions to be performed when BtnRequests is clicked
+            // For example:
+            OpenChildForm(_frmEmployeeRequests, BtnRequests);
+            _frmEmployeeRequests.Show();
+        }
+
+        public void HandleEmployeeButtonClick()
+        {
+            // Actions to be performed when BtnRequests is clicked
+            // For example:
+            OpenChildForm(_frmMainEmployeeManagement, BtnEmployeeManagementMenuItem);
+            _frmMainEmployeeManagement.Show();
+        }
+
+        public void HandleInventorySystemButtonClick()
+        {
+            // Actions to be performed when BtnRequests is clicked
+            // For example:
+            OpenChildForm(_frmInventory, BtnInventorySystem);
+            _frmInventory.Show();
         }
     }
 }
