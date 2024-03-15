@@ -147,30 +147,12 @@ namespace Main
                     alertMessages.Add(new AlertMessage { Title = "Inventory ingredients expiration", Message = msg });
                 }
 
-                var activeCashAdvanceRequests = _employeeCashAdvanceRequestData
-                                        .GetAllNotDeletedByStatus(EntitiesShared.StaticData.EmployeeRequestApprovalStatus.Pending);
-
-                if (activeCashAdvanceRequests != null && activeCashAdvanceRequests.Count > 0)
-                {
-                    this.BtnRequests.Text = $"Requests ({activeCashAdvanceRequests.Count})";
-                    this.BtnRequests.ForeColor = Color.Red;
-
-                    foreach (var request in activeCashAdvanceRequests)
-                    {
-                        alertMessages.Add(new AlertMessage
-                        {
-                            Title = "Cash Advance request",
-                            Message = $"{request.Employee.FullName} request {request.Amount} cash advance"
-                        });
-                    }
-                }
-
                 var pendingEmpLeaveRequests = _employeeLeaveData.GetAllByStatus(EmployeeRequestApprovalStatus.Pending);
 
                 if (pendingEmpLeaveRequests != null && pendingEmpLeaveRequests.Count > 0)
                 {
-                    this.BtnEmployeeManagementMenuItem.Text = $"Employees ({pendingEmpLeaveRequests.Count})";
-                    this.BtnEmployeeManagementMenuItem.ForeColor = Color.Red;
+                    //this.BtnEmployeeManagementMenuItem.Text = $"Employees ({pendingEmpLeaveRequests.Count})";
+                    //this.BtnEmployeeManagementMenuItem.ForeColor = Color.Red;
 
                     foreach(var request in pendingEmpLeaveRequests)
                     {
@@ -179,6 +161,24 @@ namespace Main
                             Title = "Leave request",
                             Message = $"{request.EmployeeNumber} - {request.DurationType}({request.Duration})",
                             EmpNum = request.EmployeeNumber
+                        });
+                    }
+                }
+
+                var activeCashAdvanceRequests = _employeeCashAdvanceRequestData
+                                        .GetAllNotDeletedByStatus(EntitiesShared.StaticData.EmployeeRequestApprovalStatus.Pending);
+
+                if (activeCashAdvanceRequests != null && activeCashAdvanceRequests.Count > 0 || pendingEmpLeaveRequests.Count > 0)
+                {
+                    this.BtnRequests.Text = $"Requests ({activeCashAdvanceRequests.Count + pendingEmpLeaveRequests.Count})";
+                    this.BtnRequests.ForeColor = Color.Red;
+
+                    foreach (var request in activeCashAdvanceRequests)
+                    {
+                        alertMessages.Add(new AlertMessage
+                        {
+                            Title = "Cash Advance request",
+                            Message = $"{request.Employee.FullName} request {request.Amount} cash advance"
                         });
                     }
                 }
@@ -193,6 +193,76 @@ namespace Main
             }
 
             
+        }
+
+        public void notify()
+        {
+            if (_sessions.CurrentLoggedInUser.Role.Role.RoleKey == EntitiesShared.StaticData.UserRole.admin)
+            {
+                List<AlertMessage> alertMessages = new();
+
+                DateTime startDate = DateTime.Now;
+                DateTime endDate = startDate.AddDays(_otherSettings.NumDaysNotifyUserForInventoryExpDate);
+                int notificationCountForInventory = _ingredientInventoryData.GetCountOfIngredientInventoryByExpirationDate(startDate, endDate);
+                if (notificationCountForInventory > 0)
+                {
+                    this.BtnInventorySystem.Text = $"Inventory ({notificationCountForInventory})";
+                    this.BtnInventorySystem.ForeColor = Color.Red;
+
+                    string msg = $"{notificationCountForInventory} ingredient(s) inventory near on expiration date";
+                    ToolTipForNavButtons.SetToolTip(this.BtnInventorySystem, msg);
+
+                    alertMessages.Add(new AlertMessage { Title = "Inventory ingredients expiration", Message = msg });
+                } else {
+                    this.BtnInventorySystem.Text = $"Inventory";
+                    this.BtnInventorySystem.ForeColor = Color.White;
+                }
+
+                var activeCashAdvanceRequests = _employeeCashAdvanceRequestData
+                                        .GetAllNotDeletedByStatus(EntitiesShared.StaticData.EmployeeRequestApprovalStatus.Pending);
+
+                var pendingEmpLeaveRequests = _employeeLeaveData.GetAllByStatus(EmployeeRequestApprovalStatus.Pending);
+
+                if (pendingEmpLeaveRequests != null && pendingEmpLeaveRequests.Count > 0)
+                {
+                    //this.BtnEmployeeManagementMenuItem.Text = $"Employees ({pendingEmpLeaveRequests.Count})";
+                    //this.BtnEmployeeManagementMenuItem.ForeColor = Color.Red;
+
+                    foreach (var request in pendingEmpLeaveRequests)
+                    {
+                        alertMessages.Add(new AlertMessage
+                        {
+                            Title = "Leave request",
+                            Message = $"{request.EmployeeNumber} - {request.DurationType}({request.Duration})",
+                            EmpNum = request.EmployeeNumber
+                        });
+                    }
+                } else
+                {
+                    this.BtnRequests.Text = $"Requests";
+                    this.BtnRequests.ForeColor = Color.White;
+                }
+
+                if (activeCashAdvanceRequests != null && activeCashAdvanceRequests.Count > 0 || pendingEmpLeaveRequests.Count > 0)
+                {
+                    this.BtnRequests.Text = $"Requests ({activeCashAdvanceRequests.Count + pendingEmpLeaveRequests.Count})";
+                    this.BtnRequests.ForeColor = Color.Red;
+
+                    foreach (var request in activeCashAdvanceRequests)
+                    {
+                        alertMessages.Add(new AlertMessage
+                        {
+                            Title = "Cash Advance request",
+                            Message = $"{request.Employee.FullName} request {request.Amount} cash advance"
+                        });
+                    }
+                }
+                else
+                {
+                    this.BtnRequests.Text = $"Requests";
+                    this.BtnRequests.ForeColor = Color.White;
+                }
+            }
         }
 
         private void DisableButton()
@@ -290,6 +360,7 @@ namespace Main
         private void BtnInventorySystem_Click(object sender, EventArgs e)
         {
             OpenChildForm(_frmInventory, sender);
+            _frmInventory.RefreshMainForm += notify;
         }
 
         private void BtnGoToHomeFrm_Click(object sender, EventArgs e)
@@ -324,6 +395,7 @@ namespace Main
         private void BtnRequests_Click(object sender, EventArgs e)
         {
             OpenChildForm(_frmEmployeeRequests, sender);
+            _frmEmployeeRequests.RefreshMainUI += notify;
         }
 
         public void HandleRequestsButtonClick()
@@ -331,6 +403,7 @@ namespace Main
             // Actions to be performed when BtnRequests is clicked
             // For example:
             OpenChildForm(_frmEmployeeRequests, BtnRequests);
+            _frmEmployeeRequests.RefreshMainUI += notify;
             _frmEmployeeRequests.Show();
         }
 
@@ -347,6 +420,7 @@ namespace Main
             // Actions to be performed when BtnRequests is clicked
             // For example:
             OpenChildForm(_frmInventory, BtnInventorySystem);
+            _frmInventory.RefreshMainForm += notify;
             _frmInventory.Show();
         }
     }

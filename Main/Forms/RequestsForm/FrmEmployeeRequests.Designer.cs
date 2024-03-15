@@ -35,6 +35,9 @@ namespace Main.Forms.RequestsForm
             this.CMenuCashAdvance = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.RequestCashAdvanceMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CashAdvanceApprovalMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.leaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.requestLeaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.approveLeaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RequestsMainPanel = new System.Windows.Forms.Panel();
             this.MainMenuStrip.SuspendLayout();
             this.CMenuCashAdvance.SuspendLayout();
@@ -43,7 +46,8 @@ namespace Main.Forms.RequestsForm
             // MainMenuStrip
             // 
             this.MainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.CashAdvanceMenus});
+            this.CashAdvanceMenus,
+            this.leaveToolStripMenuItem});
             this.MainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.MainMenuStrip.Name = "MainMenuStrip";
             this.MainMenuStrip.Size = new System.Drawing.Size(1069, 24);
@@ -79,6 +83,29 @@ namespace Main.Forms.RequestsForm
             this.CashAdvanceApprovalMenuItem.Size = new System.Drawing.Size(196, 22);
             this.CashAdvanceApprovalMenuItem.Text = "Cash advance approval";
             // 
+            // leaveToolStripMenuItem
+            // 
+            this.leaveToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.requestLeaveToolStripMenuItem,
+            this.approveLeaveToolStripMenuItem});
+            this.leaveToolStripMenuItem.Name = "leaveToolStripMenuItem";
+            this.leaveToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
+            this.leaveToolStripMenuItem.Text = "Leave";
+            // 
+            // requestLeaveToolStripMenuItem
+            // 
+            this.requestLeaveToolStripMenuItem.Name = "requestLeaveToolStripMenuItem";
+            this.requestLeaveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.requestLeaveToolStripMenuItem.Text = "Request Leave";
+            this.requestLeaveToolStripMenuItem.Click += new System.EventHandler(this.requestLeaveToolStripMenuItem_Click);
+            // 
+            // approveLeaveToolStripMenuItem
+            // 
+            this.approveLeaveToolStripMenuItem.Name = "approveLeaveToolStripMenuItem";
+            this.approveLeaveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.approveLeaveToolStripMenuItem.Text = "Approve Leave";
+            this.approveLeaveToolStripMenuItem.Click += new System.EventHandler(this.approveLeaveToolStripMenuItem_Click);
+            // 
             // RequestsMainPanel
             // 
             this.RequestsMainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -96,6 +123,7 @@ namespace Main.Forms.RequestsForm
             this.Controls.Add(this.MainMenuStrip);
             this.Name = "FrmEmployeeRequests";
             this.Text = "Employee requests";
+            this.Load += new System.EventHandler(this.FrmEmployeeRequests_Load);
             this.MainMenuStrip.ResumeLayout(false);
             this.MainMenuStrip.PerformLayout();
             this.CMenuCashAdvance.ResumeLayout(false);
@@ -112,5 +140,8 @@ namespace Main.Forms.RequestsForm
         private System.Windows.Forms.ToolStripMenuItem RequestCashAdvanceMenuItem;
         private System.Windows.Forms.ToolStripMenuItem CashAdvanceApprovalMenuItem;
         private System.Windows.Forms.Panel RequestsMainPanel;
+        private System.Windows.Forms.ToolStripMenuItem leaveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem requestLeaveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem approveLeaveToolStripMenuItem;
     }
 }

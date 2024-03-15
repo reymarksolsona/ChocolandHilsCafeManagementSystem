@@ -180,7 +180,7 @@ namespace Main.Forms.PayrollForms.Controls
                 this.DGVEmployeeList.Rows.Clear();
                 if (EmployeeList != null)
                 {
-                    this.DGVEmployeeList.ColumnCount = 8;
+                    this.DGVEmployeeList.ColumnCount = 5;
 
                     this.DGVEmployeeList.Columns[0].Name = "EmployeeNumber";
                     this.DGVEmployeeList.Columns[0].HeaderText = "Employee Number";
@@ -202,17 +202,17 @@ namespace Main.Forms.PayrollForms.Controls
                     this.DGVEmployeeList.Columns[4].HeaderText = "L";
                     this.DGVEmployeeList.Columns[4].Visible = true;
 
-                    this.DGVEmployeeList.Columns[5].Name = "Late";
-                    this.DGVEmployeeList.Columns[5].HeaderText = "Late";
-                    this.DGVEmployeeList.Columns[5].Visible = true;
+                    //this.DGVEmployeeList.Columns[5].Name = "Late";
+                    //this.DGVEmployeeList.Columns[5].HeaderText = "Late";
+                    //this.DGVEmployeeList.Columns[5].Visible = true;
 
-                    this.DGVEmployeeList.Columns[6].Name = "UT";
-                    this.DGVEmployeeList.Columns[6].HeaderText = "UT";
-                    this.DGVEmployeeList.Columns[6].Visible = true;
+                    //this.DGVEmployeeList.Columns[6].Name = "UT";
+                    //this.DGVEmployeeList.Columns[6].HeaderText = "UT";
+                    //this.DGVEmployeeList.Columns[6].Visible = true;
 
-                    this.DGVEmployeeList.Columns[7].Name = "OT";
-                    this.DGVEmployeeList.Columns[7].HeaderText = "OT";
-                    this.DGVEmployeeList.Columns[7].Visible = true;
+                    //this.DGVEmployeeList.Columns[7].Name = "OT";
+                    //this.DGVEmployeeList.Columns[7].HeaderText = "OT";
+                    //this.DGVEmployeeList.Columns[7].Visible = true;
 
                     DataGridViewCheckBoxColumn selectChbxToSchedule = new DataGridViewCheckBoxColumn();
                     selectChbxToSchedule.HeaderText = "Select";
@@ -258,10 +258,10 @@ namespace Main.Forms.PayrollForms.Controls
                             row.Cells[4].Value = "";
                         }
 
-                        row.Cells[5].Value = _decimalMinutesToHrsConverter.ConvertToStringHrs(totalLateInMins);
-                        row.Cells[6].Value = _decimalMinutesToHrsConverter.ConvertToStringHrs(totalUnderTime);
+                        //row.Cells[5].Value = _decimalMinutesToHrsConverter.ConvertToStringHrs(totalLateInMins);
+                        //row.Cells[6].Value = _decimalMinutesToHrsConverter.ConvertToStringHrs(totalUnderTime);
 
-                        row.Cells[7].Value = "";
+                        //row.Cells[7].Value = "";
 
                         row.Tag = employee;
 

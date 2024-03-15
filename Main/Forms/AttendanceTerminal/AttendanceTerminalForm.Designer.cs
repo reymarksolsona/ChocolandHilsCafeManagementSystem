@@ -44,8 +44,6 @@ namespace Main.Forms.AttendanceTerminal
             this.LVColumnTimeIn = new System.Windows.Forms.ColumnHeader();
             this.LVColumnTimeOut = new System.Windows.Forms.ColumnHeader();
             this.LVColumnRenderHrs = new System.Windows.Forms.ColumnHeader();
-            this.LVColumnUnderTime = new System.Windows.Forms.ColumnHeader();
-            this.LVColumnOvertime = new System.Windows.Forms.ColumnHeader();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.TBoxCurrentEmployeeNumber = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -156,9 +154,7 @@ namespace Main.Forms.AttendanceTerminal
             this.LVColumnShiftTime,
             this.LVColumnTimeIn,
             this.LVColumnTimeOut,
-            this.LVColumnRenderHrs,
-            this.LVColumnUnderTime,
-            this.LVColumnOvertime});
+            this.LVColumnRenderHrs});
             this.LViewAttendanceHistory.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.LViewAttendanceHistory.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LViewAttendanceHistory.FullRowSelect = true;
@@ -210,14 +206,6 @@ namespace Main.Forms.AttendanceTerminal
             // 
             this.LVColumnRenderHrs.Text = "Hours";
             // 
-            // LVColumnUnderTime
-            // 
-            this.LVColumnUnderTime.Text = "UT";
-            // 
-            // LVColumnOvertime
-            // 
-            this.LVColumnOvertime.Text = "OT";
-            // 
             // timer1
             // 
             this.timer1.Enabled = true;
@@ -227,21 +215,23 @@ namespace Main.Forms.AttendanceTerminal
             // TBoxCurrentEmployeeNumber
             // 
             this.TBoxCurrentEmployeeNumber.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TBoxCurrentEmployeeNumber.Location = new System.Drawing.Point(222, 71);
+            this.TBoxCurrentEmployeeNumber.Location = new System.Drawing.Point(222, 109);
             this.TBoxCurrentEmployeeNumber.Name = "TBoxCurrentEmployeeNumber";
             this.TBoxCurrentEmployeeNumber.Size = new System.Drawing.Size(448, 35);
             this.TBoxCurrentEmployeeNumber.TabIndex = 5;
+            this.TBoxCurrentEmployeeNumber.Visible = false;
             this.TBoxCurrentEmployeeNumber.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBoxCurrentEmployeeNumber_KeyUp);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(45, 73);
+            this.label1.Location = new System.Drawing.Point(45, 111);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(152, 23);
             this.label1.TabIndex = 6;
             this.label1.Text = "Employee Number";
+            this.label1.Visible = false;
             // 
             // RBtnTimeIN
             // 
@@ -273,7 +263,7 @@ namespace Main.Forms.AttendanceTerminal
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(96, 115);
+            this.label2.Location = new System.Drawing.Point(96, 77);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(109, 21);
             this.label2.TabIndex = 9;
@@ -282,7 +272,7 @@ namespace Main.Forms.AttendanceTerminal
             // LblCurrentEmployeeSchedule
             // 
             this.LblCurrentEmployeeSchedule.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblCurrentEmployeeSchedule.Location = new System.Drawing.Point(222, 115);
+            this.LblCurrentEmployeeSchedule.Location = new System.Drawing.Point(222, 77);
             this.LblCurrentEmployeeSchedule.Name = "LblCurrentEmployeeSchedule";
             this.LblCurrentEmployeeSchedule.Size = new System.Drawing.Size(448, 35);
             this.LblCurrentEmployeeSchedule.TabIndex = 10;
@@ -345,7 +335,7 @@ namespace Main.Forms.AttendanceTerminal
             this.BtnTimeIn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BtnTimeIn.ForeColor = System.Drawing.Color.White;
             this.BtnTimeIn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnTimeIn.Location = new System.Drawing.Point(676, 71);
+            this.BtnTimeIn.Location = new System.Drawing.Point(687, 32);
             this.BtnTimeIn.Name = "BtnTimeIn";
             this.BtnTimeIn.Size = new System.Drawing.Size(113, 35);
             this.BtnTimeIn.TabIndex = 72;
@@ -607,8 +597,6 @@ namespace Main.Forms.AttendanceTerminal
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label LblCurrentEmployeeSchedule;
         private System.Windows.Forms.DateTimePicker DPickerTesting;
-        private System.Windows.Forms.ColumnHeader LVColumnUnderTime;
-        private System.Windows.Forms.ColumnHeader LVColumnOvertime;
         private System.Windows.Forms.ColumnHeader LVColumnShift;
         private System.Windows.Forms.ColumnHeader LVColumnShiftTime;
         private System.Windows.Forms.Label label3;

@@ -412,7 +412,7 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             this.DGVWorkShifts.Rows.Clear();
             if (this.EmployeeShifts != null)
             {
-                this.DGVWorkShifts.ColumnCount = 7;
+                this.DGVWorkShifts.ColumnCount = 5;
 
                 this.DGVWorkShifts.Columns[0].Name = "ShiftId";
                 this.DGVWorkShifts.Columns[0].Visible = false;
@@ -435,11 +435,11 @@ namespace Main.Forms.EmployeeManagementForms.Controls
                 this.DGVWorkShifts.Columns[4].Name = "Shift Hrs";
                 this.DGVWorkShifts.Columns[4].Visible = true;
 
-                this.DGVWorkShifts.Columns[5].Name = "Early Time-OUT";
-                this.DGVWorkShifts.Columns[5].Visible = true;
+                //this.DGVWorkShifts.Columns[5].Name = "Early Time-OUT";
+                //this.DGVWorkShifts.Columns[5].Visible = true;
 
-                this.DGVWorkShifts.Columns[6].Name = "Late Time-IN";
-                this.DGVWorkShifts.Columns[6].Visible = true;
+                //this.DGVWorkShifts.Columns[6].Name = "Late Time-IN";
+                //this.DGVWorkShifts.Columns[6].Visible = true;
 
                 // Update button
                 DataGridViewImageColumn btnUpdateImg = new DataGridViewImageColumn();
@@ -472,8 +472,8 @@ namespace Main.Forms.EmployeeManagementForms.Controls
                     //row.Cells[4].Value = shift.BreakTime.ToString("hh:mm:ss tt", CultureInfo.CurrentCulture);
                     //row.Cells[5].Value = shift.BreakTimeHrs.ToString();
                     row.Cells[4].Value = shift.NumberOfHrs.ToString();
-                    row.Cells[5].Value = shift.LateTimeIn.ToString("hh:mm:ss tt", CultureInfo.CurrentCulture);
-                    row.Cells[6].Value = shift.EarlyTimeOut.ToString("hh:mm:ss tt", CultureInfo.CurrentCulture);
+                    //row.Cells[5].Value = shift.LateTimeIn.ToString("hh:mm:ss tt", CultureInfo.CurrentCulture);
+                    //row.Cells[6].Value = shift.EarlyTimeOut.ToString("hh:mm:ss tt", CultureInfo.CurrentCulture);
                     this.DGVWorkShifts.Rows.Add(row);
                 }
             }
@@ -482,7 +482,7 @@ namespace Main.Forms.EmployeeManagementForms.Controls
         private void DGVWorkShifts_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Update button
-            if (e.RowIndex > -1 && (e.ColumnIndex == 7))
+            if (e.RowIndex > -1 && (e.ColumnIndex == 5))
             {
                 if (DGVWorkShifts.CurrentRow != null)
                 {

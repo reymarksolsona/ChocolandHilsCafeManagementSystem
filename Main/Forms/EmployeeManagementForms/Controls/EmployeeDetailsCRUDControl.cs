@@ -258,7 +258,7 @@ namespace Main.Forms.EmployeeManagementForms.Controls
 
             SetDGVEmployeeLeaveHistoryFontAndColors();
             DisplayLeaveTypes();
-
+            TabControlSaveEmployeeDetails.TabPages.Remove(EmployeeLeave);
             this.EmployeeNumber = _sessions.CurrentLoggedInUser.UserName;
 
             if (_sessions.CurrentLoggedInUser.Role.Role.RoleKey != UserRole.admin)
@@ -628,13 +628,19 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             //long selectedWorkShiftId = long.Parse(selectedWorkShift.Value.ToString());
 
             // Branch
-            var selectedBranch = this.CBoxBranches.SelectedItem as ComboboxItem;
+            //var selectedBranch = this.CBoxBranches.SelectedItem as ComboboxItem;
+            //if (selectedBranch == null)
+            //{
+            //    MessageBox.Show("Kindly choose branch.", "Save employee", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //    return;
+            //}
+            var selectedBranch = Branches.FirstOrDefault();
             if (selectedBranch == null)
             {
-                MessageBox.Show("Kindly choose branch.", "Save employee", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Please set up system branch.", "Save employee", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            long selectedBranchId = long.Parse(selectedBranch.Value.ToString());
+            long selectedBranchId = long.Parse(selectedBranch.Id.ToString());
 
             // Position
             //var selectedPosition = this.CBoxPositions.SelectedItem as ComboboxItem;
@@ -646,13 +652,13 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             //long selectedPositionId = long.Parse(selectedPosition.Value.ToString());
 
 
-            DateTime minDateForEmpBirthDate = DateTime.Now.AddYears(-(_otherSettings.MinAgeForEmployee));
+            //DateTime minDateForEmpBirthDate = DateTime.Now.AddYears(-(_otherSettings.MinAgeForEmployee));
 
-            if (this.DTPicBirthDate.Value > minDateForEmpBirthDate)
-            {
-                MessageBox.Show($"Invalid employee birth date, the employee should be {_otherSettings.MinAgeForEmployee} years old.", "Save employee", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
+            //if (this.DTPicBirthDate.Value > minDateForEmpBirthDate)
+            //{
+            //    MessageBox.Show($"Invalid employee birth date, the employee should be {_otherSettings.MinAgeForEmployee} years old.", "Save employee", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //    return;
+            //}
 
 
             Employee = new EmployeeModel

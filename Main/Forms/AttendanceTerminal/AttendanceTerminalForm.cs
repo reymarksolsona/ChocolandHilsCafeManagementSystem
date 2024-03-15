@@ -63,6 +63,7 @@ namespace Main.Forms.AttendanceTerminal
             else
             {
                 this.TBoxCurrentEmployeeNumber.Text = _sessions.CurrentLoggedInUser.UserName;
+                this.tabControl1.TabPages.Remove(tabPage3);
                 DisplayPosition();
             }
         }
@@ -147,8 +148,8 @@ namespace Main.Forms.AttendanceTerminal
                         secondTimeINandOUT,
                         hrsDiffFromINandEndDateTime.ToString(),
                         //late,
-                        underTime,
-                        overTime
+                        //underTime,
+                        //overTime
                     };
 
                     var listViewItem = new ListViewItem(row);
@@ -390,6 +391,11 @@ namespace Main.Forms.AttendanceTerminal
             var positionShift = empDetails.PositionShift.Where(x => x.Id == (int)selectedPosition.Value).FirstOrDefault();
 
             var shiftDetails = _employeeShiftData.GetById(positionShift.ShiftId);
+            if (shiftDetails == null)
+            {
+                MessageBox.Show("Shift is invalid. Please check your working days.", "Attendance", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             var shiftDays = shiftDetails.ShiftDays;
             string dayToday = DateTime.Now.DayOfWeek.ToString().Substring(0, 3);
             string workingDays = string.Join(", ", shiftDays.Select(x => x.DayName).ToList().ToArray());

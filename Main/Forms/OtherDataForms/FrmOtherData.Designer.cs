@@ -82,6 +82,7 @@ namespace Main.Forms.OtherDataForms
             this.ToolStripMenuBranches.Name = "ToolStripMenuBranches";
             this.ToolStripMenuBranches.Size = new System.Drawing.Size(67, 20);
             this.ToolStripMenuBranches.Text = "Branches";
+            this.ToolStripMenuBranches.Visible = false;
             // 
             // ContextMenuBranchesSettings
             // 
@@ -89,13 +90,13 @@ namespace Main.Forms.OtherDataForms
             this.ToolStripMenuBranchesList});
             this.ContextMenuBranchesSettings.Name = "ContextMenuBranchesSettings";
             this.ContextMenuBranchesSettings.OwnerItem = this.ToolStripMenuBranches;
-            this.ContextMenuBranchesSettings.Size = new System.Drawing.Size(93, 26);
+            this.ContextMenuBranchesSettings.Size = new System.Drawing.Size(181, 48);
             this.ContextMenuBranchesSettings.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.ContextMenuBranchesSettings_ItemClicked);
             // 
             // ToolStripMenuBranchesList
             // 
             this.ToolStripMenuBranchesList.Name = "ToolStripMenuBranchesList";
-            this.ToolStripMenuBranchesList.Size = new System.Drawing.Size(92, 22);
+            this.ToolStripMenuBranchesList.Size = new System.Drawing.Size(180, 22);
             this.ToolStripMenuBranchesList.Text = "List";
             // 
             // panelContainer

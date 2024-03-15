@@ -80,6 +80,7 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             this.BtnUpdateNumberOfWorkingDaysInAMonth.TabIndex = 58;
             this.BtnUpdateNumberOfWorkingDaysInAMonth.Text = "Update";
             this.BtnUpdateNumberOfWorkingDaysInAMonth.UseVisualStyleBackColor = false;
+            this.BtnUpdateNumberOfWorkingDaysInAMonth.Visible = false;
             this.BtnUpdateNumberOfWorkingDaysInAMonth.Click += new System.EventHandler(this.BtnUpdateNumberOfWorkingDaysInAMonth_Click);
             // 
             // NumUpDwnNumberOfWorkingDays
@@ -95,6 +96,7 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             this.NumUpDwnNumberOfWorkingDays.Name = "NumUpDwnNumberOfWorkingDays";
             this.NumUpDwnNumberOfWorkingDays.Size = new System.Drawing.Size(175, 29);
             this.NumUpDwnNumberOfWorkingDays.TabIndex = 56;
+            this.NumUpDwnNumberOfWorkingDays.Visible = false;
             // 
             // label2
             // 
@@ -117,6 +119,7 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             this.label4.Size = new System.Drawing.Size(229, 21);
             this.label4.TabIndex = 57;
             this.label4.Text = "# of working days every month:";
+            this.label4.Visible = false;
             // 
             // GboxPositionForm
             // 

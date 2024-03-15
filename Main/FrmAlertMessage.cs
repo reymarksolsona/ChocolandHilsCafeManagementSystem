@@ -64,9 +64,9 @@ namespace Main
             }
             else if (title.Equals("Leave request"))
             {
-                ((MainFrm)this.Owner).HandleEmployeeButtonClick();
-                FrmMainEmployeeManagement frmmainEmployeeManagement = ((MainFrm)this.Owner)._frmMainEmployeeManagement;
-                frmmainEmployeeManagement.showEmpList(empNumber);
+                ((MainFrm)this.Owner).HandleRequestsButtonClick();
+                FrmEmployeeRequests frmEmployeeRequests = ((MainFrm)this.Owner)._frmEmployeeRequests;
+                frmEmployeeRequests.DisplayRequestLeaveListControl();
             }
             this.Close();
         }

@@ -39,6 +39,7 @@ namespace Main.Forms.InventoryManagementForms
         private readonly IComboMealController _comboMealController;
         private readonly IComboMealData _comboMealData;
         private readonly IIngredientsInventoryPDFReport _ingredientsInventoryPDFReport;
+        public event Action RefreshMainForm;
 
         public FrmInventory(UOMConverter uOMConverter,
                             IOptions<OtherSettings> otherSettingsOptions,
@@ -393,7 +394,14 @@ namespace Main.Forms.InventoryManagementForms
                 {
                     MessageBox.Show(resultMessages, "Save inventory", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+
+                RefreshUI();
             }
+        }
+
+        public void RefreshUI()
+        {
+            RefreshMainForm?.Invoke();
         }
 
         private void HandleIngredientInventoryDelete(object sender, EventArgs e)
@@ -437,6 +445,8 @@ namespace Main.Forms.InventoryManagementForms
                 {
                     MessageBox.Show(resultMessages, "Delete inventory", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+
+                RefreshUI();
             }
         }
 
