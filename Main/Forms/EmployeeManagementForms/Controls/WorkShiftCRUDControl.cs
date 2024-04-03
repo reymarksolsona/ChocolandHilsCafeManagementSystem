@@ -497,7 +497,7 @@ namespace Main.Forms.EmployeeManagementForms.Controls
             }
 
             // Delete button
-            if (e.RowIndex > -1 && (e.ColumnIndex == 8))
+            if (e.RowIndex > -1 && (e.ColumnIndex == 6))
             {
                 if (DGVWorkShifts.CurrentRow != null)
                 {

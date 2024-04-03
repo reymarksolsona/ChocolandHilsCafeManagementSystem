@@ -119,11 +119,16 @@ namespace PDFReportGenerators
             var positionShifts = payslip.Employee.PositionShift.Select(s => s.PositionId).Distinct();
 
             List<string> positions = new List<string>();
+            string dailyRate = "";
+            List<string> dailyRates = new List<string>();
             foreach (var item in positionShifts)
             {
                 var position = _employeePositionData.Get(item);
                 positions.Add(position.Title);
+                dailyRates.Add(position.DailyRate.ToString());
             }
+
+            dailyRate = String.Join(',', dailyRates.ToArray());
 
             string positionTitles = string.Join(", ", positions.Select(x => x).ToList().ToArray());
 
@@ -248,7 +253,7 @@ namespace PDFReportGenerators
                             <tr>
                                 <td>Daily Rate</td>
                                 <td></td>
-                                <td>{payslip.DailyRate}</td>
+                                <td>{dailyRate}</td>
                             </tr>
                             {lateDeductions}
                             {underTimeDeductions}

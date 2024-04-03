@@ -180,7 +180,7 @@ namespace Main.Forms.PayrollForms.Controls
                 this.DGVEmployeeList.Rows.Clear();
                 if (EmployeeList != null)
                 {
-                    this.DGVEmployeeList.ColumnCount = 5;
+                    this.DGVEmployeeList.ColumnCount = 4;
 
                     this.DGVEmployeeList.Columns[0].Name = "EmployeeNumber";
                     this.DGVEmployeeList.Columns[0].HeaderText = "Employee Number";
@@ -198,9 +198,9 @@ namespace Main.Forms.PayrollForms.Controls
                     this.DGVEmployeeList.Columns[3].HeaderText = "Days";
                     this.DGVEmployeeList.Columns[3].Visible = true;
 
-                    this.DGVEmployeeList.Columns[4].Name = "L";
-                    this.DGVEmployeeList.Columns[4].HeaderText = "L";
-                    this.DGVEmployeeList.Columns[4].Visible = true;
+                    //this.DGVEmployeeList.Columns[4].Name = "L";
+                    //this.DGVEmployeeList.Columns[4].HeaderText = "L";
+                    //this.DGVEmployeeList.Columns[4].Visible = true;
 
                     //this.DGVEmployeeList.Columns[5].Name = "Late";
                     //this.DGVEmployeeList.Columns[5].HeaderText = "Late";
@@ -229,15 +229,25 @@ namespace Main.Forms.PayrollForms.Controls
                         row.Cells[0].Value = employee.EmployeeNumber;
                         row.Cells[1].Value = employee.FullName;
 
-                        if (employee.Position != null)
-                        {
-                            row.Cells[2].Value = employee.Position.DailyRate;
-                        }
-
                         var currentEmpAttendanceRec = this.AttendanceHistory.Where(x => x.EmployeeNumber == employee.EmployeeNumber).ToList();
                         var totalDays = currentEmpAttendanceRec.Count;
                         var totalLateInMins = currentEmpAttendanceRec.Sum(x => x.TotalLate);
                         var totalUnderTime = currentEmpAttendanceRec.Sum(x => x.TotalUnderTime);
+                        
+                        if (employee.PositionShift.Any())
+                        {
+                            List<string> dailyRates = new List<string>();
+                            if (currentEmpAttendanceRec.Any())
+                            {
+                                foreach (var item in currentEmpAttendanceRec)
+                                {
+                                    var currentDailyRate = employee.PositionShift.Where(x => x.ShiftId == item.ShiftId).FirstOrDefault();
+                                    dailyRates.Add(currentDailyRate.Position + " - " + currentDailyRate.DailyRate);
+                                }
+                                string dailyRate = string.Join(',', dailyRates.ToArray());
+                                row.Cells[2].Value = dailyRate;
+                            }
+                        }
 
                         if (totalDays <= 0)
                         {
@@ -251,11 +261,11 @@ namespace Main.Forms.PayrollForms.Controls
                         {
                             var currentEmpLeave = this.EmployeeLeaveHistory.Where(x => x.EmployeeNumber == employee.EmployeeNumber).ToList();
                             var totalLeave = currentEmpLeave.Sum(x => x.NumberOfDays);
-                            row.Cells[4].Value = totalLeave.ToString();
+                            //row.Cells[4].Value = totalLeave.ToString();
                         }
                         else
                         {
-                            row.Cells[4].Value = "";
+                            //row.Cells[4].Value = "";
                         }
 
                         //row.Cells[5].Value = _decimalMinutesToHrsConverter.ConvertToStringHrs(totalLateInMins);

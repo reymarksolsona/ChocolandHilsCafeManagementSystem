@@ -45,9 +45,10 @@ namespace Main
             this.BtnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnLogin.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BtnLogin.ForeColor = System.Drawing.Color.White;
-            this.BtnLogin.Location = new System.Drawing.Point(111, 172);
+            this.BtnLogin.Location = new System.Drawing.Point(159, 287);
+            this.BtnLogin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnLogin.Name = "BtnLogin";
-            this.BtnLogin.Size = new System.Drawing.Size(257, 47);
+            this.BtnLogin.Size = new System.Drawing.Size(367, 78);
             this.BtnLogin.TabIndex = 0;
             this.BtnLogin.Text = "Login";
             this.BtnLogin.UseVisualStyleBackColor = false;
@@ -56,21 +57,21 @@ namespace Main
             // TbxUsername
             // 
             this.TbxUsername.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TbxUsername.Location = new System.Drawing.Point(111, 102);
+            this.TbxUsername.Location = new System.Drawing.Point(159, 170);
+            this.TbxUsername.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TbxUsername.Name = "TbxUsername";
-            this.TbxUsername.Size = new System.Drawing.Size(257, 29);
+            this.TbxUsername.Size = new System.Drawing.Size(365, 39);
             this.TbxUsername.TabIndex = 1;
-            this.TbxUsername.Text = "20230002";
             // 
             // TbxPassword
             // 
             this.TbxPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TbxPassword.Location = new System.Drawing.Point(111, 137);
+            this.TbxPassword.Location = new System.Drawing.Point(159, 228);
+            this.TbxPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TbxPassword.Name = "TbxPassword";
             this.TbxPassword.PasswordChar = '*';
-            this.TbxPassword.Size = new System.Drawing.Size(257, 29);
+            this.TbxPassword.Size = new System.Drawing.Size(365, 39);
             this.TbxPassword.TabIndex = 2;
-            this.TbxPassword.Text = "admin";
             this.TbxPassword.UseSystemPasswordChar = true;
             this.TbxPassword.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TbxPassword_KeyUp);
             // 
@@ -78,9 +79,10 @@ namespace Main
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(24, 105);
+            this.label1.Location = new System.Drawing.Point(34, 175);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 21);
+            this.label1.Size = new System.Drawing.Size(121, 32);
             this.label1.TabIndex = 3;
             this.label1.Text = "Username";
             // 
@@ -88,9 +90,10 @@ namespace Main
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(29, 137);
+            this.label2.Location = new System.Drawing.Point(41, 228);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 21);
+            this.label2.Size = new System.Drawing.Size(111, 32);
             this.label2.TabIndex = 4;
             this.label2.Text = "Password";
             // 
@@ -100,8 +103,9 @@ namespace Main
             this.panelSecondaryBanner.Controls.Add(this.LblRenderedFormTitle);
             this.panelSecondaryBanner.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSecondaryBanner.Location = new System.Drawing.Point(0, 0);
+            this.panelSecondaryBanner.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelSecondaryBanner.Name = "panelSecondaryBanner";
-            this.panelSecondaryBanner.Size = new System.Drawing.Size(425, 67);
+            this.panelSecondaryBanner.Size = new System.Drawing.Size(607, 112);
             this.panelSecondaryBanner.TabIndex = 6;
             // 
             // LblRenderedFormTitle
@@ -109,24 +113,26 @@ namespace Main
             this.LblRenderedFormTitle.AutoSize = true;
             this.LblRenderedFormTitle.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.LblRenderedFormTitle.ForeColor = System.Drawing.Color.White;
-            this.LblRenderedFormTitle.Location = new System.Drawing.Point(12, 18);
+            this.LblRenderedFormTitle.Location = new System.Drawing.Point(17, 30);
+            this.LblRenderedFormTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblRenderedFormTitle.Name = "LblRenderedFormTitle";
             this.LblRenderedFormTitle.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.LblRenderedFormTitle.Size = new System.Drawing.Size(162, 30);
+            this.LblRenderedFormTitle.Size = new System.Drawing.Size(247, 45);
             this.LblRenderedFormTitle.TabIndex = 0;
             this.LblRenderedFormTitle.Text = "Welcome back!";
             // 
             // LoginFrm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(425, 240);
+            this.ClientSize = new System.Drawing.Size(607, 400);
             this.Controls.Add(this.panelSecondaryBanner);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BtnLogin);
             this.Controls.Add(this.TbxPassword);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.TbxUsername);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "LoginFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginFrm";
