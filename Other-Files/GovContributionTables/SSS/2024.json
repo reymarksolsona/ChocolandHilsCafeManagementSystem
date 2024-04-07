@@ -1,0 +1,426 @@
+[
+  {
+    "salaryStart": 1,
+    "salaryEnd": 4250,
+    "monthlySalaryCredit": 4000,
+    "totalContributionEmployer": 390,
+    "totalContributionEmployee": 180,
+    "totalContribution": 570
+  },
+  {
+    "salaryStart": 4250,
+    "salaryEnd": 4749.99,
+    "monthlySalaryCredit": 4500,
+    "totalContributionEmployer": 437.5,
+    "totalContributionEmployee": 202.5,
+    "totalContribution": 640
+  },
+  {
+    "salaryStart": 4750,
+    "salaryEnd": 5249.99,
+    "monthlySalaryCredit": 5000,
+    "totalContributionEmployer": 485,
+    "totalContributionEmployee": 225,
+    "totalContribution": 710
+  },
+  {
+    "salaryStart": 5250,
+    "salaryEnd": 5749.99,
+    "monthlySalaryCredit": 5500,
+    "totalContributionEmployer": 532.5,
+    "totalContributionEmployee": 247.5,
+    "totalContribution": 780
+  },
+  {
+    "salaryStart": 5750,
+    "salaryEnd": 6249.99,
+    "monthlySalaryCredit": 6000,
+    "totalContributionEmployer": 580,
+    "totalContributionEmployee": 270,
+    "totalContribution": 850
+  },
+  {
+    "salaryStart": 6250,
+    "salaryEnd": 6749.99,
+    "monthlySalaryCredit": 6500,
+    "totalContributionEmployer": 627.5,
+    "totalContributionEmployee": 295.5,
+    "totalContribution": 920
+  },
+  {
+    "salaryStart": 6750,
+    "salaryEnd": 7249.99,
+    "monthlySalaryCredit": 7000,
+    "totalContributionEmployer": 675,
+    "totalContributionEmployee": 315,
+    "totalContribution": 990
+  },
+  {
+    "salaryStart": 7250,
+    "salaryEnd": 7749.99,
+    "monthlySalaryCredit": 7500,
+    "totalContributionEmployer": 722.5,
+    "totalContributionEmployee": 337.5,
+    "totalContribution": 1060
+  },
+  {
+    "salaryStart": 7750,
+    "salaryEnd": 8249.99,
+    "monthlySalaryCredit": 8000,
+    "totalContributionEmployer": 770,
+    "totalContributionEmployee": 360,
+    "totalContribution": 1130
+  },
+  {
+    "salaryStart": 8250,
+    "salaryEnd": 8749.99,
+    "monthlySalaryCredit": 8500,
+    "totalContributionEmployer": 817.5,
+    "totalContributionEmployee": 382.5,
+    "totalContribution": 1200
+  },
+  {
+    "salaryStart": 8750,
+    "salaryEnd": 9249.99,
+    "monthlySalaryCredit": 9000,
+    "totalContributionEmployer": 865,
+    "totalContributionEmployee": 405,
+    "totalContribution": 1270
+  },
+  {
+    "salaryStart": 9250,
+    "salaryEnd": 9749.99,
+    "monthlySalaryCredit": 9500,
+    "totalContributionEmployer": 912.5,
+    "totalContributionEmployee": 427.5,
+    "totalContribution": 1340
+  },
+  {
+    "salaryStart": 9750,
+    "salaryEnd": 10249.99,
+    "monthlySalaryCredit": 10000,
+    "totalContributionEmployer": 960,
+    "totalContributionEmployee": 450,
+    "totalContribution": 1410
+  },
+  {
+    "salaryStart": 10250,
+    "salaryEnd": 10749.99,
+    "monthlySalaryCredit": 10500,
+    "totalContributionEmployer": 1007.5,
+    "totalContributionEmployee": 472.5,
+    "totalContribution": 1480
+  },
+  {
+    "salaryStart": 10750,
+    "salaryEnd": 11249.99,
+    "monthlySalaryCredit": 11000,
+    "totalContributionEmployer": 1055,
+    "totalContributionEmployee": 495,
+    "totalContribution": 1550
+  },
+  {
+    "salaryStart": 11250,
+    "salaryEnd": 11749.99,
+    "monthlySalaryCredit": 11500,
+    "totalContributionEmployer": 1102.5,
+    "totalContributionEmployee": 517.5,
+    "totalContribution": 1620
+  },
+  {
+    "salaryStart": 11750,
+    "salaryEnd": 12249.99,
+    "monthlySalaryCredit": 12000,
+    "totalContributionEmployer": 1150,
+    "totalContributionEmployee": 540,
+    "totalContribution": 1690
+  },
+  {
+    "salaryStart": 12250,
+    "salaryEnd": 12749.99,
+    "monthlySalaryCredit": 12500,
+    "totalContributionEmployer": 1197.5,
+    "totalContributionEmployee": 562.5,
+    "totalContribution": 1760
+  },
+  {
+    "salaryStart": 12750,
+    "salaryEnd": 13249.99,
+    "monthlySalaryCredit": 13000,
+    "totalContributionEmployer": 1245,
+    "totalContributionEmployee": 585,
+    "totalContribution": 1830
+  },
+  {
+    "salaryStart": 13250,
+    "salaryEnd": 13749.99,
+    "monthlySalaryCredit": 13500,
+    "totalContributionEmployer": 1292.5,
+    "totalContributionEmployee": 607.5,
+    "totalContribution": 1900
+  },
+  {
+    "salaryStart": 13750,
+    "salaryEnd": 14249.99,
+    "monthlySalaryCredit": 14000,
+    "totalContributionEmployer": 1340,
+    "totalContributionEmployee": 630,
+    "totalContribution": 1970
+  },
+  {
+    "salaryStart": 14250,
+    "salaryEnd": 14749.99,
+    "monthlySalaryCredit": 14500,
+    "totalContributionEmployer": 1387.5,
+    "totalContributionEmployee": 652.5,
+    "totalContribution": 2040
+  },
+  {
+    "salaryStart": 14750,
+    "salaryEnd": 15249.99,
+    "monthlySalaryCredit": 15000,
+    "totalContributionEmployer": 1455,
+    "totalContributionEmployee": 675,
+    "totalContribution": 2130
+  },
+  {
+    "salaryStart": 15250,
+    "salaryEnd": 15749.99,
+    "monthlySalaryCredit": 15500,
+    "totalContributionEmployer": 1502.5,
+    "totalContributionEmployee": 697.5,
+    "totalContribution": 2200
+  },
+  {
+    "salaryStart": 15750,
+    "salaryEnd": 16249.99,
+    "monthlySalaryCredit": 16000,
+    "totalContributionEmployer": 1550,
+    "totalContributionEmployee": 720,
+    "totalContribution": 2720
+  },
+  {
+    "salaryStart": 16250,
+    "salaryEnd": 16749.99,
+    "monthlySalaryCredit": 16500,
+    "totalContributionEmployer": 1597.5,
+    "totalContributionEmployee": 742.5,
+    "totalContribution": 2340
+  },
+  {
+    "salaryStart": 16750,
+    "salaryEnd": 17249.99,
+    "monthlySalaryCredit": 17000,
+    "totalContributionEmployer": 1645,
+    "totalContributionEmployee": 765,
+    "totalContribution": 2410
+  },
+  {
+    "salaryStart": 17250,
+    "salaryEnd": 17749.99,
+    "monthlySalaryCredit": 17500,
+    "totalContributionEmployer": 1692.5,
+    "totalContributionEmployee": 787.5,
+    "totalContribution": 2480
+  },
+  {
+    "salaryStart": 17750,
+    "salaryEnd": 18249.99,
+    "monthlySalaryCredit": 18000,
+    "totalContributionEmployer": 1740,
+    "totalContributionEmployee": 810,
+    "totalContribution": 2550
+  },
+  {
+    "salaryStart": 18250,
+    "salaryEnd": 18749.99,
+    "monthlySalaryCredit": 18500,
+    "totalContributionEmployer": 1787.5,
+    "totalContributionEmployee": 832.5,
+    "totalContribution": 2620
+  },
+  {
+    "salaryStart": 18750,
+    "salaryEnd": 19249.99,
+    "monthlySalaryCredit": 19000,
+    "totalContributionEmployer": 1835,
+    "totalContributionEmployee": 855,
+    "totalContribution": 2690
+  },
+  {
+    "salaryStart": 19250,
+    "salaryEnd": 19749.99,
+    "monthlySalaryCredit": 19500,
+    "totalContributionEmployer": 1882.5,
+    "totalContributionEmployee": 877.5,
+    "totalContribution": 2760
+  },
+  {
+    "salaryStart": 19750,
+    "salaryEnd": 20249.99,
+    "monthlySalaryCredit": 20000,
+    "totalContributionEmployer": 1930,
+    "totalContributionEmployee": 900,
+    "totalContribution": 2830
+  },
+  {
+    "salaryStart": 20250,
+    "salaryEnd": 20749.99,
+    "monthlySalaryCredit": 20500,
+    "totalContributionEmployer": 1977.5,
+    "totalContributionEmployee": 922.5,
+    "totalContribution": 2900
+  },
+  {
+    "salaryStart": 20750,
+    "salaryEnd": 21249.99,
+    "monthlySalaryCredit": 21000,
+    "totalContributionEmployer": 2025,
+    "totalContributionEmployee": 945,
+    "totalContribution": 2970
+  },
+  {
+    "salaryStart": 21250,
+    "salaryEnd": 21749.99,
+    "monthlySalaryCredit": 21000,
+    "totalContributionEmployer": 2072.5,
+    "totalContributionEmployee": 967.5,
+    "totalContribution": 3040
+  },
+  {
+    "salaryStart": 21750,
+    "salaryEnd": 22249.99,
+    "monthlySalaryCredit": 21000,
+    "totalContributionEmployer": 2120,
+    "totalContributionEmployee": 990,
+    "totalContribution": 3110
+  },
+  {
+    "salaryStart": 22250,
+    "salaryEnd": 22749.99,
+    "monthlySalaryCredit": 20000,
+    "totalContributionEmployer": 2167.5,
+    "totalContributionEmployee": 1012.5,
+    "totalContribution": 3180
+  },
+  {
+    "salaryStart": 22750,
+    "salaryEnd": 23249.99,
+    "monthlySalaryCredit": 20000,
+    "totalContributionEmployer": 2215,
+    "totalContributionEmployee": 1035,
+    "totalContribution": 3250
+  },
+  {
+    "salaryStart": 23250,
+    "salaryEnd": 23749.99,
+    "monthlySalaryCredit": 20000,
+    "totalContributionEmployer": 2282.5,
+    "totalContributionEmployee": 1057.5,
+    "totalContribution": 3320
+  },
+  {
+    "salaryStart": 23750,
+    "salaryEnd": 24249.99,
+    "monthlySalaryCredit": 20000,
+    "totalContributionEmployer": 2310,
+    "totalContributionEmployee": 1080,
+    "totalContribution": 3390
+  },
+  {
+    "salaryStart": 24250,
+    "salaryEnd": 24749.99,
+    "monthlySalaryCredit": 20000,
+    "totalContributionEmployer": 2357.5,
+    "totalContributionEmployee": 1102.5,
+    "totalContribution": 3460
+  },
+  {
+    "salaryStart": 24750,
+    "salaryEnd": 25249.99,
+    "monthlySalaryCredit": 20000,
+    "totalContributionEmployer": 2405,
+    "totalContributionEmployee": 1125,
+    "totalContribution": 3530
+  },
+  {
+    "salaryStart": 25250,
+    "salaryEnd": 25749.99,
+    "monthlySalaryCredit": 20000,
+    "totalContributionEmployer": 2452.5,
+    "totalContributionEmployee": 1147.5,
+    "totalContribution": 3600
+  },
+  {
+    "salaryStart": 25750,
+    "salaryEnd": 26249.99,
+    "monthlySalaryCredit": 20000,
+    "totalContributionEmployer": 2500,
+    "totalContributionEmployee": 1170,
+    "totalContribution": 3670
+  },
+  {
+    "salaryStart": 26250,
+    "salaryEnd": 26749.99,
+    "monthlySalaryCredit": 20000,
+    "totalContributionEmployer": 2547.5,
+    "totalContributionEmployee": 1192.5,
+    "totalContribution": 3740
+  },
+  {
+    "salaryStart": 26750,
+    "salaryEnd": 27249.99,
+    "monthlySalaryCredit": 20000,
+    "totalContributionEmployer": 2595,
+    "totalContributionEmployee": 1215,
+    "totalContribution": 3810
+  },
+  {
+    "salaryStart": 27250,
+    "salaryEnd": 27749.99,
+    "monthlySalaryCredit": 20000,
+    "totalContributionEmployer": 2642.5,
+    "totalContributionEmployee": 1237.5,
+    "totalContribution": 3880
+  },
+  {
+    "salaryStart": 27750,
+    "salaryEnd": 28249.99,
+    "monthlySalaryCredit": 20000,
+    "totalContributionEmployer": 2690,
+    "totalContributionEmployee": 1260,
+    "totalContribution": 3950
+  },
+  {
+    "salaryStart": 28250,
+    "salaryEnd": 28749.99,
+    "monthlySalaryCredit": 20000,
+    "totalContributionEmployer": 2737.5,
+    "totalContributionEmployee": 1282.5,
+    "totalContribution": 4020
+  },
+  {
+    "salaryStart": 28750,
+    "salaryEnd": 29249.99,
+    "monthlySalaryCredit": 20000,
+    "totalContributionEmployer": 2785,
+    "totalContributionEmployee": 1305,
+    "totalContribution": 4090
+  },
+  {
+    "salaryStart": 29250,
+    "salaryEnd": 29749.99,
+    "monthlySalaryCredit": 20000,
+    "totalContributionEmployer": 2832.5,
+    "totalContributionEmployee": 1327.5,
+    "totalContribution": 4160
+  },
+  {
+    "salaryStart": 29750,
+    "salaryEnd": 300000,
+    "monthlySalaryCredit": 20000,
+    "totalContributionEmployer": 2880,
+    "totalContributionEmployee": 1350,
+    "totalContribution": 4230
+  }
+]
