@@ -2,16 +2,16 @@
   "FirstFixedRate": {
     "EqualAndBelowTo": 10000,
     "Rate": {
-      "EE": 175,
-      "ER": 175
+      "EE": 250,
+      "ER": 250
     }
   },
-  "PercentageForInBetween": 3,
+  "PercentageForInBetween": 5,
   "SecondFixedRate": {
-    "EqualOrAboveTo": 70000,
+    "EqualOrAboveTo": 100000,
     "Rate": {
-      "EE": 1225,
-      "ER": 1225
+      "EE": 2500,
+      "ER": 2500
     }
   }
 }
