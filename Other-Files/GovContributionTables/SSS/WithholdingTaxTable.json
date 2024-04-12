@@ -1,0 +1,40 @@
+{
+  "MonthlyWTax": [
+    {
+      "CompensationMinLevel": 0,
+      "CompensationMaxLevel": 20833,
+      "Percentage": 0,
+      "FixedTax": 0
+    },
+    {
+      "CompensationMinLevel": 20833,
+      "CompensationMaxLevel": 33332,
+      "Percentage": 20,
+      "FixedTax": 20833
+    },
+    {
+      "CompensationMinLevel": 33333,
+      "CompensationMaxLevel": 66666,
+      "Percentage": 25,
+      "FixedTax": 25000
+    },
+    {
+      "CompensationMinLevel": 66667,
+      "CompensationMaxLevel": 166666,
+      "Percentage": 30,
+      "FixedTax": 10833.33
+    },
+    {
+      "CompensationMinLevel": 166667,
+      "CompensationMaxLevel": 666666,
+      "Percentage": 32,
+      "FixedTax": 40833.33
+    },
+    {
+      "CompensationMinLevel": 666667,
+      "CompensationMaxLevel": 100000000,
+      "Percentage": 35,
+      "FixedTax": 200833.33
+    }
+  ]
+}
