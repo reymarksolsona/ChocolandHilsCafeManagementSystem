@@ -515,7 +515,7 @@ namespace Main.Forms.SalesReport
         }
 
 
-        public void DisplayWeeklySalesAndCostReportInLog (int year)
+        public void DisplayWeeklySalesAndCostReportInLog(int year)
         {
             var salesReports = _saleTransactionData.GetWeeklySalesReportByYear(year);
 
@@ -559,7 +559,7 @@ namespace Main.Forms.SalesReport
         }
 
 
-        public List<decimal> GetWeeklySalesReport (int year)
+        public List<decimal> GetWeeklySalesReport(int year)
         {
             var salesReports = _saleTransactionData.GetWeeklySalesReportByYear(year);
 
@@ -583,5 +583,9 @@ namespace Main.Forms.SalesReport
             return values;
         }
 
+        private void panelDashboardBody_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
