@@ -257,16 +257,16 @@ namespace Main.Forms.AttendanceTerminal
             }
 
             // for second half day
-            if (empAttendance.FirstTimeIn != DateTime.MinValue && empAttendance.FirstTimeOut != DateTime.MinValue &&
-                empAttendance.SecondTimeIn == DateTime.MinValue && empAttendance.SecondTimeOut == DateTime.MinValue)
-            {
-                empDailyRate = empDailyRate / 2;
+            //if (empAttendance.FirstTimeIn != DateTime.MinValue && empAttendance.FirstTimeOut != DateTime.MinValue &&
+            //    empAttendance.SecondTimeIn == DateTime.MinValue && empAttendance.SecondTimeOut == DateTime.MinValue)
+            //{
+            //    empDailyRate = empDailyRate / 2;
 
-                if (empDailyRateHolidayAdjustment > 0)
-                {
-                    empDailyRateHolidayAdjustment = empDailyRateHolidayAdjustment / 2;
-                }
-            }
+            //    if (empDailyRateHolidayAdjustment > 0)
+            //    {
+            //        empDailyRateHolidayAdjustment = empDailyRateHolidayAdjustment / 2;
+            //    }
+            //}
 
 
             // late deduction computation
