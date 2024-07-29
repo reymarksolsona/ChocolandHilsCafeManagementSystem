@@ -258,7 +258,7 @@ namespace Main.Forms.PayrollForms
                                 decimal employeeGovtContributionTotal = 0;
 
                                 // loop thru govt. agencies and retrieve employee and employer govt. id contribution
-                                decimal empMonthSalary = 10000;
+                                decimal empMonthSalary = newPayslipRec.NetBasicSalary * 2;
                                 if (empPayslipGen.SelectedGovContributions != null && empPayslipGen.SelectedGovContributions.Count > 0)
                                 {
                                     if (empPayslipGen.SelectedGovContributions.Contains(StaticData.GovContributions.SSS))
